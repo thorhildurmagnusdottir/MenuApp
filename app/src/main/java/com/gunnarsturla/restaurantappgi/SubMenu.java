@@ -36,6 +36,10 @@ public class SubMenu {
 		return items.add(i);
 	}
 
+    public Item removeItem(int i) { return items.remove(i); }
+
+    public boolean isEmpty() { return items.isEmpty(); }
+
 	public int 	  size()			{ return items.size();	}
 	public String getName()   		{ return name; 			}
 	public String getDescription()  { return description;   }

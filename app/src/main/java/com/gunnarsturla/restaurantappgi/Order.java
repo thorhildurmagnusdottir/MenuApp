@@ -1,0 +1,50 @@
+package com.gunnarsturla.restaurantappgi;
+
+import java.util.Vector;
+
+/**
+ * Created by Dagný on 30.10.2014.
+ */
+public class Order {
+
+    private static SubMenu order;
+
+    // Ný vara pöntuð
+
+    public static boolean addOrder(Item item) {
+
+        return order.addItem(item);
+    }
+
+    public static Item remove(int itemNo) {
+
+        return order.removeItem(itemNo);
+    }
+
+    // Pöntunin sótt
+    public static SubMenu getOrder() {
+        return order;
+    }
+
+    public static int sum() {
+
+        int sum = 0;
+
+        for (int i = 0; i < order.size(); i++) {
+            sum = sum + (order.get(i).getPrice());
+
+
+        }
+
+        return sum;
+    }
+
+    public static boolean isEmpty() {
+
+        return order.isEmpty();
+
+    }
+
+}
+
+
