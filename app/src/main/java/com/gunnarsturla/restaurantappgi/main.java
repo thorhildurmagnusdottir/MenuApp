@@ -1,16 +1,12 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -39,8 +35,6 @@ public class main extends Activity {
 
 		W8r.build();
 
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 		mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
@@ -49,11 +43,8 @@ public class main extends Activity {
 		mRecyclerView.setLayoutManager(mLayoutManager);
 
 		// specify an adapter (see also next example)
-		mAdapter = new MainMenuAdapter();
+		mAdapter = new SubMenuAdapter(0);
 		mRecyclerView.setAdapter(mAdapter);
-/*
-		TextView smName = (TextView) findViewById(R.id.smName);
-		smName.setText(W8r.get(0).getName());*/
 
 
 	}
@@ -79,19 +70,13 @@ public class main extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+	/*  goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
+ *  view er það view sem sendir beiðnina
 
-        public PlaceholderFragment() {
-        }
+	public void goToSubMenu(MenuItem item) {
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-    }
+		Intent intent = new Intent(this, SubMenuActivity.class);
+
+		startActivity(intent);
+	}*/
 }
