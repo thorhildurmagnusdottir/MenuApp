@@ -1,12 +1,16 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -20,7 +24,6 @@ public class main extends Activity {
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
 	private RecyclerView.LayoutManager mLayoutManager;
-	private static int theParentNumber;
 
 	public main() {
 	}
@@ -36,7 +39,8 @@ public class main extends Activity {
 
 		W8r.build();
 
-		resetParentNumber();
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 		mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
@@ -47,12 +51,13 @@ public class main extends Activity {
 		// specify an adapter (see also next example)
 		mAdapter = new MainMenuAdapter();
 		mRecyclerView.setAdapter(mAdapter);
+/*
+		TextView smName = (TextView) findViewById(R.id.smName);
+		smName.setText(W8r.get(0).getName());*/
 
 
 	}
 
-	public static int getParentNumber() { return (theParentNumber++ - 1); }
-	public static void resetParentNumber() { theParentNumber = 0; }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,13 +79,19 @@ public class main extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-	/*  goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
- *  view er það view sem sendir beiðnina
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
 
-	public void goToSubMenu(MenuItem item) {
+        public PlaceholderFragment() {
+        }
 
-		Intent intent = new Intent(this, SubMenuActivity.class);
-
-		startActivity(intent);
-	}*/
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+        }
+    }
 }

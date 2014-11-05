@@ -3,15 +3,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-			  android:id="@+id/smLayout">
+              android:layout_height="match_parent" >
 
 	<TextView
 		android:layout_width="fill_parent"
 		android:layout_height="@dimen/sub_menu_header_height"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:text="Large Text"
-		android:id="@+id/PenissmName"
+		android:id="@+id/smName"
 		android:layout_alignParentLeft="true"
 		android:layout_marginLeft="0dp"
 		android:layout_alignParentTop="true"
@@ -33,10 +32,6 @@
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/sub_menu_list"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:padding="100dp"
-		android:minHeight="100dp"
-		android:nestedScrollingEnabled="false"
-		android:background="@color/cardview_shadow_end_color"/>
+		android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -1,7 +1,6 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,24 +26,19 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 			itemName = (TextView) itemView.findViewById(R.id.itemName);
 			itemDescription = (TextView) itemView.findViewById(R.id.itemDestription);
 			itemPrice = (TextView) itemView.findViewById(R.id.itemPrice);
-
-			System.out.println("Debug: creating ViewHolder");
 		}
 	}
 
 	// Provide a suitable constructor (depends on the kind of dataset)
-	public SubMenuAdapter() {
-
-		parentNumber = main.getParentNumber();
-
-		Log.i("SubMenuAdapter","Get ParentNumber: " + parentNumber);
+	public SubMenuAdapter(int parentNumber) {
 		this.parentNumber = parentNumber;
-		Log.i("SubMenuAdapter", "Debug: parentNumber" + parentNumber + " " + W8r.get(parentNumber).size());
+		System.out.println("Debug: parentNumber" + parentNumber);
 	}
 
 	// Create new views (invoked by the layout manager)
 	@Override
-	public SubMenuAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+	public SubMenuAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+														 int viewType) {
 		// create a new view
 		View v = LayoutInflater.from(parent.getContext())
 				.inflate(R.layout.card_item, parent, false);
@@ -62,14 +56,10 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		// - replace the contents of the view with that element
 		holder.itemName.setText(W8r.get(parentNumber).get(position).getName());
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
-		holder.itemPrice.setText("test");
+		holder.itemPrice.setText(W8r.get(parentNumber).get(position).getPrice());
 		System.out.println("Debug: getting elements from parentNumber: "+ parentNumber);
 
-		/*holder.itemName.setText("Test");
-		holder.itemDescription.setText("Test");
-		holder.itemPrice.setText("Test");
-		System.out.println("Debug: getting elements from parentNumber: "+ parentNumber);
-	*/}
+	}
 
 	// Return the size of your dataset (invoked by the layout manager)
 	@Override
