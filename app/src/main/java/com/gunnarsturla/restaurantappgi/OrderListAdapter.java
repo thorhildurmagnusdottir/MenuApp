@@ -15,7 +15,7 @@ import java.util.Vector;
 
 public class OrderListAdapter extends BaseAdapter {
 
-    ListView ordered;
+   //  ListView ordered;
 
     //String [] Items; // Hér vantar að kalla á heiti réttar
 
