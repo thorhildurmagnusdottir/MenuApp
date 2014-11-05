@@ -10,14 +10,14 @@ public class Order {
     // Ný vara pöntuð
 
     public static boolean addOrder(Item item) {
-
         return order.addItem(item);
     }
 
     public static Item remove(int itemNo) {
-
         return order.removeItem(itemNo);
     }
+
+	public static Item get(int i) { return order.get(i); }
 
     // Pöntunin sótt
     public static SubMenu getOrder() {

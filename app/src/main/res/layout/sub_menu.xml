@@ -26,7 +26,8 @@
 		android:singleLine="true"
 		android:textSize="@dimen/sub_menu_header_text_size"
 		android:elevation="3dp"
-		android:elegantTextHeight="false"/>
+		android:elegantTextHeight="false"
+		android:background="@drawable/sm121"/>
 
 	<!-- A RecyclerView with some commonly used attributes>
 	<android.support.v7.widget.RecyclerView

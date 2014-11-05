@@ -45,6 +45,7 @@ public class SubMenu {
 	public String getDescription()  { return description;   }
 	public String getImghash()		{ return imghash;   	}
 	public Item get(int i)	{ return items.get(i);	}
+	//public Item[] getSubMenu()		{ return items.toArray(items); }
 
 	// eyðir öllu út úr items, en bara ef þetta er pöntun
 	public boolean reset() {

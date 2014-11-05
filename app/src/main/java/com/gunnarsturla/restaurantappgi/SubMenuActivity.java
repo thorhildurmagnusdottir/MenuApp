@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 
@@ -69,6 +68,9 @@ public class SubMenuActivity extends Activity {
 
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_settings) {
+			Intent intent = new Intent(this, OrderActivity.class);
+
+			startActivity(intent);
 			return true;
 		}
 

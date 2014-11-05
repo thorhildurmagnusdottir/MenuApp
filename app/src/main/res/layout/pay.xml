@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Pöntun staðfest"
-        android:id="@+id/textView"
+        android:id="@+id/orderListName"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
