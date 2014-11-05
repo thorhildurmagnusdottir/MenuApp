@@ -1,6 +1,7 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +33,13 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	}
 
 	// Provide a suitable constructor (depends on the kind of dataset)
-	public SubMenuAdapter(int parentNumber) {
+	public SubMenuAdapter() {
+
+		parentNumber = main.getParentNumber();
+
+		Log.i("SubMenuAdapter","Get ParentNumber: " + parentNumber);
 		this.parentNumber = parentNumber;
-		System.out.println("Debug: parentNumber" + parentNumber+" "+W8r.get(parentNumber).size());
+		Log.i("SubMenuAdapter", "Debug: parentNumber" + parentNumber + " " + W8r.get(parentNumber).size());
 	}
 
 	// Create new views (invoked by the layout manager)

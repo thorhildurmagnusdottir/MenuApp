@@ -20,6 +20,7 @@ public class main extends Activity {
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
 	private RecyclerView.LayoutManager mLayoutManager;
+	private static int theParentNumber;
 
 	public main() {
 	}
@@ -35,6 +36,7 @@ public class main extends Activity {
 
 		W8r.build();
 
+		resetParentNumber();
 		mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
@@ -43,12 +45,14 @@ public class main extends Activity {
 		mRecyclerView.setLayoutManager(mLayoutManager);
 
 		// specify an adapter (see also next example)
-		mAdapter = new SubMenuAdapter(0);
+		mAdapter = new MainMenuAdapter();
 		mRecyclerView.setAdapter(mAdapter);
 
 
 	}
 
+	public static int getParentNumber() { return (theParentNumber++ - 1); }
+	public static void resetParentNumber() { theParentNumber = 0; }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
