@@ -1,6 +1,7 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,8 +34,8 @@ public class main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("main", "ran here");
-
-		W8r.build();
+        Context theContext = getApplicationContext();
+		W8r.build(theContext);
 
 
 		super.onCreate(savedInstanceState);

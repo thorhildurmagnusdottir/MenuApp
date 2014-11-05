@@ -8,9 +8,19 @@ import android.os.AsyncTask;
  *
  */
 public class RetrieveMenu extends AsyncTask {
-
+//
     @Override
     protected Object doInBackground(Object[] objects) {
+//        XMLParser menuParser = new XMLParser();
+//        try {
+//            List<Item> items = menuParser.parseXML();
+//        } catch (SAXException e) {
+//            e.printStackTrace();
+//        } catch (ParserConfigurationException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 }
