@@ -44,7 +44,10 @@ public class Order {
         return order.isEmpty();
 
     }
-
+    // skilar inn í OrderListAdapter
+    public static int size() {
+        return order.size();
+    }
 }
 
 

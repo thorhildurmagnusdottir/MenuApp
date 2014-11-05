@@ -10,16 +10,19 @@ import java.util.Vector;
 /**
  * Created by Thorleifur on 05/11/14.
  */
-public class Orderd extends BaseAdapter {
+
+
+
+public class OrderListAdapter extends BaseAdapter {
 
     ListView ordered;
 
-    String [] Items; // Hér vantar að kalla á heiti réttar
+    //String [] Items; // Hér vantar að kalla á heiti réttar
 
 
     @Override
     public int getCount() {
-        return 0;
+        return Order.size();
     }
 
     @Override
