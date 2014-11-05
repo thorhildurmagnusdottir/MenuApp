@@ -1,13 +1,11 @@
 package com.gunnarsturla.restaurantappgi;
 
-import java.util.Vector;
-
 /**
  * Created by Dagný on 30.10.2014.
  */
 public class Order {
 
-    private static SubMenu order;
+    private static SubMenu order = new SubMenu();
 
     // Ný vara pöntuð
 

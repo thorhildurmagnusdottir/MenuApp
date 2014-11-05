@@ -1,9 +1,11 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -21,11 +23,15 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
 		public TextView itemName, itemDescription, itemPrice;
+		private Button orderButton;
+
 		public ViewHolder(View v) {
 			super(v);
 			itemName = (TextView) itemView.findViewById(R.id.itemName);
 			itemDescription = (TextView) itemView.findViewById(R.id.itemDestription);
 			itemPrice = (TextView) itemView.findViewById(R.id.itemPrice);
+			orderButton = (Button) itemView.findViewById(R.id.orderButton);
+
 		}
 	}
 
@@ -51,13 +57,29 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 
 	// Replace the contents of a view (invoked by the layout manager)
 	@Override
-	public void onBindViewHolder(ViewHolder holder, int position) {
+	public void onBindViewHolder(ViewHolder holder, final int position) {
 		// - get element from your dataset at this position
 		// - replace the contents of the view with that element
 		holder.itemName.setText(W8r.get(parentNumber).get(position).getName());
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
-		holder.itemPrice.setText(W8r.get(parentNumber).get(position).getPrice());
+
+		holder.orderButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//Order.addOrder(W8r.get(groupPosition).get(childPosition));
+
+				Item i = W8r.get(parentNumber).get(position);
+
+				if(Order.addOrder(i)) {
+					Log.i("SubMenuAdapter", "Pantaði "+ i.getName());
+				}
+			}
+		}
+		);
+
+//		holder.itemPrice.setText(W8r.get(parentNumber).get(position).getPrice());
 		System.out.println("Debug: getting elements from parentNumber: "+ parentNumber);
+
 
 	}
 
@@ -66,4 +88,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	public int getItemCount() {
 		return W8r.get(parentNumber).size();
 	}
+
+
 }

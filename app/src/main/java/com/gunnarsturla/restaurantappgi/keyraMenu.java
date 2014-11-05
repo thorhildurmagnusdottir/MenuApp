@@ -49,6 +49,22 @@ public class keyraMenu {
         if (!sm4.addItem(item5)) {
             System.out.println("Error: ekki tókst að bæta " + item5.getName() + " við í SubMenu " + sm4.getName());
         }
+		if (!sm2.addItem(item1)) {
+			System.out.println("Error: ekki tókst að bæta " + item1.getName() + " við í SubMenu " + sm1.getName());
+		}
+		if (!sm3.addItem(item2)) {
+			System.out.println("Error: ekki tókst að bæta " + item2.getName() + " við í SubMenu " + sm2.getName());
+		}
+		if (!sm4.addItem(item3)) {
+			System.out.println("Error: ekki tókst að bæta " + item3.getName() + " við í SubMenu " + sm3.getName());
+		}
+		if (!sm1.addItem(item4)) {
+			System.out.println("Error: ekki tókst að bæta " + item4.getName() + " við í SubMenu " + sm3.getName());
+		}
+
+		if (!sm2.addItem(item5)) {
+			System.out.println("Error: ekki tókst að bæta " + item5.getName() + " við í SubMenu " + sm4.getName());
+		}
 
         if (!sm5.addItem(item6)) {
             System.out.println("Error: ekki tókst að bæta " + item6.getName() + " við í SubMenu " + sm5.getName());

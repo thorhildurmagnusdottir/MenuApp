@@ -1,8 +1,8 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +20,14 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 
 		private TextView smName;
-		private RecyclerView smRecyclerView;
+/*		private RecyclerView smRecyclerView;
 		private RecyclerView.Adapter smAdapter;
-		private RecyclerView.LayoutManager smLayoutManager;
+		private RecyclerView.LayoutManager smLayoutManager;*/
 
 		public ViewHolder(View v) {
 			super(v);
 			smName = (TextView) itemView.findViewById(R.id.smName);
-			smRecyclerView = (RecyclerView) itemView.findViewById(R.id.sub_menu_list);
-
+//			smRecyclerView = (RecyclerView) itemView.findViewById(R.id.sub_menu_list);
 
 		}
 	}
@@ -54,13 +53,16 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 
 	// Replace the contents of a view (invoked by the layout manager)
 	@Override
-	public void onBindViewHolder(ViewHolder holder, int position) {
+	public void onBindViewHolder(ViewHolder holder, final int position) {
+
+
 		// - get element from your dataset at this position
 		// - replace the contents of the view with that element
 		holder.smName.setText(W8r.get(position).getName());
 		System.out.println("Debug: setting text for sm" + position);
+		holder.smName.setBackgroundResource(R.drawable.sm121);
 
-		// use a linear layout manager
+/*		// use a linear layout manager
 		holder.smLayoutManager = new LinearLayoutManager(context);
 		holder.smRecyclerView.setLayoutManager(holder.smLayoutManager);
 		System.out.println("Debug: Setting layout Manager");
@@ -69,7 +71,15 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 		holder.smAdapter = new SubMenuAdapter(position);
 		holder.smRecyclerView.setAdapter(holder.smAdapter);
 		System.out.println("Debug: setting smAdapter for "+position);
-
+*/
+		holder.smName.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//Order.addOrder(W8r.get(groupPosition).get(childPosition));
+				((main)context).goToSubMenu(v, position);
+				Log.i("MainMenuAdapter", "Förum yfir í SM " + position);
+			}
+		});
 
 	}
 
@@ -78,4 +88,6 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 	public int getItemCount() {
 		return W8r.size();
 	}
+
+
 }

@@ -46,11 +46,12 @@
 			android:layout_height="wrap_content" />
 
 		<Button
-			android:layout_width="10dp"
-			android:layout_height="10dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
 			android:id="@+id/orderButton"
 			android:text="Panta!"
-			/>
+			android:layout_below="@+id/itemDestription"
+			android:clickable="true"/>
 
 	</RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -2,6 +2,7 @@ package com.gunnarsturla.restaurantappgi;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +20,6 @@ import android.view.ViewGroup;
  */
 public class main extends Activity {
 
-//	private W8r w8r;
 
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
@@ -94,4 +94,14 @@ public class main extends Activity {
             return rootView;
         }
     }
+
+	/*  goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
+ *  view er það view sem sendir beiðnina
+ */
+	public void goToSubMenu(View view, int groupNumber) {
+
+		Intent intent = new Intent(this, SubMenuActivity.class);
+		intent.putExtra("groupNumber", groupNumber);
+		startActivity(intent);
+	}
 }
