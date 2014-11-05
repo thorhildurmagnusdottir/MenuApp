@@ -34,7 +34,7 @@ public class SubMenuActivity extends Activity {
 		// Setjum nafnið á SubMenuinum inn í headerinn
 		header = (TextView) findViewById(R.id.smName);
 		header.setText(W8r.get(groupNumber).getName());
-		header.setBackgroundResource(R.drawable.sm121);
+		//header.setBackgroundResource(R.drawable.sm121);
 
 		//Setjum bakgrunnsmyndina inn í header
 

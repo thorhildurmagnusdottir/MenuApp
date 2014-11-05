@@ -62,6 +62,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		// - replace the contents of the view with that element
 		holder.itemName.setText(W8r.get(parentNumber).get(position).getName());
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
+		holder.itemPrice.setText(""+ W8r.get(parentNumber).get(position).getPrice() + " kr.");
 
 		holder.orderButton.setOnClickListener(new View.OnClickListener() {
 			@Override
