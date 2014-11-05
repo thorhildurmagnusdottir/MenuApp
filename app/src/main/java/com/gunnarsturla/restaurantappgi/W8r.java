@@ -43,7 +43,7 @@ public class W8r {
             }
         }
         submenuPrinting = submenuPrinting + "submenu er null";
-        Log.i("keyraMenu", submenuPrinting);
+        Log.i("getMenuFromXML", submenuPrinting);
         //  End XMLParsing chapter
         // ==========================================================
 		order = new SubMenu();

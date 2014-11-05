@@ -27,20 +27,14 @@ public class Order {
     public static int sum() {
 
         int sum = 0;
-
         for (int i = 0; i < order.size(); i++) {
             sum = sum + (order.get(i).getPrice());
-
-
         }
-
         return sum;
     }
 
     public static boolean isEmpty() {
-
         return order.isEmpty();
-
     }
     // skilar inn í OrderListAdapter
     public static int size() {

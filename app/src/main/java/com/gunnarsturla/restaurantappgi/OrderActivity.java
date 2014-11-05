@@ -14,8 +14,6 @@ import android.widget.ListView;
 public class OrderActivity extends Activity {
 
     ListView orderList;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
