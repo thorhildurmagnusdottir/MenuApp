@@ -22,17 +22,21 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.gunnarsturla.restaurantappgi.main"
-            android:label="@string/app_name"
-            >
+            android:name=".main"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gunnarsturla.restaurantappgi.SubMenuActivity"
+            android:name=".SubMenuActivity"
             android:label="@string/title_activity_sub_menu" >
+        </activity>
+        <activity
+            android:name=".OrderActivity"
+            android:label="@string/title_activity_order" >
         </activity>
     </application>
 
