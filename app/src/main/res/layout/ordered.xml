@@ -22,6 +22,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your Total is:"
+        android:text="Your Total is "
         android:id="@+id/totalPrice" />
 </LinearLayout>
