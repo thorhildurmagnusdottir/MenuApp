@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -39,6 +41,7 @@ public class main extends Activity {
 
 		W8r.build();
 
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
@@ -54,6 +57,8 @@ public class main extends Activity {
 /*
 		TextView smName = (TextView) findViewById(R.id.smName);
 		smName.setText(W8r.get(0).getName());*/
+
+
 
 
 	}
@@ -74,26 +79,16 @@ public class main extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, OrderActivity.class);
+
+            startActivity(intent);
             return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
 
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-    }
 
 	/*  goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
  *  view er það view sem sendir beiðnina
@@ -103,5 +98,7 @@ public class main extends Activity {
 		Intent intent = new Intent(this, SubMenuActivity.class);
 		intent.putExtra("groupNumber", groupNumber);
 		startActivity(intent);
+
 	}
+
 }
