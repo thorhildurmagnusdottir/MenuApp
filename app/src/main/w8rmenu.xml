@@ -1,154 +1,138 @@
 <?xml version="1.0"?>
-<menu>
-    <name>Forréttir</name>
-    <item>
-        <id>1</id>
-        <name>Humarhalar</name>
-        <description>Hvítlaukssteiktir humarhalar, bornir fram með heimabökuðu brauði og þremur tegundum af smjöri</description>
-        <price>2990</price>
-        <allergens>Mjólk, Skelfiskur</allergens>
-        <ingredients>Humarhalar, hvítlaukur, smjör, ger </ingredients>
-        <calories>390</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://www.decalsplanet.com/img_b/vinyl-decal-sticker-6890.jpg </picture>
-        <preptime>10</preptime>
-    </item>
-    <item>
-        <id>2</id>
-        <name>Humarsúpa</name>
-        <description>Rjómalöguð humarsúpa með tómatpúrru og ferskri steinselju</description>
-        <price>1990</price>
-        <allergens>Mjólk, Skelfiskur</allergens>
-        <ingredients>Humarhalar, hvítlaukur, smjör, ger, tómatpúrra, steinselja, rjómi</ingredients>
-        <calories>450</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://www.decalsplanet.com/img_b/vinyl-decal-sticker-6890.jpg </picture>
-        <preptime>30</preptime>
-    </item>
-    <item>
-        <id>3</id>
-        <name>Proscuitto e melone</name>
-        <description>Parmaskinka með niðurskorinni kantalópu melónu </description>
-        <price>1490</price>
-        <allergens></allergens>
-        <ingredients>Parmaskinka, melóna</ingredients>
-        <calories>400</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>10</preptime>
-    </item>
+<submenu>
 
-    <name>Forréttir</name>
+    <title>Forréttir</title>
+    <imghash>1</imghash>
+    <items>
+        <item id="1">
+            <name>Humarhalar</name>
+            <description>Hvítlaukssteiktir humarhalar, bornir fram með heimabökuðu brauði og þremur tegundum af smjöri</description>
+            <price>2990</price>
+            <allergens>Mjólk, Skelfiskur</allergens>
+            <ingredients>Humarhalar, hvítlaukur, smjör, ger </ingredients>
+            <calories>390</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://www.decalsplanet.com/img_b/vinyl-decal-sticker-6890.jpg </picture>
+            <preptime>10</preptime>
+        </item>
+        <item id="2">
+            <name>Humarsúpa</name>
+            <description>Rjómalöguð humarsúpa með tómatpúrru og ferskri steinselju</description>
+            <price>1990</price>
+            <allergens>Mjólk, Skelfiskur</allergens>
+            <ingredients>Humarhalar, hvítlaukur, smjör, ger, tómatpúrra, steinselja, rjómi</ingredients>
+            <calories>450</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://www.decalsplanet.com/img_b/vinyl-decal-sticker-6890.jpg </picture>
+            <preptime>30</preptime>
+        </item>
+        <item id="3">
+            <name>Proscuitto e melone</name>
+            <description>Parmaskinka með niðurskorinni kantalópu melónu </description>
+            <price>1490</price>
+            <allergens></allergens>
+            <ingredients>Parmaskinka, melóna</ingredients>
+            <calories>400</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>10</preptime>
+        </item>
+    </items>
 
-    <item>
-        <id>4</id>
-        <name>Hamborgari hússins</name>
-        <description>Grillaður hamborgari með klettasalati, tómötum, eggi og beikon, borin fram með bernaise sósu</description>
-        <price>2599</price>
-        <allergens>Egg, hveiti, ger</allergens>
-        <ingredients>Nautakjöt, klettasalat, tómatur, egg, beikon</ingredients>
-        <calories>550</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>20</preptime>
-    </item>
+    <title>Aðalréttir</title>
+    <imghash>2</imghash>
+    <items>
+        <item id="4">
+            <name>Hamborgari hússins</name>
+            <description>Grillaður hamborgari með klettasalati, tómötum, eggi og beikon, borin fram með bernaise sósu</description>
+            <price>2599</price>
+            <allergens>Egg, hveiti, ger</allergens>
+            <ingredients>Nautakjöt, klettasalat, tómatur, egg, beikon</ingredients>
+            <calories>550</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>20</preptime>
+        </item>
+        <item id="5">
+            <name>Pasta</name>
+            <description>Grískt pasta með grænum og svörtum ólífum, hvítlauksolíu, sólþurrkuðum tómötum og ætiþislum</description>
+            <price>1890</price>
+            <allergens></allergens>
+            <ingredients>Pasta, ólífur, hvítlaukur, ólífuolía, tómatar, ætiþislar</ingredients>
+            <calories>690</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>15</preptime>
+        </item>
+        <item id="6">
+            <name>Pizza bianco</name>
+            <description>Eldbökuð flatbaka með basil laufum, mozzarella osti og tómötum. (Án pizzusósu). </description>
+            <price>2590</price>
+            <allergens>Hveiti, mjólkurafurð, ostur, ger, hveiti</allergens>
+            <ingredients>Basilika, mozzarella ostur, tómatur, hveiti, ger</ingredients>
+            <calories>550</calories>
+            <vegetarian>TRUE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>20</preptime>
+        </item>
+    </items>
 
-    <item>
-        <id>5</id>
-        <name>Pasta</name>
-        <description>Grískt pasta með grænum og svörtum ólífum, hvítlauksolíu, sólþurrkuðum tómötum og ætiþislum</description>
-        <price>1890</price>
-        <allergens></allergens>
-        <ingredients>Pasta, ólífur, hvítlaukur, ólífuolía, tómatar, ætiþislar</ingredients>
-        <calories>690</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>15</preptime>
-    </item>
+    <title>Eftirréttir</title>
+    <imghash>3</imghash>
+    <items>
 
-    <item>
-        <id>6</id>
-        <name>Pizza bianco</name>
-        <description>Eldbökuð flatbaka með basil laufum, mozzarella osti og tómötum. (Án pizzusósu). </description>
-        <price>2590</price>
-        <allergens>Hveiti, mjólkurafurð, ostur, ger, hveiti</allergens>
-        <ingredients>Basilika, mozzarella ostur, tómatur, hveiti, ger</ingredients>
-        <calories>550</calories>
-        <vegetarian>TRUE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>20</preptime>
-    </item>
+        <item id="7">
+            <name>Bananasplitt</name>
+            <description>Grillaður banani með heimalöguðum vanilluís, súkkulaðinibbum, jarðaberjum og bráðinni karamellu</description>
+            <price>1490</price>
+            <allergens>Mjólkurafurð, jarðaber</allergens>
+            <ingredients>Banani, vanilluís, súkkulaði, kakó, jarðaber, sykur, karamella</ingredients>
+            <calories>600</calories>
+            <vegetarian>TRUE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>15</preptime>
+        </item>
+        <item id="8">
+            <name>Crème brûlée</name>
+            <description>Klassískt créme brulée</description>
+            <price>1490</price>
+            <allergens></allergens>
+            <ingredients>Eggjarauður, sykur rjómi</ingredients>
+            <calories>440</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>20</preptime>
+        </item>
+        <item id="9">
+            <name>Sacher terta</name>
+            <description>Súkkulaðiterta með súkkulaðikremi og aprikósusultu, borin fram með rjóma eða vanilluís</description>
+            <price>1490</price>
+            <allergens></allergens>
+            <ingredients>Súkkulaði, hveiti, egg, flórsykur, aprikósusulta, </ingredients>
+            <calories>500</calories>
+            <vegetarian>FALSE</vegetarian>
+            <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+            <preptime>20</preptime>
+        </item>
+    </items>
 
-    <name>Eftirréttir</name>
-
-    <item>
-        <id>7</id>
-        <name>Bananasplitt</name>
-        <description>Grillaður banani með heimalöguðum vanilluís, súkkulaðinibbum, jarðaberjum og bráðinni karamellu</description>
-        <price>1490</price>
-        <allergens>Mjólkurafurð, jarðaber</allergens>
-        <ingredients>Banani, vanilluís, súkkulaði, kakó, jarðaber, sykur, karamella</ingredients>
-        <calories>600</calories>
-        <vegetarian>TRUE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>15</preptime>
-    </item>
-
-    <item>
-        <id>8</id>
-        <name>Crème brûlée</name>
-        <description>Klassískt créme brulée</description>
-        <price>1490</price>
-        <allergens></allergens>
-        <ingredients>Eggjarauður, sykur rjómi</ingredients>
-        <calories>440</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>20</preptime>
-    </item>
-
-    <item>
-        <id>9</id>
-        <name>Sacher terta</name>
-        <description>Súkkulaðiterta með súkkulaðikremi og aprikósusultu, borin fram með rjóma eða vanilluís</description>
-        <price>1490</price>
-        <allergens></allergens>
-        <ingredients>Súkkulaði, hveiti, egg, flórsykur, aprikósusulta, </ingredients>
-        <calories>500</calories>
-        <vegetarian>FALSE</vegetarian>
-        <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-        <preptime>20</preptime>
-    </item>
-
-    <name>Drykkir</name>
-
-    <item>
-        <id>10</id>
+    <title>Drykkir</title>
+    <imghash>4</imghash>
+    <items>
+    <item id="10">
         <name>Hvítvínsglas</name>
     </item>
-
-    <item>
-        <id>11</id>
+    <item id="11">
         <name>Rauðvínsglas</name>
     </item>
-
-    <item>
-        <id>12</id>
+    <item id="12">
         <name>Rauðvínsglas</name>
     </item>
-
-    <item>
-        <id>13</id>
+    <item id="13">
         <name>Coca Cola</name>
     </item>
-
-    <item>
-        <id>14</id>
+    <item id="14">
         <name>Kaffi</name>
     </item>
-
-
-
-
-
-</menu>
+    <items>
+</submenu>
