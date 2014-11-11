@@ -31,7 +31,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 			itemDescription = (TextView) itemView.findViewById(R.id.itemDestription);
 			itemPrice = (TextView) itemView.findViewById(R.id.itemPrice);
 			orderButton = (Button) itemView.findViewById(R.id.orderButton);
-
 		}
 	}
 
