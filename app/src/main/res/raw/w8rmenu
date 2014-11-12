@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <menu>
     <submenu>
         <title>Forréttir</title>
@@ -131,7 +131,7 @@
                     <price>990</price>
                     <description>Ákafur angan af rauðum berjum, virkilega þroskaður, mjúkur og höfugur í munni með fágaðri fyllingu. Dökk þroskuð ber einkenna bragðið, mikil fylling gott jafnvægi og þægilega ferskt. </description>
                 </item>
-                <item>
+                <item id="12">
                     <name>Úlfur (bjór)</name>
                     <price>990</price>
                     <description>Gullinn. Þétt meðalfylling, þurr, ferskur, beiskur. Suðrænn ávöxtur, malt, grösugir og blómlegir humlar.</description>
