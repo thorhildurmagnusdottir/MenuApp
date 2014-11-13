@@ -7,7 +7,7 @@
 	card_view:cardCornerRadius="@dimen/card_corner_radius"
 	android:layout_height="wrap_content"
 	android:id="@+id/itemCard"
-	android:clickable="false"
+	android:clickable="true"
 	android:elevation="10dp" >
 
 	<RelativeLayout
@@ -28,7 +28,7 @@
 			android:focusable="false"
 			android:clickable="false"
 			android:layout_width="match_parent"
-			android:layout_height="70dp"
+			android:layout_height="72dp"
 			android:textSize="24sp"
 			android:textColor="@android:color/darker_gray"
 		    android:text="Lorem ipsum"
@@ -57,7 +57,7 @@
 			android:layout_below="@+id/itemDestription"
 			android:text="2990"
 			android:paddingRight="@dimen/sub_menu_header_padding_left"
-			android:textSize="20dp"
+			android:textSize="24dp"
 			android:layout_marginRight="@dimen/sub_menu_header_padding_left"/>
 
 		<Button
@@ -69,7 +69,7 @@
 			android:layout_alignParentRight="true"
 			android:layout_alignParentEnd="true"
 			android:layout_below="@+id/itemPrice"
-			android:layout_marginTop="20dp"
+			android:layout_marginTop="24dp"
 			android:layout_marginRight="@dimen/sub_menu_header_padding_left"/>
 
 		<ImageView
