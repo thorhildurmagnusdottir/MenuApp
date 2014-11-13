@@ -1,11 +1,13 @@
 package com.gunnarsturla.restaurantappgi;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -22,15 +24,21 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	// you provide access to all the views for a data item in a view holder
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
-		public TextView itemName, itemDescription, itemPrice;
-		private Button orderButton;
+		public TextView itemName, itemDescription, itemPrice, itemCalories;
+		private ImageView itemThumb;
+		private ImageButton orderButton;
+		private CardView itemCard;
 
 		public ViewHolder(View v) {
 			super(v);
-			itemName = (TextView) itemView.findViewById(R.id.itemName);
-			itemDescription = (TextView) itemView.findViewById(R.id.itemDestription);
-			itemPrice = (TextView) itemView.findViewById(R.id.itemPrice);
-			orderButton = (Button) itemView.findViewById(R.id.orderButton);
+			itemName		= (TextView) itemView.findViewById(R.id.itemName);
+			itemDescription	= (TextView) itemView.findViewById(R.id.itemDestription);
+			itemPrice		= (TextView) itemView.findViewById(R.id.itemPrice);
+			itemCalories 	= (TextView) itemView.findViewById(R.id.itemCalories);
+
+			orderButton		= (ImageButton) itemView.findViewById(R.id.orderButton);
+			itemThumb		= (ImageView) itemView.findViewById(R.id.itemThumb);
+			itemCard 		= (CardView) itemView.findViewById(R.id.itemCard);
 		}
 	}
 
@@ -56,12 +64,20 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 
 	// Replace the contents of a view (invoked by the layout manager)
 	@Override
-	public void onBindViewHolder(ViewHolder holder, final int position) {
+	public void onBindViewHolder(final ViewHolder holder, final int position) {
 		// - get element from your dataset at this position
 		// - replace the contents of the view with that element
 		holder.itemName.setText(W8r.get(parentNumber).get(position).getName());
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
 		holder.itemPrice.setText(""+ W8r.get(parentNumber).get(position).getPrice() + " kr.");
+
+
+		// Sæki Recource ID á thumb1123.jpg til að birta sem bg
+		int thumbId = main.context.getResources().getIdentifier("thumb1123.png", "drawable", main.context.getPackageName());
+		holder.itemThumb.setImageResource(thumbId);
+
+
+		//int drawableResourceId = this.getResources().getIdentifier("nameOfDrawable", "drawable", this.getPackageName());
 
 		holder.orderButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -71,10 +87,18 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 				Item i = W8r.get(parentNumber).get(position);
 
 				if(Order.addOrder(i)) {
-					Log.i("SubMenuAdapter", "Pantaði "+ i.getName());
+					Log.i("SubMenuAdapter", "Pantaði " + i.getName());
 				}
 			}
 		}
+		);
+
+		holder.itemCard.setOnClickListener(new View.OnClickListener() {
+												  @Override
+												  public void onClick(View v) {
+														holder.itemCalories.setText("Calories: " + W8r.get(parentNumber).get(position).getCalories());
+												  }
+											  }
 		);
 
 //		holder.itemPrice.setText(W8r.get(parentNumber).get(position).getPrice());

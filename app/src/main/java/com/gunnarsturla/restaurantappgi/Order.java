@@ -33,6 +33,14 @@ public class Order {
         return sum;
     }
 
+	public static int getTotal() {
+		int sum = 0;
+		for(int i = 0; i < order.size(); ++i)
+			sum += order.get(i).getPrice();
+
+		return sum;
+	}
+
     public static boolean isEmpty() {
         return order.isEmpty();
     }

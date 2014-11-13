@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class OrderActivity extends Activity {
@@ -28,6 +29,9 @@ public class OrderActivity extends Activity {
       //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matur);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderListName,orderArr );
         orderList.setAdapter(adapter);
+
+		TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
+		orderTotal.setText("Your total is " + Order.getTotal());
     }
 
     private class LayoutInflater {

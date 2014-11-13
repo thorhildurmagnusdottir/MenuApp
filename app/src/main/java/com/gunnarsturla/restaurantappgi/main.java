@@ -23,6 +23,11 @@ public class main extends Activity {
 	private RecyclerView.Adapter mAdapter;
 	private RecyclerView.LayoutManager mLayoutManager;
 
+	// Skilgreini context hér til að geta náð í það hvar sem er með kallinu main.context
+	// (Jaaaá, Snorri mundi örugglega skamma mig fyrir að brjóta
+	// upplýsingahuld, en hann mun ekki sjá þetta (vona ég))
+	public static Context context;
+
 	public main() {
 	}
 
@@ -54,8 +59,7 @@ public class main extends Activity {
 		TextView smName = (TextView) findViewById(R.id.smName);
 		smName.setText(W8r.get(0).getName());*/
 
-
-
+		context = getApplicationContext();
 
 	}
 
