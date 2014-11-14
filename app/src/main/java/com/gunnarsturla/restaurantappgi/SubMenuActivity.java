@@ -5,8 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -19,6 +23,11 @@ public class SubMenuActivity extends Activity {
 
 	private TextView header;
 
+	// Það view (ef eitthvað) sem er expanded
+	private View expandedCard;
+
+	private View.OnClickListener cardExpander;
+	private View.OnClickListener cardCollapser;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +58,21 @@ public class SubMenuActivity extends Activity {
 		// specify an adapter (see also next example)
 		mAdapter = new SubMenuAdapter(groupNumber);
 		mRecyclerView.setAdapter(mAdapter);
+
+		// Hlustar eftir smellum þegar card er expanded, og minnkar það.
+		cardCollapser = new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				collapseCard(v);
+			}
+		};
+
+		cardExpander = new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				expandCard(v);
+			}
+		};
 	}
 
 
@@ -76,5 +100,51 @@ public class SubMenuActivity extends Activity {
 
 		return super.onOptionsItemSelected(item);
 	}
+
+	public void expandCard(View v) {
+		Log.i("SMActivity", "expanding card");
+
+		// Byrjum á því að fella niður það card sem var opið (ef eitthvað)
+		if(expandedCard != null) {
+			collapseCard(expandedCard);
+		}
+
+		TextView ingredTv = (TextView) v.findViewById(R.id.itemIngredients);
+		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
+		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
+		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
+
+		// Náum í parent númer þess cards sem smellt var á
+		TextView ptv = (TextView) v.findViewById(R.id.itemParent);
+		int parent = Integer.parseInt(ptv.getText().toString());
+
+		// Náum í child númer þess cards sem smellt var á
+		TextView ctv = (TextView) v.findViewById(R.id.itemNumber);
+		int child = Integer.parseInt(ctv.getText().toString());
+
+		ingredTv.setText("Innihald: " + W8r.get(parent).get(child).getIngredients());
+		calTv.setText("Kalóríur: " + W8r.get(parent).get(child).getCalories() +" kcal");
+
+		ordrBtn.setVisibility(View.VISIBLE);
+
+		v.setOnClickListener(cardCollapser);
+		expandedCard = v;
+	}
+	public void collapseCard(View v) {
+		Log.i("SMActivity", "collapsing card");
+
+		// Fjarlægjum textann sem er í itemCalories og itemIngredients
+		TextView ingredTv = (TextView) v.findViewById(R.id.itemIngredients);
+		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
+		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
+
+		ingredTv.setText("");
+		calTv.setText("");
+		ordrBtn.setVisibility(View.INVISIBLE);
+
+		v.setOnClickListener(cardExpander);
+		expandedCard = null;
+	}
+
 
 }

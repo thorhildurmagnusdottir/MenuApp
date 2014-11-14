@@ -24,7 +24,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	// you provide access to all the views for a data item in a view holder
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
-		public TextView itemName, itemDescription, itemPrice, itemCalories;
+		public TextView itemName, itemDescription, itemPrice, itemCalories, itemNumber, itemParent;
 		private ImageView itemThumb;
 		private ImageButton orderButton;
 		private CardView itemCard;
@@ -35,6 +35,8 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 			itemDescription	= (TextView) itemView.findViewById(R.id.itemDestription);
 			itemPrice		= (TextView) itemView.findViewById(R.id.itemPrice);
 			itemCalories 	= (TextView) itemView.findViewById(R.id.itemCalories);
+			itemNumber 		= (TextView) itemView.findViewById(R.id.itemNumber);
+			itemParent		= (TextView) itemView.findViewById(R.id.itemParent);
 
 			orderButton		= (ImageButton) itemView.findViewById(R.id.orderButton);
 			itemThumb		= (ImageView) itemView.findViewById(R.id.itemThumb);
@@ -71,6 +73,10 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
 		holder.itemPrice.setText(""+ W8r.get(parentNumber).get(position).getPrice() + " kr.");
 
+		// Smellum parentNumber og itemNumber inn í falin TextView;
+		holder.itemNumber.setText(""+position);
+		holder.itemParent.setText(""+parentNumber);
+
 
 		// Sæki Recource ID á thumb1123.jpg til að birta sem bg
 		int thumbId = main.context.getResources().getIdentifier("thumb1123.png", "drawable", main.context.getPackageName());
@@ -93,13 +99,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		}
 		);
 
-		holder.itemCard.setOnClickListener(new View.OnClickListener() {
-												  @Override
-												  public void onClick(View v) {
-														holder.itemCalories.setText("Calories: " + W8r.get(parentNumber).get(position).getCalories());
-												  }
-											  }
-		);
 
 //		holder.itemPrice.setText(W8r.get(parentNumber).get(position).getPrice());
 		System.out.println("Debug: getting elements from parentNumber: "+ parentNumber);

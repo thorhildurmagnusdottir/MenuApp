@@ -3,10 +3,10 @@
     tools:context=".main">
 
     <item android:id="@+id/action_settings"
-        android:title="View Your Order"
+        android:title="VYO"
         android:orderInCategory="100"
         android:showAsAction="always"
-    />
+        android:icon="@drawable/ic_receipt_24px" />
 
    <!-- <item android:id="@+id/action_settings"
         android:title="Panta"
