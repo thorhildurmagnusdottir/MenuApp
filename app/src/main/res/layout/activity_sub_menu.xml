@@ -22,23 +22,22 @@
 		android:layout_marginRight="0dp"
 		android:clickable="true"
 		android:maxHeight="@dimen/sub_menu_header_height"
-		android:paddingLeft="@dimen/sub_menu_header_padding_left"
 		android:paddingStart="@dimen/sub_menu_header_padding_left"
-		android:paddingRight="@dimen/sub_menu_header_padding_left"
 		android:paddingEnd="@dimen/sub_menu_header_padding_left"
-		android:paddingTop="@dimen/sub_menu_header_padding_top"
 		android:singleLine="true"
 		android:textSize="@dimen/sub_menu_header_text_size"
 		android:elevation="10dp"
 		android:elegantTextHeight="false"
-		android:background="@drawable/sm222"
 		android:shadowColor="@color/cardview_dark_background"
-		android:textColor="@color/cardview_light_background"
-		/>
+		android:textAlignment="viewEnd"
+		android:paddingBottom="@dimen/sub_menu_header_padding_left"
+		android:gravity="bottom"
+		android:background="@drawable/sm121"/>
 
 	<!-- A RecyclerView with some commonly used attributes -->
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/sub_menu_list"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" />
+		android:layout_height="match_parent"
+		/>
 </LinearLayout>
