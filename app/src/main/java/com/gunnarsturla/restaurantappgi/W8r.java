@@ -57,6 +57,4 @@ public class W8r {
 
 	// Ný vara pöntuð
 	public static boolean order(Item item) { return order.addItem(item); }
-	// Pöntunin sótt,
-	public static SubMenu getOrdered() { return order; }
 }
