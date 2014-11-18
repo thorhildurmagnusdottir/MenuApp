@@ -112,7 +112,6 @@ public class SubMenuActivity extends Activity {
 		TextView ingredTv = (TextView) v.findViewById(R.id.itemIngredients);
 		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
-		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
 
 		// Náum í parent númer þess cards sem smellt var á
 		TextView ptv = (TextView) v.findViewById(R.id.itemParent);
@@ -122,12 +121,20 @@ public class SubMenuActivity extends Activity {
 		TextView ctv = (TextView) v.findViewById(R.id.itemNumber);
 		int child = Integer.parseInt(ctv.getText().toString());
 
-		ingredTv.setText("Innihald: " + W8r.get(parent).get(child).getIngredients());
-		calTv.setText("Kalóríur: " + W8r.get(parent).get(child).getCalories() +" kcal");
+		if(W8r.get(parent).get(child).getIngredients() != null)
+			ingredTv.setText("Innihald: " + W8r.get(parent).get(child).getIngredients());
+
+		if(W8r.get(parent).get(child).getCalories() != 0)
+			calTv.setText("Kalóríur: " + W8r.get(parent).get(child).getCalories() +" kcal");
+
+
+		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
+		//thumb.getLayoutParams().height = ((int) v.getResources().getDimension(R.dimen.card_thumb_height))+100;
 
 		ordrBtn.setVisibility(View.VISIBLE);
 
 		v.setOnClickListener(cardCollapser);
+
 		expandedCard = v;
 	}
 	public void collapseCard(View v) {
@@ -140,11 +147,14 @@ public class SubMenuActivity extends Activity {
 
 		ingredTv.setText("");
 		calTv.setText("");
+
+
+		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
+		//thumb.getLayoutParams().height = (int) v.getResources().getDimension(R.dimen.card_thumb_height);
+
 		ordrBtn.setVisibility(View.INVISIBLE);
 
 		v.setOnClickListener(cardExpander);
 		expandedCard = null;
 	}
-
-
 }

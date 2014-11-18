@@ -10,4 +10,5 @@
 	<dimen name="sub_menu_header_padding_top">100dp</dimen>
 	<dimen name="order_total_padding">8dp</dimen>
 	<dimen name="card_text_size">16dp</dimen>
+	<dimen name="card_thumb_height">456dp</dimen>
 </resources>
