@@ -11,64 +11,59 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  * @author Gunnar Sturla Ágústuson
  * @since 8.10.14
  * Aðalklasinn sem birtir útlit forritsins og ræsir það.
  */
-public class main extends Activity {
+public class MainActivity extends Activity {
 
 
-	private RecyclerView mRecyclerView;
-	private RecyclerView.Adapter mAdapter;
-	private RecyclerView.LayoutManager mLayoutManager;
+	private static RecyclerView mRecyclerView;
+	private static RecyclerView.Adapter mAdapter;
+	private static RecyclerView.LayoutManager mLayoutManager;
 
-	// Skilgreini context hér til að geta náð í það hvar sem er með kallinu main.context
+	// Skilgreini context hér til að geta náð í það hvar sem er með kallinu MainActivity.context
 	// (Jaaaá, Snorri mundi örugglega skamma mig fyrir að brjóta
 	// upplýsingahuld, en hann mun ekki sjá þetta (vona ég))
 	public static Context context;
 
-	public main() {
+	public MainActivity() {
 	}
-
-
-	//private XMLParser menuParser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("main", "ran here");
-        Context theContext = getApplicationContext();
-		W8r.build(theContext);
+        Log.i("MainActivity", "ran here");
+//        Context theContext = getApplicationContext();
+        displayMenu();
+	}
+    public void displayMenu(){
+        //		super.onCreate(savedInstanceState);
+//		setContentView(R.layout.activity_main);
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-
-		// use a linear layout manager
-		mLayoutManager = new LinearLayoutManager(this);
-		mRecyclerView.setLayoutManager(mLayoutManager);
-
-		// specify an adapter (see also next example)
-		mAdapter = new MainMenuAdapter();
-		mRecyclerView.setAdapter(mAdapter);
+        // specify an adapter (see also next example)
+        mAdapter = new MainMenuAdapter();
+        mRecyclerView.setAdapter(mAdapter);
 /*
 		TextView smName = (TextView) findViewById(R.id.smName);
 		smName.setText(W8r.get(0).getName());*/
-
-		context = getApplicationContext();
-
-	}
-
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i("onCreatOptionsMenu","running");
         // Inflate the Menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-
         return true;
     }
 
@@ -91,11 +86,9 @@ public class main extends Activity {
  *  view er það view sem sendir beiðnina
  */
 	public void goToSubMenu(View view, int groupNumber) {
-
 		Intent intent = new Intent(this, SubMenuActivity.class);
 		intent.putExtra("groupNumber", groupNumber);
 		startActivity(intent);
-
 	}
 
 }

@@ -1,34 +1,34 @@
 package com.gunnarsturla.restaurantappgi;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.util.Log;
 
-import java.io.InputStream;
 import java.util.Vector;
 
-/**
+import menu.Item;
+import menu.SubMenu;
+
+/*
  * Created by Gunnar on 26.10.14.
  */
 public class W8r {
-
+    public static MainActivity mainActivity;
 	private static Vector<SubMenu> w8rMenu;
 	private static SubMenu order;
 	public W8r() {
         this.w8rMenu = new Vector<SubMenu>();
         this.order = new SubMenu();
 	}
-	public static void build(Context theContext) {
-        // ==========================================================
-        // Chapter that runs the XML parsing and populates Items.
-        InputStream menuXML;   // returns InputStream
-        Resources menuRes = theContext.getResources();
-        menuXML = menuRes.openRawResource(R.raw.w8rmenu); //returns InputStream
+	public static void build() {
+//       ==========================================================
+//       Chapter that runs the XML parsing and populates Items.
+
         XMLHandler theHandler = new XMLHandler();
-        XMLParser myParser = new XMLParser(menuXML, theHandler);
-        myParser.parseXML();
-        Vector<SubMenu> newMenu = myParser.totalMenu;
-        w8rMenu = myParser.totalMenu;
+        XMLParser myParser = new XMLParser(theHandler);
+        // Gets the items from the file saved on the pad and parses the xml to items
+        myParser.populateItems();
+        // returns the populated itesm
+        Vector<SubMenu> newMenu = myParser.populateMenu();
+        w8rMenu = newMenu;
         // ==========================================================
         // TEST PRINTING
         String submenuPrinting = "";
@@ -47,6 +47,7 @@ public class W8r {
         //  End XMLParsing chapter
         // ==========================================================
 		order = new SubMenu();
+//        mainActivity.displayMenu();
 	}
 
 	public static SubMenu get(int number) {

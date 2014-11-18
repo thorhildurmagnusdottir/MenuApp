@@ -9,6 +9,9 @@ import org.xml.sax.helpers.DefaultHandler;
 import java.util.List;
 import java.util.Vector;
 
+import menu.Item;
+import menu.SubMenu;
+
 /**
  * @author Þórhildur Magnúsdóttir
  * @since 12.10.14
@@ -59,6 +62,7 @@ public class XMLHandler extends DefaultHandler {
         }
         else if (qName.equalsIgnoreCase("item")){
             int id = Integer.parseInt(attributes.getValue("id"));
+            Log.i("start element item", Integer.toString(id));
             currentItem = new Item(id);
             if (null == items){
                 items = new Vector<Item>();

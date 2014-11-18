@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import java.util.Vector;
 
+import menu.SubMenu;
+
 /**
  * @author Gunnar Sturla Ágústuson
  * @since 14.10.14

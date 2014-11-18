@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package menu;
 
 import java.util.Vector;
 

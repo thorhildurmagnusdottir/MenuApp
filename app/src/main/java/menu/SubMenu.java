@@ -1,9 +1,11 @@
-package com.gunnarsturla.restaurantappgi;
+package menu;
 
 
 import android.util.Log;
 
 import java.util.Vector;
+
+import menu.Item;
 
 /**
  * @author Gunnar Sturla Ágústuson

@@ -46,8 +46,6 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 		// set the view's size, margins, paddings and layout parameters
 		System.out.println("Debug: inflating sub_menu ");
 		context = parent.getContext();
-
-
 		return new ViewHolder(v);
 	}
 
@@ -76,7 +74,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 			@Override
 			public void onClick(View v) {
 				//Order.addOrder(W8r.get(groupPosition).get(childPosition));
-				((main)context).goToSubMenu(v, position);
+				((MainActivity)context).goToSubMenu(v, position);
 				Log.i("MainMenuAdapter", "Förum yfir í SM " + position);
 			}
 		});
@@ -88,6 +86,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 	public int getItemCount() {
 		return W8r.size();
 	}
+
 
 
 }

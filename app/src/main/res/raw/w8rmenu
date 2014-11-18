@@ -19,7 +19,11 @@
                 <name>Humarsúpa</name>
                 <description>Rjómalöguð humarsúpa með tómatpúrru og ferskri steinselju</description>
                 <price>1990</price>
-                <allergens>Mjólk, Skelfiskur</allergens>
+                <allergens>
+                    <allergen>
+                        fish
+                    </allergen>
+                </allergens>
                 <ingredients>Humarhalar, hvítlaukur, smjör, ger, tómatpúrra, steinselja, rjómi</ingredients>
                 <calories>450</calories>
                 <vegetarian>FALSE</vegetarian>
@@ -61,7 +65,7 @@
                 <allergens></allergens>
                 <ingredients>Pasta, ólífur, hvítlaukur, ólífuolía, tómatar, ætiþislar</ingredients>
                 <calories>690</calories>
-                <vegetarian>FALSE</vegetarian>
+                <vegetarian>TRUE</vegetarian>
                 <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
                 <preptime>15</preptime>
             </item>
