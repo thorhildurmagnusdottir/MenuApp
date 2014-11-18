@@ -11,9 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 /**
  * @author Gunnar Sturla Ágústuson
  * @since 8.10.14
@@ -38,6 +35,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+		context = getApplicationContext();
         Log.i("MainActivity", "ran here");
 //        Context theContext = getApplicationContext();
         displayMenu();

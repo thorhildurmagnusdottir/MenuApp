@@ -24,13 +24,16 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
         URL menuUrl = null;
         try {
             menuUrl = new URL(Constants.menuUrl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
         GetMenuFromWebserviceTask getMenuTask = new GetMenuFromWebserviceTask();
+
         getMenuTask.execute(menuUrl);
     }
     @Override
@@ -53,9 +56,9 @@ public class StartActivity extends Activity {
     }
     public class GetMenuFromWebserviceTask extends AsyncTask<URL, Void, Void> {
 
-        public MainActivity mainActivity;
+//        public MainActivity mainActivity;
         public GetMenuFromWebserviceTask(){
-            mainActivity = new MainActivity();
+            //mainActivity = new MainActivity();
         }
         @Override
         protected Void doInBackground(URL... params) {
@@ -109,11 +112,15 @@ public class StartActivity extends Activity {
             // create items
             Log.i("onpostExecute", "running");
             //
-            Intent myIntent = new Intent(StartActivity.this, MainActivity.class);
-            startActivity(myIntent);
-//            mainActivity.displayMenu();
+			goToMainActivity();
             super.onPostExecute(aVoid);
         }
     }
+
+	public void goToMainActivity() {
+		Intent myIntent = new Intent(this, MainActivity.class);
+		startActivity(myIntent);
+//            mainActivity.displayMenu();
+	}
 
 }
