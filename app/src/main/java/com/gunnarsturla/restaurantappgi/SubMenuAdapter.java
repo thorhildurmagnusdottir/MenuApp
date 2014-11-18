@@ -10,6 +10,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import menu.Item;
+import menu.Order;
+
 /**
  * Created by Gunnar
  * Date: 23.10.14
@@ -79,7 +82,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 
 
 		// Sæki Recource ID á thumb1123.jpg til að birta sem bg
-		int thumbId = main.context.getResources().getIdentifier("thumb1123.png", "drawable", main.context.getPackageName());
+		int thumbId = MainActivity.context.getResources().getIdentifier("thumb1123.png", "drawable", MainActivity.context.getPackageName());
 		holder.itemThumb.setImageResource(thumbId);
 
 
@@ -111,6 +114,4 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	public int getItemCount() {
 		return W8r.get(parentNumber).size();
 	}
-
-
 }

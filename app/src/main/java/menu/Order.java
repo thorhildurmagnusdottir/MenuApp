@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package menu;
 
 /**
  * Created by Dagný on 30.10.2014.
