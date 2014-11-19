@@ -24,18 +24,18 @@ public class OrderActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-		String[] orderArr = new String[Order.size()];
+        String[] orderArr = new String[Order.size()];
 
-		for(int i = 0; i < Order.size(); i++)
-			orderArr[i] = Order.get(i).getName();
+        for(int i = 0; i < Order.size(); i++)
+            orderArr[i] = Order.get(i).getName();
 
         orderList = (ListView) findViewById(R.id.listViewOrdered);
-      //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matur);
+        //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matur);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderListName,orderArr );
         orderList.setAdapter(adapter);
 
-		TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
-		orderTotal.setText("Your total is " + Order.getTotal());
+        TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
+        orderTotal.setText("Your total is " + Order.getTotal());
 
         Button borga = (Button) findViewById(R.id.payButton);
         borga.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +66,14 @@ public class OrderActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_viewOrder) {
 
-			Intent intent = new Intent(this, OrderActivity.class);
+            Intent intent = new Intent(this, OrderActivity.class);
 
-			startActivity(intent);
-			return true;
+            startActivity(intent);
+            return true;
+        }
+        else if (id == R.id.action_callWaiter) {
+
+            CallWaiter.callme(this);
         }
         return super.onOptionsItemSelected(item);
     }
