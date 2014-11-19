@@ -33,6 +33,19 @@
         android:layout_toRightOf="@+id/orderListThumb"
         android:layout_toEndOf="@+id/orderListThumb" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eyða"
+        android:id="@+id/deletebutton"
+        android:layout_toEndOf="@+id/orderListName"
+        android:layout_alignRight="@+id/orderListPrice"
+        android:layout_alignEnd="@+id/orderListPrice"
+        android:layout_alignBottom="@+id/orderListPrice"
+        android:layout_toRightOf="@+id/orderListName"
+        android:background="#ffffffff" />
+
     <!--Button
         android:layout_width="30dp"
         android:layout_height="50dp"

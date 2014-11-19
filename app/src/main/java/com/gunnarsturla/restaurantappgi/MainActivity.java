@@ -79,7 +79,6 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_viewOrder) {
             Intent intent = new Intent(this, OrderActivity.class);
-
             startActivity(intent);
             return true;
 
@@ -91,9 +90,7 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-	/*  goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
- *  view er það view sem sendir beiðnina
- */
+
 	public void goToSubMenu(View view, int groupNumber) {
 		Intent intent = new Intent(this, SubMenuActivity.class);
 		intent.putExtra("groupNumber", groupNumber);
