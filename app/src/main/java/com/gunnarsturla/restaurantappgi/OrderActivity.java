@@ -71,10 +71,6 @@ public class OrderActivity extends Activity {
 			startActivity(intent);
 			return true;
         }
-        else if (id == R.id.action_callWaiter) {
-
-            CallWaiter.callme(this);
-        }
         return super.onOptionsItemSelected(item);
     }
 }

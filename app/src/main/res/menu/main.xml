@@ -13,10 +13,4 @@
         android:orderInCategory="100"
         android:showAsAction="never" /> -->
 
-    <item android:id="@+id/action_callWaiter"
-        android:title="Call Waiter"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:icon="@drawable/ic_receipt_24px" />
-
 </menu>
