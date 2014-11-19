@@ -8,8 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import menu.Order;
 
@@ -34,6 +36,13 @@ public class OrderActivity extends Activity {
 
 		TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
 		orderTotal.setText("Your total is " + Order.getTotal());
+
+        Button borga = (Button) findViewById(R.id.payButton);
+        borga.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private class LayoutInflater {
