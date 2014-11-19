@@ -138,9 +138,9 @@ public class SubMenuActivity extends Activity {
 		ordrBtn.setVisibility(View.VISIBLE);
 
 		v.setOnClickListener(cardCollapser);
-
 		expandedCard = v;
 	}
+
 	public void collapseCard(View v) {
 		Log.i("SMActivity", "collapsing card");
 
@@ -161,4 +161,6 @@ public class SubMenuActivity extends Activity {
 		v.setOnClickListener(cardExpander);
 		expandedCard = null;
 	}
+
+
 }

@@ -10,7 +10,8 @@
 
     <!-- <string name="action_panta">Panta</string> -->
 
-    <string name="title_activity_order">OrderActivity</string>
-    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_order">Your Order</string>
+    <string name="title_activity_start">Fetching menu...</string>
+	<string name="ViewOrder">View Your Order</string>
 
 </resources>

@@ -2,21 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".main">
 
-    <item android:id="@+id/action_viewOrder"
-        android:title="VYO"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:icon="@drawable/ic_receipt_24px" />
 
-   <!-- <item android:id="@+id/action_settings"
-        android:title="Panta"
-        android:orderInCategory="100"
-        android:showAsAction="never" /> -->
+	<item android:id="@+id/action_callWaiter"
+		android:icon="@drawable/ic_help"
+		android:title="Call Waiter"
+		android:orderInCategory="100"
+		android:showAsAction="always" />
 
-    <item android:id="@+id/action_callWaiter"
-        android:title="Call Waiter"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:icon="@drawable/ic_receipt_24px" />
+
+	<item android:id="@+id/action_viewOrder"
+		android:icon="@drawable/ic_receipt"
+		android:title="@string/ViewOrder"
+		android:orderInCategory="100"
+		android:showAsAction="always" />
+
 
 </menu>
