@@ -10,10 +10,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
 
 /**
  * @author Gunnar Sturla Ágústuson

@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-<<<<<<< HEAD
-=======
 import android.widget.TextView;
 import android.widget.Toast;
->>>>>>> FETCH_HEAD
+
 
 import menu.Order;
 
@@ -37,8 +35,6 @@ public class OrderActivity extends Activity {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderListName,orderArr );
         orderList.setAdapter(adapter);
 
-<<<<<<< HEAD
-=======
         TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
         orderTotal.setText("Your total is " + Order.getTotal());
 
@@ -48,7 +44,7 @@ public class OrderActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
             }
         });
->>>>>>> FETCH_HEAD
+
     }
 
     private class LayoutInflater {

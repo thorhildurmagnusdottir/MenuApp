@@ -16,8 +16,4 @@
 		android:orderInCategory="100"
 		android:showAsAction="always" />
 
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
 </menu>
