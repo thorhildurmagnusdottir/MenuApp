@@ -10,7 +10,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+<<<<<<< HEAD
 
+=======
+>>>>>>> FETCH_HEAD
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -80,10 +83,6 @@ public class MainActivity extends Activity {
             startActivity(intent);
             return true;
 
-        }
-        else if (id == R.id.action_callWaiter) {
-
-            CallWaiter.callme(this);
         }
 
         return super.onOptionsItemSelected(item);
