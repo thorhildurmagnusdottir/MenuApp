@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="VERÐ 2990.-kr"
+        android:text="Hér á að koma verð"
         android:id="@+id/orderListPrice"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -41,5 +41,14 @@
 
         android:layout_alignRight="@+id/orderListPrice"
         android:layout_alignEnd="@+id/orderListPrice" /-->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/delButton"
+        android:layout_margin="@dimen/order_total_padding"
+        android:text="Eyða"/>
 
 </RelativeLayout>
