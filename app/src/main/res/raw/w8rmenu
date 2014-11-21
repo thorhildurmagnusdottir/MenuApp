@@ -3,22 +3,40 @@
     <submenu>
         <title>Forréttir</title>
         <imghash>1</imghash>
+        <submenupic>http://mobiledemo.lsretail.com/w8r/images/sm_snittur.png</submenupic>
         <items>
             <item id="1">
                 <name>Humarhalar</name>
                 <description>Hvítlaukssteiktir humarhalar, bornir fram með heimabökuðu brauði og þremur tegundum af smjöri</description>
-                <price>2990</price>
+                <price>3990</price>
                 <allergens>Mjólk, Skelfiskur</allergens>
                 <ingredients>Humarhalar, hvítlaukur, smjör, ger </ingredients>
+                <calories>590</calories>
+                <vegetarian>FALSE</vegetarian>
+                <imghash>100</imghash>
+                <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/humarhalar_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/humarhalar.png</bigthumb>
+            </item>
+
+            <item id="2">
+                <name>Laxabrauðsnittur</name>
+                <description>Súrdeigssnittur með laxabitum, dilli og rótarsmjöri</description>
+                <price>1990</price>
+                <allergens>Fiskur, ger</allergens>
+                <ingredients>Lax, dill, rjómi, næpa, radísur, súrdeigsbrauð, ger</ingredients>
                 <calories>390</calories>
                 <vegetarian>FALSE</vegetarian>
-                <picture> http://www.decalsplanet.com/img_b/vinyl-decal-sticker-6890.jpg </picture>
+                <imghash>101</imghash>
                 <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/snittur_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/snittur.png</bigthumb>
             </item>
-            <item id="2">
+
+            <item id="3">
                 <name>Humarsúpa</name>
                 <description>Rjómalöguð humarsúpa með tómatpúrru og ferskri steinselju</description>
-                <price>1990</price>
+                <price>2990</price>
                 <allergens>
                     <allergen>
                         fish
@@ -27,10 +45,13 @@
                 <ingredients>Humarhalar, hvítlaukur, smjör, ger, tómatpúrra, steinselja, rjómi</ingredients>
                 <calories>450</calories>
                 <vegetarian>FALSE</vegetarian>
-                <picture> http://www.decalsplanet.com/img_b/vinyl-decal-sticker-6890.jpg </picture>
-                <preptime>30</preptime>
+                <imghash>102</imghash>
+                <preptime>20</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/humarsupa_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/humarsupa.png</bigthumb>
             </item>
-            <item id="3">
+
+            <item id="4">
                 <name>Proscuitto e melone</name>
                 <description>Parmaskinka með niðurskorinni kantalópu melónu </description>
                 <price>1490</price>
@@ -38,16 +59,34 @@
                 <ingredients>Parmaskinka, melóna</ingredients>
                 <calories>400</calories>
                 <vegetarian>FALSE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+                <imghash>103</imghash>
                 <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/melone_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/melone.png</bigthumb>
             </item>
+
+            <item id="5">
+                <name>Hnetukjúklingur</name>
+                <description>Kjúklingur með steiktum spergilkáli og satay hnetusósu</description>
+                <price>1890</price>
+                <allergens></allergens>
+                <ingredients>Kjúklingur, spergilkál, rjómi, smjör</ingredients>
+                <calories>400</calories>
+                <vegetarian>FALSE</vegetarian>
+                <imghash>104</imghash>
+                <preptime>15</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/kjuklingur_brokkoli_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/kjuklingur_brokkoli.png</bigthumb>
+            </item>
+
         </items>
     </submenu>
     <submenu>
         <title>Aðalréttir</title>
         <imghash>2</imghash>
+        <submenupic>http://mobiledemo.lsretail.com/w8r/images/sm_kjuklingabringa.png</submenupic>
         <items>
-            <item id="4">
+            <item id="6">
                 <name>Hamborgari hússins</name>
                 <description>Grillaður hamborgari með klettasalati, tómötum, eggi og beikon, borin fram með bernaise sósu</description>
                 <price>2599</price>
@@ -55,101 +94,179 @@
                 <ingredients>Nautakjöt, klettasalat, tómatur, egg, beikon</ingredients>
                 <calories>550</calories>
                 <vegetarian>FALSE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+                <imghash>105</imghash>
                 <preptime>20</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/hamborgari_hussins_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/hamborgari_hussins.png</bigthumb>
             </item>
-            <item id="5">
-                <name>Pasta</name>
-                <description>Grískt pasta með grænum og svörtum ólífum, hvítlauksolíu, sólþurrkuðum tómötum og ætiþislum</description>
+            <item id="7">
+                <name>Alfa Salat</name>
+                <description>Grískt salat með grænum og svörtum ólífum, hvítlauksolíu, sólþurrkuðum tómötum og ætiþislum</description>
                 <price>1890</price>
                 <allergens></allergens>
                 <ingredients>Pasta, ólífur, hvítlaukur, ólífuolía, tómatar, ætiþislar</ingredients>
                 <calories>690</calories>
                 <vegetarian>TRUE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+                <imghash>106</imghash>
                 <preptime>15</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/salat_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/salat.png</bigthumb>
             </item>
-            <item id="6">
-                <name>Pizza bianco</name>
-                <description>Eldbökuð flatbaka með basil laufum, mozzarella osti og tómötum. (Án pizzusósu). </description>
+            <item id="8">
+                <name>Pizza Margarita</name>
+                <description>Eldbökuð flatbaka með mozzarella osti og pizzusósu úr sólþurrkuðum tómötum.</description>
                 <price>2590</price>
                 <allergens>Hveiti, mjólkurafurð, ostur, ger, hveiti</allergens>
                 <ingredients>Basilika, mozzarella ostur, tómatur, hveiti, ger</ingredients>
                 <calories>550</calories>
                 <vegetarian>TRUE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
+                <imghash>107</imghash>
                 <preptime>20</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/margarita_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/margarita.png</bigthumb>
+            </item>
+            <item id="9">
+                <name>Kjúklingaleggir</name>
+                <description>Ofnbakaðir kjúklingaleggir bornir fram með grilluðum kartöflubátum, kirsuberjatómötum og salati </description>
+                <price>2790</price>
+                <allergens></allergens>
+                <ingredients>ostur, ger, tómatar, salat, kartöflur, salat, gúrka</ingredients>
+                <calories>550</calories>
+                <vegetarian>FALSE</vegetarian>
+                <imghash>107</imghash>
+                <preptime>20</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/margarita_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/margarita.png</bigthumb>
+            </item>
+            <item id="10">
+                <name>Nautafille</name>
+                <description>Nautafille borið fram með rauðvínslagaðri sveppasósu, bökuðum kartöflustrimlum og kartöflumús</description>
+                <price>4590</price>
+                <allergens>Nautafille, sveppir, hveiti, kartöflur</allergens>
+                <ingredients>Basilika, mozzarella ostur, tómatur, hveiti, ger</ingredients>
+                <calories>550</calories>
+                <vegetarian>FALSE</vegetarian>
+                <imghash>107</imghash>
+                <preptime>20</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/nautafille_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/nautafille.png</bigthumb>
             </item>
         </items>
     </submenu>
     <submenu>
         <title>Eftirréttir</title>
         <imghash>3</imghash>
+        <submenupic>http://mobiledemo.lsretail.com/w8r/images/sm_gelato.png</submenupic>
         <items>
-            <item id="7">
-                <name>Bananasplitt</name>
-                <description>Grillaður banani með heimalöguðum vanilluís, súkkulaðinibbum, jarðaberjum og bráðinni karamellu</description>
+            <item id="11">
+                <name>Myntu- og sítrónu gelato</name>
+                <description>Myntu- og sítrónu gelato sorbet með jarðaberjum, lime og vanillustöngum</description>
                 <price>1490</price>
                 <allergens>Mjólkurafurð, jarðaber</allergens>
-                <ingredients>Banani, vanilluís, súkkulaði, kakó, jarðaber, sykur, karamella</ingredients>
+                <ingredients>Mynta, sítróna, jarðaber, lime, vanilla, sykur</ingredients>
                 <calories>600</calories>
                 <vegetarian>TRUE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-                <preptime>15</preptime>
+                <imghash>108</imghash>
+                <preptime>10</preptime>
             </item>
-            <item id="8">
-                <name>Crème brûlée</name>
-                <description>Klassískt créme brulée</description>
+            <item id="12">
+                <name>Eplakaka</name>
+                <description>Eplakaka með rauðum eplum, púðursykri, borin fram með vanillurjóma</description>
                 <price>1490</price>
-                <allergens></allergens>
-                <ingredients>Eggjarauður, sykur rjómi</ingredients>
-                <calories>440</calories>
-                <vegetarian>FALSE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-                <preptime>20</preptime>
+                <allergens>Egg</allergens>
+                <ingredients>Súkkulaði, hveiti, egg, flórsykur</ingredients>
+                <calories>500</calories>
+                <vegetarian>TRUE</vegetarian>
+                <imghash>110</imghash>
+                <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/eplakaka_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/eplakaka.png</bigthumb>
             </item>
-            <item id="9">
-                <name>Sacher terta</name>
-                <description>Súkkulaðiterta með súkkulaðikremi og aprikósusultu, borin fram með rjóma eða vanilluís</description>
+            <item id="13">
+                <name>Randalína</name>
+                <description>Randalína með kaffikremi og dökku súkkulaði</description>
                 <price>1490</price>
                 <allergens></allergens>
                 <ingredients>Súkkulaði, hveiti, egg, flórsykur, aprikósusulta, </ingredients>
                 <calories>500</calories>
-                <vegetarian>FALSE</vegetarian>
-                <picture> http://cdn.gingerandtomato.com/wp-content/uploads/2010/07/4034349625_fa187c7dd9.jpg</picture>
-                <preptime>20</preptime>
+                <vegetarian>TRUE</vegetarian>
+                <imghash>110</imghash>
+                <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/randalina_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/randalina.png</bigthumb>
+            </item>
+            <item id="14">
+                <name>Karamelluterta</name>
+                <description>Karamelluterta með léttu vanillukremi, kakónibbum og hafrabotni</description>
+                <price>1490</price>
+                <allergens></allergens>
+                <ingredients>Súkkulaði, hveiti, egg, flórsykur, kakó, hafrar, sykur, karamella</ingredients>
+                <calories>500</calories>
+                <vegetarian>TRUE</vegetarian>
+                <imghash>110</imghash>
+                <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/randalina_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/randalina.png</bigthumb>
+            </item>
+            <item id="15">
+                <name>Kaffi og croissant</name>
+                <description>Ilmandi kaffi malað úr eþíópskum baunum ásamt frönsku horni með ljúffengri fyllingu</description>
+                <price>1290</price>
+                <allergens></allergens>
+                <ingredients>kaffi, croissant, apríkósusulta</ingredients>
+                <calories>500</calories>
+                <vegetarian>TRUE</vegetarian>
+                <imghash>110</imghash>
+                <preptime>10</preptime>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/kaffi_croissant_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/kaffi_croissant.png</bigthumb>
             </item>
         </items>
     </submenu>
     <submenu>
         <title>Drykkir</title>
         <imghash>4</imghash>
-            <items>
-                <item id="10">
-                    <name>Hvítvín hússins</name>
-                    <price>990</price>
-                    <description>Vínið er gullið, kremað og ávaxtakennt.  Það er líflegt þegar það er drukkið eitt og sér en þykknar upp þegar þess er neytt með mat.</description>
-                </item>
-                <item id="11">
-                    <name>Rauðvín hússins</name>
-                    <price>990</price>
-                    <description>Ákafur angan af rauðum berjum, virkilega þroskaður, mjúkur og höfugur í munni með fágaðri fyllingu. Dökk þroskuð ber einkenna bragðið, mikil fylling gott jafnvægi og þægilega ferskt. </description>
-                </item>
-                <item id="12">
-                    <name>Úlfur (bjór)</name>
-                    <price>990</price>
-                    <description>Gullinn. Þétt meðalfylling, þurr, ferskur, beiskur. Suðrænn ávöxtur, malt, grösugir og blómlegir humlar.</description>
-                </item>
-                <item id="13">
-                    <name>Coca Cola</name>
-                    <price>290</price>
-                    <description>Njóttu Coke með #W8R</description>
-                </item>
-                <item id="14">
-                    <name>Kaffi, La Esperanza</name>
-                    <price>290</price>
-                    <description>Reykjavik Roasters: Fylling og áferð af möndlum og mjólkursúkkulaði. Sæta af hnetum og sýra af blóðappelsínum bætir hvort annað upp. </description>
-                </item>
+        <submenupic>http://mobiledemo.lsretail.com/w8r/images/sm_berjakokteill.png</submenupic>
+        <items>
+            <item id="16">
+                <name>Hvítvín hússins</name>
+                <price>990</price>
+                <description>Vínið er gullið, kremað og ávaxtakennt. Það er líflegt þegar það er drukkið eitt og sér en þykknar upp þegar þess er neytt með mat.</description>
+                <imghash>111</imghash>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/kaffi_croissant_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/kaffi_croissant.png</bigthumb>
+            </item>
+            <item id="17">
+                <name>Rauðvín hússins</name>
+                <price>990</price>
+                <description>Ákafur angan af rauðum berjum, virkilega þroskaður, mjúkur og höfugur í munni með fágaðri fyllingu. Dökk þroskuð ber einkenna bragðið, mikil fylling gott jafnvægi og þægilega ferskt. </description>
+                <imghash>112</imghash>
+            </item>
+
+            <item id="18">
+                <name>Úlfur (bjór)</name>
+                <price>990</price>
+                <description>Gullinn. Þétt meðalfylling, þurr, ferskur, beiskur. Suðrænn ávöxtur, malt, grösugir og blómlegir humlar.</description>
+                <imghash>113</imghash>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/ulfur_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/ulfur.png</bigthumb>
+            </item>
+            <item id="19">
+                <name>Coca Cola</name>
+                <price>290</price>
+                <description>Njóttu Coke með #W8R</description>
+                <imghash>114</imghash>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/cocacola_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/cocacola.png</bigthumb>
+            </item>
+            <item id="20">
+                <name>Kaffi, La Esperanza</name>
+                <price>290</price>
+                <description>Reykjavik Roasters: Fylling og áferð af möndlum og mjólkursúkkulaði. Sæta af hnetum og sýra af blóðappelsínum bætir hvort annað upp. </description>
+                <imghash>115</imghash>
+                <smallthumb>http://mobiledemo.lsretail.com/w8r/images/kaffi_small.png</smallthumb>
+                <bigthumb>http://mobiledemo.lsretail.com/w8r/images/kaffi.png</bigthumb>
+            </item>
         </items>
     </submenu>
 </menu>
