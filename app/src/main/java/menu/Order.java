@@ -1,5 +1,7 @@
 package menu;
 
+import android.util.Log;
+
 /**
  * Created by Dagný on 30.10.2014.
  */
@@ -39,6 +41,18 @@ public class Order {
 			sum += order.get(i).getPrice();
 
 		return sum;
+	}
+
+
+	public static boolean pay() {
+		//TODO Herma einhverja borgunarvirkni.
+		Log.i("Order:", "Borgaðu, helvítið þitt! Ok, gott, takk.");
+		return Order.clear();
+	}
+
+	public static boolean clear() {
+		order = new SubMenu();
+		return true;
 	}
 
     public static boolean isEmpty() {

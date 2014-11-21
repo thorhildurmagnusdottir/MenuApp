@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
 //        Context theContext = getApplicationContext();
         displayMenu();
 	}
+
     public void displayMenu(){
         //		super.onCreate(savedInstanceState);
 //		setContentView(R.layout.activity_main);
@@ -57,7 +58,10 @@ public class MainActivity extends Activity {
 /*
 		TextView smName = (TextView) findViewById(R.id.smName);
 		smName.setText(W8r.get(0).getName());*/
-    }
+
+		//Test, má henda út
+//		Order.addOrder(W8r.get(1).get(1));
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

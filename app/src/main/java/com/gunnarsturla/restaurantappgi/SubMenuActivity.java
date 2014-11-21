@@ -1,7 +1,8 @@
 package com.gunnarsturla.restaurantappgi;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +26,10 @@ public class SubMenuActivity extends Activity {
 
 	// Það view (ef eitthvað) sem er expanded
 	private View expandedCard;
+
+	// Er pantanalistafragmentið sýnilegt?
+	private boolean ordrFragVis;
+	private OrderFragment orderFragment;
 
 	private View.OnClickListener cardExpander;
 	private View.OnClickListener cardCollapser;
@@ -92,9 +97,26 @@ public class SubMenuActivity extends Activity {
 
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_viewOrder) {
-			Intent intent = new Intent(this, OrderActivity.class);
 
-			startActivity(intent);
+			FragmentManager fragmentManager = getFragmentManager();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+			if(!ordrFragVis) {
+				// Bætum fragmentinu inn í þetta alltsaman
+				orderFragment = new OrderFragment();
+				fragmentTransaction.add(R.id.smRoot, orderFragment);
+				fragmentTransaction.setCustomAnimations(R.anim.enter_from_top, R.anim.exit_to_top);
+				fragmentTransaction.addToBackStack(null);
+
+				ordrFragVis = true;
+
+			} else {
+				fragmentTransaction.remove(orderFragment);
+				fragmentManager.popBackStack();
+				ordrFragVis = false;
+			}
+			fragmentTransaction.commit();
+
 			return true;
 		}
 
@@ -121,11 +143,10 @@ public class SubMenuActivity extends Activity {
 		TextView ctv = (TextView) v.findViewById(R.id.itemNumber);
 		int child = Integer.parseInt(ctv.getText().toString());
 
-		if(W8r.get(parent).get(child).getIngredients() != null)
-			ingredTv.setText("Innihald: " + W8r.get(parent).get(child).getIngredients());
+		ingredTv.setVisibility(View.VISIBLE);
 
-		if(W8r.get(parent).get(child).getCalories() != 0)
-			calTv.setText("Kalóríur: " + W8r.get(parent).get(child).getCalories() +" kcal");
+
+		calTv.setVisibility(View.VISIBLE);
 
 
 		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
@@ -145,8 +166,8 @@ public class SubMenuActivity extends Activity {
 		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
 
-		ingredTv.setText("");
-		calTv.setText("");
+		ingredTv.setVisibility(View.INVISIBLE);
+		calTv.setVisibility(View.INVISIBLE);
 
 
 		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);

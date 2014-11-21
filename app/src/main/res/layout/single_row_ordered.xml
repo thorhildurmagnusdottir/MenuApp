@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="wrap_content"
+	    android:id="@+id/orderItemThumb"
+	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher"
-        android:layout_margin="10dp"
-        android:id="@+id/orderListThumb" />
+        android:layout_margin="10dp"/>
 
     <TextView
+	    android:id="@+id/orderItemName"
         android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="HVAÐ ÞÚ PANTAÐIR 1"
-        android:id="@+id/orderListName"
-        android:layout_alignTop="@+id/orderListThumb"
-        android:layout_toRightOf="@+id/orderListThumb"
-        android:layout_toEndOf="@+id/orderListThumb" />
+        android:layout_alignTop="@+id/orderItemThumb"
+        android:layout_toRightOf="@+id/orderItemThumb"
+        android:layout_toEndOf="@+id/orderItemThumb" />
 
     <TextView
+	    android:id="@+id/orderItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="VERÐ 2990.-kr"
-        android:id="@+id/orderListPrice"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/orderListName"
-        android:layout_toRightOf="@+id/orderListThumb"
-        android:layout_toEndOf="@+id/orderListThumb" />
+        android:layout_alignBottom="@+id/orderItemName"
+        android:layout_toRightOf="@+id/orderItemThumb"
+        android:layout_toEndOf="@+id/orderItemThumb" />
 
-    <!--Button
+    <Button
+	    android:id="@+id/orderItemRemove"
         android:layout_width="30dp"
         android:layout_height="50dp"
-        android:id="@+id/imageButton2"
         android:text="X"
-
-        android:layout_alignRight="@+id/orderListPrice"
-        android:layout_alignEnd="@+id/orderListPrice" /-->
+        android:layout_alignRight="@+id/orderItemPrice"
+        android:layout_alignEnd="@+id/orderItemPrice" />
 
 </RelativeLayout>

@@ -1,6 +1,5 @@
 package com.gunnarsturla.restaurantappgi;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import menu.Item;
 import menu.Order;
@@ -27,10 +27,10 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 	// you provide access to all the views for a data item in a view holder
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		// each data item is just a string in this case
-		public TextView itemName, itemDescription, itemPrice, itemCalories, itemNumber, itemParent;
+		public TextView itemName, itemDescription, itemPrice, itemCalories, itemNumber, itemParent, itemIngredients;
 		private ImageView itemThumb;
 		private ImageButton orderButton;
-		private CardView itemCard;
+//		private CardView itemCard;
 
 		public ViewHolder(View v) {
 			super(v);
@@ -40,10 +40,11 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 			itemCalories 	= (TextView) itemView.findViewById(R.id.itemCalories);
 			itemNumber 		= (TextView) itemView.findViewById(R.id.itemNumber);
 			itemParent		= (TextView) itemView.findViewById(R.id.itemParent);
+			itemIngredients = (TextView) itemView.findViewById(R.id.itemIngredients);
 
 			orderButton		= (ImageButton) itemView.findViewById(R.id.orderButton);
 			itemThumb		= (ImageView) itemView.findViewById(R.id.itemThumb);
-			itemCard 		= (CardView) itemView.findViewById(R.id.itemCard);
+//			itemCard 		= (CardView) itemView.findViewById(R.id.itemCard);
 		}
 	}
 
@@ -76,6 +77,8 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
 		holder.itemPrice.setText(""+ W8r.get(parentNumber).get(position).getPrice() + " kr.");
 
+
+
 		// Smellum parentNumber og itemNumber inn í falin TextView;
 		holder.itemNumber.setText(""+position);
 		holder.itemParent.setText(""+parentNumber);
@@ -91,13 +94,14 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		holder.orderButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//Order.addOrder(W8r.get(groupPosition).get(childPosition));
 
 				Item i = W8r.get(parentNumber).get(position);
 
 				if(Order.addOrder(i)) {
 					Log.i("SubMenuAdapter", "Pantaði " + i.getName());
-					//Toast.makeText(SubMenuActivity.this, "Þjónn kemur skjótt", Toast.LENGTH_LONG).show();
+					Toast.makeText(MainActivity.context, "Bætti " + i.getName() + " við pöntun.", Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(MainActivity.context, "Tókst ekki að bæta " + i.getName() + " við pöntun.", Toast.LENGTH_SHORT).show();
 				}
 			}
 		}
