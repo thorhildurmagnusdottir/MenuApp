@@ -33,6 +33,7 @@ public class OrderActivity extends Activity {
         orderList = (ListView) findViewById(R.id.listViewOrdered);
         //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matur);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderItemName,orderArr );
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderListName,orderArr);
         orderList.setAdapter(adapter);
 
         TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
@@ -46,7 +47,6 @@ public class OrderActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     private class LayoutInflater {
