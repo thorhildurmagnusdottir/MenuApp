@@ -1,5 +1,6 @@
 package com.gunnarsturla.restaurantappgi;
 
+import android.graphics.Bitmap;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,7 +22,6 @@ import menu.Order;
 public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHolder> {
 	//private W8r w8r;
 	private int parentNumber;
-
 	// Provide a reference to the views for each data item
 	// Complex data items may need more than one view per item, and
 	// you provide access to all the views for a data item in a view holder
@@ -31,7 +31,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		private ImageView itemThumb;
 		private ImageButton orderButton;
 		private CardView itemCard;
-
 		public ViewHolder(View v) {
 			super(v);
 			itemName		= (TextView) itemView.findViewById(R.id.itemName);
@@ -62,8 +61,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 				.inflate(R.layout.card_item, parent, false);
 		// set the view's size, margins, paddings and layout parameters
 		System.out.println("Debug: inflating card number "+ parentNumber);
-
-
 		return new ViewHolder(v);
 	}
 
@@ -79,11 +76,11 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		// Smellum parentNumber og itemNumber inn í falin TextView;
 		holder.itemNumber.setText(""+position);
 		holder.itemParent.setText(""+parentNumber);
-
+        holder.itemThumb.setImageBitmap(W8r.get(parentNumber).get(position).getThumbBig());
 
 		// Sæki Recource ID á thumb1123.jpg til að birta sem bg
-		int thumbId = MainActivity.context.getResources().getIdentifier("thumb1123.png", "drawable", MainActivity.context.getPackageName());
-		holder.itemThumb.setImageResource(thumbId);
+//		int thumbId = MainActivity.context.getResources().getIdentifier("thumb1123.png", "drawable", MainActivity.context.getPackageName());
+//		holder.itemThumb.setImageResource(thumbId);
 
 
 		//int drawableResourceId = this.getResources().getIdentifier("nameOfDrawable", "drawable", this.getPackageName());
@@ -109,7 +106,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 
 
 	}
-
 	// Return the size of your dataset (invoked by the layout manager)
 	@Override
 	public int getItemCount() {

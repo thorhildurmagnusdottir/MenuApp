@@ -99,10 +99,7 @@ public class MenuAdapter extends BaseExpandableListAdapter {
 		tv.setText(wm.get(groupPosition).getName());
 		tv.setTextSize(35);
 		tv.setPadding(60, 100, 30, 5);
-
-
 /*		Resources res = context.getResources();
-
 		Drawable drawable = res.getDrawable(R.drawable.sm121);
 		tv.setBackground(drawable);*/
 		tv.setHeight(220);
