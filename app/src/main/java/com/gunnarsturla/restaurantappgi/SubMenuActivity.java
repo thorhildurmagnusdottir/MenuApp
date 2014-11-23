@@ -103,14 +103,17 @@ public class SubMenuActivity extends Activity {
 
 			if(!ordrFragVis) {
 				// Bætum fragmentinu inn í þetta alltsaman
+				fragmentTransaction.setCustomAnimations(R.animator.enter_from_top, R.animator.exit_to_top);
+
 				orderFragment = new OrderFragment();
 				fragmentTransaction.add(R.id.smRoot, orderFragment);
-				fragmentTransaction.setCustomAnimations(R.anim.enter_from_top, R.anim.exit_to_top);
 				fragmentTransaction.addToBackStack(null);
 
 				ordrFragVis = true;
 
 			} else {
+				fragmentTransaction.setCustomAnimations(R.animator.exit_to_top,R.animator.exit_to_top);
+
 				fragmentTransaction.remove(orderFragment);
 				fragmentManager.popBackStack();
 				ordrFragVis = false;

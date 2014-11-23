@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import menu.Item;
 import menu.Order;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder> {
@@ -30,7 +29,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			itemName = (TextView) v.findViewById(R.id.orderItemName);
 			itemPrice = (TextView) v.findViewById(R.id.orderItemPrice);
 			thumb = (ImageView) v.findViewById(R.id.orderItemThumb);
-			deleteBtn = (Button) v.findViewById(R.id.orderItemRemove);
+		//	deleteBtn = (Button) v.findViewById(R.id.orderItemRemove);
 		}
 	}
 
@@ -62,7 +61,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 		holder.itemPrice.setText(Order.get(position).getPrice() + " kr.");
 		Drawable img = holder.v.getContext().getResources().getDrawable(R.drawable.ic_launcher);
 		holder.thumb.setImageDrawable(img);
-		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+/*		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
 												@Override
 												public void onClick(View v) {
 
@@ -71,7 +70,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
 				}
 			}
-		);
+		);*/
 
 	}
 

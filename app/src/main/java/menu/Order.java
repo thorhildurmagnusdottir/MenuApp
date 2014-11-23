@@ -26,15 +26,6 @@ public class Order {
         return order;
     }
 
-    public static int sum() {
-
-        int sum = 0;
-        for (int i = 0; i < order.size(); i++) {
-            sum = sum + (order.get(i).getPrice());
-        }
-        return sum;
-    }
-
 	public static int getTotal() {
 		int sum = 0;
 		for(int i = 0; i < order.size(); ++i)
@@ -60,7 +51,11 @@ public class Order {
     }
     // skilar inn í OrderListAdapter
     public static int size() {
-        return order.size();
+		if(order != null) {
+			return order.size();
+		} else {
+			return 0;
+		}
     }
 }
 

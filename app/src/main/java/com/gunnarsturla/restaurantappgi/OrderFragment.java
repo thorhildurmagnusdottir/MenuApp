@@ -48,6 +48,7 @@ public class OrderFragment extends Fragment {
 
 	private TextView orderTotal;
 
+	private View orderContainer;
 
 
 	/**
@@ -101,6 +102,9 @@ public class OrderFragment extends Fragment {
 
 		Log.i("Fragment:", "Setting RV");
 
+
+		View orderContainer = v.findViewById(R.id.orderContainer);
+
 		return v;
 	}
 
@@ -136,6 +140,8 @@ public class OrderFragment extends Fragment {
 		orderTotal.setText(Order.getTotal() + " kr.");
 
 		Log.i("Fragment:", "Starting Fragment");
+
+		orderContainer.getLayoutParams().height = 109 + (Order.size() * 80);
 
 	}
 	@Override
