@@ -1,11 +1,10 @@
 package menu;
 
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import java.util.Vector;
-
-import menu.Item;
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -18,6 +17,17 @@ public class SubMenu {
     private String 	name,
             imghash;
     private Vector<Item> items;
+    private String picture;
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    private Bitmap bitmap;
 
     public SubMenu(String name, String imghash) {
         this.name 		 = name;
@@ -46,9 +56,11 @@ public class SubMenu {
         this.name = name;
     }
     public void setImghash(String hash) { this.imghash = hash; }
+    public void setPicture(String pic) { this.picture = pic; }
     public int 	  size()			{ return items.size();	}
     public String getName()   		{ return name; 			}
     public String getImghash()		{ return imghash;   	}
+    public String getPicture()      { return picture; }
     public Item get(int i)	{ return items.get(i);	}
 
     // eyðir öllu út úr items, en bara ef þetta er pöntun

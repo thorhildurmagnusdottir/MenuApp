@@ -11,7 +11,6 @@ import menu.SubMenu;
  * Created by Gunnar on 26.10.14.
  */
 public class W8r {
-    public static MainActivity mainActivity;
 	private static Vector<SubMenu> w8rMenu;
 	private static SubMenu order;
 
@@ -44,19 +43,17 @@ public class W8r {
             }
         }
         submenuPrinting = submenuPrinting + "submenu er null";
-        Log.i("getMenuFromXML", submenuPrinting);
+//        Log.i("getMenuFromXML", submenuPrinting);
         //  End XMLParsing chapter
         // ==========================================================
 		order = new SubMenu();
-//        mainActivity.displayMenu();
 	}
 
 	public static SubMenu get(int number) {
 		return w8rMenu.get(number);
 	}
-
 	public static int size() { return w8rMenu.size();  }
-
+    public static Vector<SubMenu> getW8rMenu() { return w8rMenu; }
 	// Ný vara pöntuð
 //	public static boolean order(Item item) { return order.addItem(item); }
 }

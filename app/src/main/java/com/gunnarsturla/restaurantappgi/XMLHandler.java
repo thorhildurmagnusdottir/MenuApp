@@ -45,47 +45,32 @@ public class XMLHandler extends DefaultHandler {
     boolean bImgh = false;
     boolean sName = false;
     boolean sImgh = false;
-
+    boolean sPic = false; // submenupic
+    boolean bThumbBig = false; // bigthumb
+    boolean bThumbSmall = false; // smallthumb
     /*  Set each boolean variable as true when an element is started to tell the handler that he
      *  can set the appropriate Item attribute (in method characters()).
      */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{
-        if (qName.equalsIgnoreCase("submenu")){
-            subMenu = new SubMenu("submenuTest", "");
-        }
-        else if (qName.equalsIgnoreCase("title")){
-            sName = true;
-        }
-        else if (qName.equalsIgnoreCase("simgh")){
-            sImgh = true;
-        }
+        if (qName.equalsIgnoreCase("submenu")){ subMenu = new SubMenu("submenuTest", ""); }
+        else if (qName.equalsIgnoreCase("submenupic")){            sPic = true;        }
+        else if (qName.equalsIgnoreCase("title")){            sName = true;        }
+        else if (qName.equalsIgnoreCase("simgh")){            sImgh = true;        }
         else if (qName.equalsIgnoreCase("item")){
             int id = Integer.parseInt(attributes.getValue("id"));
             Log.i("start element item", Integer.toString(id));
             currentItem = new Item(id);
-            if (null == items){
-                items = new Vector<Item>();
-            }
+            if (null == items){   items = new Vector<Item>();   }
         }
-        else if (qName.equalsIgnoreCase("name")){
-            bName = true;
-        }
-        else if (qName.equalsIgnoreCase("price")){
-            bPrice = true;
-        }
-        else if (qName.equalsIgnoreCase("description")){
-            bDesc = true;
-        }
-        else if (qName.equalsIgnoreCase("ingredients")){
-            bIngr = true;
-        }
-        else if (qName.equalsIgnoreCase("calories")){
-            bCals = true;
-        }
-        else if (qName.equalsIgnoreCase("name")){
-            bImgh = true;
-        }
+        else if (qName.equalsIgnoreCase("name")){            bName = true;        }
+        else if (qName.equalsIgnoreCase("price")){ bPrice = true;        }
+        else if (qName.equalsIgnoreCase("description")){            bDesc = true;        }
+        else if (qName.equalsIgnoreCase("ingredients")){            bIngr = true;        }
+        else if (qName.equalsIgnoreCase("calories")){            bCals = true;        }
+        else if (qName.equalsIgnoreCase("name")){            bImgh = true;        }
+        else if (qName.equalsIgnoreCase("smallthumb")){            bThumbSmall = true;        }
+        else if (qName.equalsIgnoreCase("bigthumb")){            bThumbBig = true;        }
     }
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException{
@@ -93,13 +78,10 @@ public class XMLHandler extends DefaultHandler {
             items.add(currentItem);
             subMenu.addItem(currentItem);
         }
-        else if (qName.equalsIgnoreCase("submenu")){
-            allSubMenus.add(subMenu);
-        }
+        else if (qName.equalsIgnoreCase("submenu")){   allSubMenus.add(subMenu);   }
     }
     @Override
     public void characters(char ch[], int start, int length) throws SAXException{
-
         if (sName) {
             String name = new String(ch, start, length);
             subMenu.setName(name);
@@ -108,7 +90,12 @@ public class XMLHandler extends DefaultHandler {
         else if (sImgh) {
             String hash = new String(ch, start, length);
             subMenu.setImghash(hash);
-            sName = false;
+            sImgh = false;
+        }
+        else if (sPic) {
+            subMenu.setPicture(new String(ch, start, length));
+//            Log.i("thumb small has", new String(ch, start, length));
+            sPic = false;
         }
         else if (bName) {
             String name = new String(ch, start, length);
@@ -139,6 +126,16 @@ public class XMLHandler extends DefaultHandler {
             int price = Integer.parseInt(new String(ch, start, length));
             currentItem.setPrice(price);
             bPrice = false;
+        }
+        else if (bThumbBig) {
+            currentItem.setThumbBigUrl(new String(ch, start, length));
+//            Log.i("thumb Big has", new String(ch, start, length));
+            bThumbBig = false;
+        }
+        else if (bThumbSmall) {
+            currentItem.setThumbSmallUrl(new String(ch, start, length));
+//            Log.i("thumb small has", new String(ch, start, length));
+            bThumbSmall = false;
         }
     }
 }

@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:id="@+id/textView"
+        android:id="@+id/oneMoment"
         android:layout_marginTop="@dimen/sub_menu_header_height"
         android:layout_marginLeft="@dimen/sub_menu_header_padding_left"
         android:layout_marginRight="@dimen/sub_menu_header_padding_left"/>
