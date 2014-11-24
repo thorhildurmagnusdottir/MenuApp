@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package data;
 
 
 /**
@@ -10,6 +10,8 @@ package com.gunnarsturla.restaurantappgi;
 
 import android.os.Environment;
 import android.util.Log;
+
+import com.gunnarsturla.menuapp.Constants;
 
 import org.xml.sax.SAXException;
 
@@ -54,7 +56,6 @@ public class XMLParser {
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
-//            XMLHandler handler = new XMLHandler();
             saxParser.parse(this.xml, handler);
             this.items = handler.getItems();
             this.totalMenu = handler.getMenu();
@@ -71,7 +72,10 @@ public class XMLParser {
         Log.i("ParseXML", "came here");
         InputStream menuXML = null;   // returns InputStream
         File sdcard = Environment.getExternalStorageDirectory();
-        File file = new File(sdcard,Constants.menuFile);
+        File file = new File(sdcard, Constants.menuFile);
+//        Uncomment if we figure this out or remove if we don't :)
+//        File path = getExternalFilesDir(null);
+//        File file = new File(path,Constants.menuFile);
         try {
             menuXML = new FileInputStream(file);
         } catch (FileNotFoundException e) {

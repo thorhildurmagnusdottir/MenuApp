@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package com.gunnarsturla.menuapp;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import data.W8r;
 
 /**
  * Created by Gunnar on 23.10.14.

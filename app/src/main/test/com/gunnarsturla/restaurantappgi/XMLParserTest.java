@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package com.gunnarsturla.menuapp;
 
 import junit.framework.TestCase;
 

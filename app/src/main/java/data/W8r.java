@@ -1,6 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
-
-import android.util.Log;
+package data;
 
 import java.util.Vector;
 
@@ -25,7 +23,7 @@ public class W8r {
         XMLParser myParser = new XMLParser(theHandler);
         // Gets the items from the file saved on the pad and parses the xml to items
         myParser.populateItems();
-        // returns the populated itesm
+        // returns the populated items
         Vector<SubMenu> newMenu = myParser.populateMenu();
         w8rMenu = newMenu;
         // ==========================================================
@@ -45,7 +43,7 @@ public class W8r {
 //        Log.i("getMenuFromXML", submenuPrinting);
         //  End XMLParsing chapter
         // ==========================================================
-		order = new SubMenu();
+		order = new SubMenu("order", "");
 	}
 
 	public static SubMenu get(int number) {
@@ -53,6 +51,17 @@ public class W8r {
 	}
 	public static int size() { return w8rMenu.size();  }
     public static Vector<SubMenu> getW8rMenu() { return w8rMenu; }
+//    Counts the number of Items in the menu
+	public static int getItemCount()  {
+        int items = 0;
+        Vector<SubMenu> subMenus = w8rMenu;
+        for (SubMenu sm : subMenus){
+            int itemsInSubmenu = sm.size();
+            items += itemsInSubmenu;
+            items ++; // count this submenu as well
+        }
+        return items;
+    }
 	// Ný vara pöntuð
 	public static boolean order(Item item) { return order.addItem(item); }
 }

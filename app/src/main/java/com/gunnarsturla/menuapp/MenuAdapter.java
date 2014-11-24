@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package com.gunnarsturla.menuapp;
 
 import android.content.Context;
 import android.view.View;
@@ -53,12 +53,11 @@ public class MenuAdapter extends BaseExpandableListAdapter {
 		});
 
 		return tv;
-
-
-
 	}
 
-	@Override
+
+
+    @Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		return true;
 	}

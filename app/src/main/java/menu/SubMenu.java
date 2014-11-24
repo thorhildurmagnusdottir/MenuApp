@@ -30,7 +30,6 @@ public class SubMenu {
     }
 
     private Bitmap bitmap;
-
     public SubMenu(String name, String imghash) {
         this.name 		 = name;
         this.imghash	 = imghash;
@@ -41,8 +40,6 @@ public class SubMenu {
     // Þetta er eintak af SubMenu sem heldur
     // utan um pöntunina sem á eftir að senda.
     public SubMenu() {
-        this.name = "order";
-        this.imghash = "";
         items = new Vector<Item>();
     }
     public Vector<Item> getItems() {

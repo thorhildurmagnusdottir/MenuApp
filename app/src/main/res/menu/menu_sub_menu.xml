@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="com.gunnarsturla.restaurantappgi.SubMenuActivity">
+      tools:context="com.gunnarsturla.menuapp.SubMenuActivity">
 	<item android:id="@+id/action_viewOrder"
 	      android:title="@string/action_settings"
 	      android:orderInCategory="100"
