@@ -7,12 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import menu.Order;
 
@@ -32,8 +30,9 @@ public class OrderActivity extends Activity {
 
         orderList = (ListView) findViewById(R.id.listViewOrdered);
         //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matur);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderListName,orderArr);
-        orderList.setAdapter(adapter);
+    //    ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderItemName,orderArr );
+    //    ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.single_row_ordered,R.id.orderListName,orderArr);
+    //    orderList.setAdapter(adapter);
 
         TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
         orderTotal.setText("Your total is " + Order.getTotal());
@@ -41,7 +40,9 @@ public class OrderActivity extends Activity {
         Button borga = (Button) findViewById(R.id.payButton);
         borga.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+
+
+				Toast.makeText(getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
             }
         });
     }

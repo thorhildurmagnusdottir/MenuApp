@@ -11,11 +11,12 @@
 	android:elevation="10dp"
     android:onClick="expandCard"
     android:background="?android:attr/selectableItemBackground"
+    android:animateLayoutChanges="true"
 	>
 
 	<RelativeLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent" >
 
 
 		<TextView
@@ -59,7 +60,8 @@
 			android:layout_alignLeft="@+id/itemDestription"
 			android:textColor="@color/cardview_dark_background"
 			android:layout_marginTop="8dp"
-			android:layout_marginBottom="8dp"/>
+			android:layout_marginBottom="8dp"
+			android:visibility="invisible"/>
 
 		<TextView
 			android:id="@+id/itemCalories"
@@ -70,7 +72,8 @@
 			android:layout_alignLeft="@+id/itemDestription"
 			android:textColor="@color/cardview_dark_background"
 			android:layout_marginTop="8dp"
-			android:layout_marginBottom="8dp"/>
+			android:layout_marginBottom="8dp"
+			android:visibility="invisible"/>
 
 
 		<TextView

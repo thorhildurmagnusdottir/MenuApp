@@ -48,7 +48,8 @@
         <activity
             android:name="com.gunnarsturla.menuapp.StartActivity"
             android:label="@string/title_activity_start"
-	        android:icon="@drawable/w8r_icon">
+	        android:icon="@drawable/w8r_icon"
+	        android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,7 @@
 package menu;
 
+import android.util.Log;
+
 /**
  * Created by Dagný on 30.10.2014.
  */
@@ -24,15 +26,6 @@ public class Order {
         return order;
     }
 
-    public static int sum() {
-
-        int sum = 0;
-        for (int i = 0; i < order.size(); i++) {
-            sum = sum + (order.get(i).getPrice());
-        }
-        return sum;
-    }
-
 	public static int getTotal() {
 		int sum = 0;
 		for(int i = 0; i < order.size(); ++i)
@@ -41,12 +34,28 @@ public class Order {
 		return sum;
 	}
 
+
+	public static boolean pay() {
+		//TODO Herma einhverja borgunarvirkni.
+		Log.i("Order:", "Borgaðu, helvítið þitt! Ok, gott, takk.");
+		return Order.clear();
+	}
+
+	public static boolean clear() {
+		order = new SubMenu();
+		return true;
+	}
+
     public static boolean isEmpty() {
         return order.isEmpty();
     }
     // skilar inn í OrderListAdapter
     public static int size() {
-        return order.size();
+		if(order != null) {
+			return order.size();
+		} else {
+			return 0;
+		}
     }
 }
 

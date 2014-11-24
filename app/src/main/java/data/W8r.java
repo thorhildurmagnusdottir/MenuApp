@@ -11,6 +11,7 @@ import menu.SubMenu;
 public class W8r {
 	private static Vector<SubMenu> w8rMenu;
 	private static SubMenu order;
+
 	public W8r() {
         this.w8rMenu = new Vector<SubMenu>();
         this.order = new SubMenu();
@@ -63,5 +64,5 @@ public class W8r {
         return items;
     }
 	// Ný vara pöntuð
-	public static boolean order(Item item) { return order.addItem(item); }
+//	public static boolean order(Item item) { return order.addItem(item); }
 }

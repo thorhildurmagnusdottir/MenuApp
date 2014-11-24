@@ -6,8 +6,6 @@ import android.util.Log;
 
 import java.util.Vector;
 
-import menu.Item;
-
 /**
  * @author Gunnar Sturla Ágústuson
  * @since 14.10.14
