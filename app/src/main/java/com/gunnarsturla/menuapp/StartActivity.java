@@ -148,7 +148,9 @@ public class StartActivity extends Activity {
                 new GetImageFromWebTask().execute(Constants.submenuImageUrl, name);
                 for (Item i : sm.getItems()){
                     String iname = i.getId() + "item.png" ;
-                    new GetImageFromWebTask().execute(Constants.imageURL, iname);
+                    String itemImageurl = i.getThumbBigUrl();
+//                    L'ina til a[ breyta!!
+                    new GetImageFromWebTask().execute(itemImageurl, iname);
                 }
             }
             return null;

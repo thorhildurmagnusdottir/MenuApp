@@ -1,4 +1,4 @@
-package com.gunnarsturla.restaurantappgi;
+package com.gunnarsturla.menuapp;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -141,7 +141,7 @@ public class OrderFragment extends Fragment {
 
 		Log.i("Fragment:", "Starting Fragment");
 
-		orderContainer.getLayoutParams().height = 109 + (Order.size() * 80);
+//		orderContainer.getLayoutParams().height = 109 + (Order.size() * 80);
 
 	}
 	@Override

@@ -50,7 +50,10 @@ public class W8r {
 	public static SubMenu get(int number) {
 		return w8rMenu.get(number);
 	}
-	public static int size() { return w8rMenu.size();  }
+	public static int size() {
+        if(w8rMenu.isEmpty()){ return 0;}
+        else {return w8rMenu.size();}
+    }
     public static Vector<SubMenu> getW8rMenu() { return w8rMenu; }
 //    Counts the number of Items in the menu
 	public static int getItemCount()  {
