@@ -60,14 +60,4 @@ public class SubMenu {
     public String getPicture()      { return picture; }
     public Item get(int i)	{ return items.get(i);	}
 
-    // eyðir öllu út úr items, en bara ef þetta er pöntun
-    public boolean reset() {
-        if(this.name.equals("order")) {
-            items = new Vector<Item>();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 }
