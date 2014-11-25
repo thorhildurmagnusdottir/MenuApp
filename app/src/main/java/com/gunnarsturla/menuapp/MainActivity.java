@@ -1,6 +1,8 @@
 package com.gunnarsturla.menuapp;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +24,9 @@ public class MainActivity extends Activity {
 	private static RecyclerView mRecyclerView;
 	private static RecyclerView.Adapter mAdapter;
 	private static RecyclerView.LayoutManager mLayoutManager;
+
+    private boolean ordrFragVis;
+    private OrderFragment orderFragment;
 
 	// Skilgreini context hér til að geta náð í það hvar sem er með kallinu MainActivity.context
 	// (Jaaaá, Snorri mundi örugglega skamma mig fyrir að brjóta
@@ -78,11 +83,34 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_viewOrder) {
-            Intent intent = new Intent(this, OrderActivity.class);
 
-            startActivity(intent);
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            if(!ordrFragVis) {
+                // Bætum fragmentinu inn í þetta alltsaman
+                fragmentTransaction.setCustomAnimations(R.animator.enter_from_top, R.animator.exit_to_top);
+
+                orderFragment = new OrderFragment();
+                fragmentTransaction.add(R.id.smRoot, orderFragment);
+                fragmentTransaction.addToBackStack(null);
+
+                ordrFragVis = true;
+
+            } else {
+                fragmentTransaction.setCustomAnimations(R.animator.exit_to_top,R.animator.exit_to_top);
+
+                fragmentTransaction.remove(orderFragment);
+                fragmentManager.popBackStack();
+                ordrFragVis = false;
+            }
+            fragmentTransaction.commit();
+
             return true;
+        }
+        else if (id == R.id.action_callWaiter) {
 
+            CallWaiter.callme(this);
         }
 
         return super.onOptionsItemSelected(item);
