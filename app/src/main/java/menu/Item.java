@@ -106,13 +106,14 @@ public class Item {
     // Notkun, fyrir og eftir er frekar fyrirsjáanlegt.
     public int 	  getId() 			{ return id; 		}
     public int 	  getPrice() 		{ return price; 	}
+	public String getPriceAsString(){ return String.format("%,.2f", price );}
     public int 	  getCalories()		{ return calories; 	}
     public String getName()			{ return name; 		}
     public String getDescription()	{ return description; }
     public String getIngredients()	{ return ingredients; }
     public String getImghash()		{ return imghash;   }
-    public Bitmap getThumbSmall() {       return this.thumbsmall;  }
-    public Bitmap getThumbBig() {       return this.thumbBig;    }
+    public Bitmap getThumbSmall()   { return this.thumbsmall;  }
+    public Bitmap getThumbBig()		{ return this.thumbBig;    }
 
 
     public boolean hasAllergens() 	{ return !allergens.isEmpty(); }
