@@ -35,8 +35,12 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			itemPrice = (TextView) v.findViewById(R.id.orderItemPrice);
 			thumb = (ImageView) v.findViewById(R.id.orderItemThumb);
 			deleteBtn = (ImageButton) v.findViewById(R.id.orderItemRemove);
+<<<<<<< HEAD
 			itemRoot = (RelativeLayout) v.findViewById(R.id.orderListItemRoot);
 			itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+=======
+
+>>>>>>> FETCH_HEAD
 		}
 	}
 
@@ -74,6 +78,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			Bitmap iBitmap = Order.get(position).getThumbBig();
 			holder.thumb.setImageBitmap(Bitmap.createScaledBitmap(iBitmap, 100, 100, false));
 		}
+<<<<<<< HEAD
 
 		holder.itemRoot.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -96,6 +101,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 		    @Override
 		    public void onClick(View v) {
 
+=======
+
+		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+
+>>>>>>> FETCH_HEAD
                 Item removed = Order.remove(position);
                 notifyDataSetChanged();
                 orderFragment.updateTotal();

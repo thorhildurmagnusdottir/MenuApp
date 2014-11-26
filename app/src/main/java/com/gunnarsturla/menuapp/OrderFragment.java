@@ -50,9 +50,12 @@ public class OrderFragment extends Fragment {
 	// Stuffs til að halda utan um RecyclerView
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
+<<<<<<< HEAD
 
 	private View editingItem;
 
+=======
+>>>>>>> FETCH_HEAD
 	private TextView orderTotal;
 	private View orderContainer;
 
@@ -116,6 +119,10 @@ public class OrderFragment extends Fragment {
                         }
                     });
                     alertDialog.show();
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
                 }
 
 		});
@@ -151,11 +158,15 @@ public class OrderFragment extends Fragment {
 		// specify an adapter (see also next example)
 		mAdapter = new OrderListAdapter(this);
 		mRecyclerView.setAdapter(mAdapter);
+<<<<<<< HEAD
 
 		orderTotal.setText(Order.getTotal() + " kr.");
 		editingItem = null;
 		updateTotal();
 
+=======
+		updateTotal();
+>>>>>>> FETCH_HEAD
 
 		Log.i("Fragment:", "Starting Fragment");
 
