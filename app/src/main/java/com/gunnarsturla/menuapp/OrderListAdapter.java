@@ -1,5 +1,6 @@
 package com.gunnarsturla.menuapp;
 
+
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import menu.Order;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder> {
 
+    private OrderFragment orderFragment;
 	// Provide a reference to the views for each data item
 	// Complex data items may need more than one view per item, and
 	// you provide access to all the views for a data item in a view holder
@@ -32,12 +34,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			itemPrice = (TextView) v.findViewById(R.id.orderItemPrice);
 			thumb = (ImageView) v.findViewById(R.id.orderItemThumb);
 			deleteBtn = (ImageButton) v.findViewById(R.id.orderItemRemove);
+
 		}
 	}
 
 	// Provide a suitable constructor (depends on the kind of dataset)
-	public OrderListAdapter() {
-
+	public OrderListAdapter(OrderFragment orderFrag) {
+        orderFragment = orderFrag;
 	}
 
 	// Create new views (invoked by the layout manager)
@@ -55,7 +58,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
 	// Replace the contents of a view (invoked by the layout manager)
 	@Override
-	public void onBindViewHolder(ViewHolder holder, final int position) {
+	public void onBindViewHolder(final ViewHolder holder, final int position) {
 		// - get element from your dataset at this position
 		// - replace the contents of the view with that element
 
@@ -68,24 +71,27 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			Bitmap iBitmap = Order.get(position).getThumbBig();
 			holder.thumb.setImageBitmap(Bitmap.createScaledBitmap(iBitmap, 100, 100, false));
 		}
-        //TTH//
+
 		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
-												@Override
-												public void onClick(View v) {
+		    @Override
+		    public void onClick(View v) {
 
-					Item removed = Order.remove(position);
-                    notifyDataSetChanged();
-
-					// TODO: Senda removed í fragmentið
+                Item removed = Order.remove(position);
+                notifyDataSetChanged();
+                orderFragment.updateTotal();
 
 				}
 			}
 		);
-        //TTH
-
 	}
 
-	// Return the size of your dataset (invoked by the layout manager)
+    private void recreate() {
+    }
+
+    private void notifyDataSetChanged(int total) {
+    }
+
+    // Return the size of your dataset (invoked by the layout manager)
 	@Override
 	public int getItemCount() {
 		return Order.size();

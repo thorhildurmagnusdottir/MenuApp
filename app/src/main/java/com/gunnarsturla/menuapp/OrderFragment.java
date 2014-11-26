@@ -47,6 +47,7 @@ public class OrderFragment extends Fragment {
 	// en mun hugsanlega verða "undo-að"
 	Item removedItem;
 
+
 	// Stuffs til að halda utan um RecyclerView
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
@@ -159,10 +160,10 @@ public class OrderFragment extends Fragment {
 		mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 		// specify an adapter (see also next example)
-		mAdapter = new OrderListAdapter();
+		mAdapter = new OrderListAdapter(this);
 		mRecyclerView.setAdapter(mAdapter);
 
-		orderTotal.setText(Order.getTotal() + " kr.");
+		updateTotal();
 
 		Log.i("Fragment:", "Starting Fragment");
 
@@ -175,7 +176,11 @@ public class OrderFragment extends Fragment {
 		mListener = null;
 	}
 
-	/**
+    public void updateTotal() {
+        orderTotal.setText(Order.getTotal() + " kr.");
+    }
+
+    /**
 	 * This interface must be implemented by activities that contain this
 	 * fragment to allow an interaction in this fragment to be communicated
 	 * to the activity and potentially other fragments contained in that
@@ -196,7 +201,6 @@ public class OrderFragment extends Fragment {
 	public Item getRemovedItem() {
 		return removedItem;
 	}
-
 	public void openFragment(){
 
 	}
