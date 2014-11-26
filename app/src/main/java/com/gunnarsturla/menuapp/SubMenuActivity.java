@@ -10,11 +10,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import data.W8r;
+import menu.Order;
 
 
 public class SubMenuActivity extends Activity {
@@ -28,6 +30,8 @@ public class SubMenuActivity extends Activity {
 
 	// Það view (ef eitthvað) sem er expanded
 	private View expandedCard;
+
+	private View editingItem;
 
 	// Er pantanalistafragmentið sýnilegt?
 	private boolean ordrFragVis;
@@ -191,5 +195,63 @@ public class SubMenuActivity extends Activity {
 		expandedCard = null;
 	}
 
+	public void enableComment(View v) {
+
+		Log.i("OrderFragment:", "clicking to enable comment");
+		if(editingItem != null)
+			disableComment(editingItem);
+
+		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
+		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
+		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+
+		int pos = Integer.parseInt((String) itemPosition.getText());
+
+
+		String comment = Order.getComment(pos);
+
+		editComment.setText(comment);
+
+		commentView.setVisibility(View.INVISIBLE);
+		editComment.setVisibility(View.VISIBLE);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				disableComment(v);
+			}
+		});
+
+		editingItem = v;
+	}
+
+	public void disableComment(View v) {
+
+		v = editingItem;
+
+		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
+		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
+		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+
+		int pos = Integer.parseInt((String) itemPosition.getText());
+		String comment = editComment.getText().toString();
+
+		Order.setComment(pos, comment);
+
+		commentView.setText(comment);
+		Log.i("SMA", "setting comment "+ comment+ " on "+ pos);
+
+		commentView.setVisibility(View.VISIBLE);
+		editComment.setVisibility(View.INVISIBLE);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				enableComment(v);
+			}
+		});
+
+		editingItem = null;
+	}
 
 }

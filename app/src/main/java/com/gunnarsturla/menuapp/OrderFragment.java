@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +50,6 @@ public class OrderFragment extends Fragment {
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
 
-	private View editingItem;
 
 	private TextView orderTotal;
 	private View orderContainer;
@@ -66,10 +64,7 @@ public class OrderFragment extends Fragment {
 	// TODO: Rename and change types and number of parameters
 	public static OrderFragment newInstance() { // (String param1, String param2) {
 		OrderFragment fragment = new OrderFragment();
-		/*Bundle args = new Bundle();
-		args.putString(ARG_PARAM1, param1);
-		args.putString(ARG_PARAM2, param2);
-		fragment.setArguments(args);*/
+
 		return fragment;
 	}
 
@@ -154,7 +149,6 @@ public class OrderFragment extends Fragment {
 		mRecyclerView.setAdapter(mAdapter);
 
 		orderTotal.setText(Order.getTotal() + " kr.");
-		editingItem = null;
 		updateTotal();
 
 
@@ -197,56 +191,6 @@ public class OrderFragment extends Fragment {
 
 	}
 
-	public void enableComment(View v) {
 
-		Log.i("OrderFragment:", "clicking to enable comment");
-		if(editingItem != null)
-			disableComment(editingItem);
-
-		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
-		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
-
-		String comment = (String) commentView.getText();
-
-		editComment.setText(comment);
-
-		commentView.setVisibility(View.INVISIBLE);
-		editComment.setVisibility(View.VISIBLE);
-
-		v.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				disableComment(v);
-			}
-		});
-
-		editingItem = v;
-	}
-
-	public void disableComment(View v) {
-
-		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
-		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
-		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
-
-		int pos = Integer.parseInt((String) itemPosition.getText());
-		String comment = editComment.getText().toString();
-
-		Order.setComment(pos, comment);
-
-		commentView.setText(comment);
-
-		commentView.setVisibility(View.VISIBLE);
-		editComment.setVisibility(View.INVISIBLE);
-
-		v.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				enableComment(v);
-			}
-		});
-
-		editingItem = null;
-	}
 
 }

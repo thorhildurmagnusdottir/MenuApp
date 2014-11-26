@@ -41,7 +41,8 @@ public class SubMenu {
 
     public boolean isEmpty() 			{ return items.isEmpty(); }
     public boolean addItem(Item i) {
-        return items.add(i);
+    	Item it = new Item(i);
+		return items.add(it);
     }
     public void setName(String name)	{ this.name = name;    }
     public void setImghash(String hash) { this.imghash = hash; }

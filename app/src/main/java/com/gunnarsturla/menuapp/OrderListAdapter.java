@@ -3,6 +3,7 @@ package com.gunnarsturla.menuapp;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 	// you provide access to all the views for a data item in a view holder
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 
-		private TextView itemName, itemPrice, itemPosition;
+		private TextView itemName, itemPrice, itemPosition, itemComment;
 		private ImageView thumb;
 		private ImageButton deleteBtn;
 		private RelativeLayout itemRoot;
@@ -37,6 +38,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			deleteBtn = (ImageButton) v.findViewById(R.id.orderItemRemove);
 			itemRoot = (RelativeLayout) v.findViewById(R.id.orderListItemRoot);
 			itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+			itemComment = (TextView) v.findViewById(R.id.orderItemComment);
 
 		}
 	}
@@ -68,16 +70,15 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 		holder.itemName.setText(Order.get(position).getName());
 		holder.itemPrice.setText(Order.get(position).getPrice() + " kr.");
 		holder.itemPosition.setText(position + "");
-//		Drawable img = holder.v.getContext().getResources().getDrawable(R.drawable.ic_launcher);
-//		holder.thumb.setImageDrawable(img);
-//        profileImage.setImageBitmap(Bitmap.createScaledBitmap(b, 120, 120, false)
+		Log.i("OrderListAdapter:", "Setting position " + position + " to " +Order.get(position).getName());
+
         if(Order.get(position).getThumbBig() != null) {
 			Bitmap iBitmap = Order.get(position).getThumbBig();
 			holder.thumb.setImageBitmap(Bitmap.createScaledBitmap(iBitmap, 100, 100, false));
 		}
 
-        //TTH//
-
+		holder.itemComment.setText(Order.getComment(position));
+		Log.i("OLA", "setting comment "+ Order.getComment(position)+ " on "+ position);
 
 		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
 		    @Override

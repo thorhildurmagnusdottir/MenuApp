@@ -62,6 +62,10 @@ public class Order {
 			return 0;
 		}
     }
+
+	public static String getComment(int pos) {
+		return order.get(pos).getComment();
+	}
 }
 
 
