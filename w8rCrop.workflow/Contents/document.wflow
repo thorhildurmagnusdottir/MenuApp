@@ -191,7 +191,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>replaceExisting</key>
-					<false/>
+					<true/>
 					<key>toDirectory</key>
 					<string>~/Projects/W8r/images</string>
 				</dict>
