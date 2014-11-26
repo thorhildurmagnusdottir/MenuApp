@@ -1,6 +1,6 @@
 package com.gunnarsturla.menuapp;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,8 +59,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
 		holder.itemName.setText(Order.get(position).getName());
 		holder.itemPrice.setText(Order.get(position).getPrice() + " kr.");
-		Drawable img = holder.v.getContext().getResources().getDrawable(R.drawable.ic_launcher);
-		holder.thumb.setImageDrawable(img);
+//		Drawable img = holder.v.getContext().getResources().getDrawable(R.drawable.ic_launcher);
+//		holder.thumb.setImageDrawable(img);
+//        profileImage.setImageBitmap(Bitmap.createScaledBitmap(b, 120, 120, false)
+        Bitmap iBitmap = Order.get(position).getThumbBig();
+        holder.thumb.setImageBitmap(Bitmap.createScaledBitmap(iBitmap, 100, 100, false));
 /*		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
 												@Override
 												public void onClick(View v) {
