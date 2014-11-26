@@ -149,7 +149,7 @@ public class StartActivity extends Activity {
                 for (Item i : sm.getItems()){
                     String iname = i.getId() + "item.png" ;
                     String itemImageurl = i.getThumbBigUrl();
-//                    L'ina til a[ breyta!!
+//                    Lína til að breyta!!
                     new GetImageFromWebTask().execute(itemImageurl, iname);
                 }
             }

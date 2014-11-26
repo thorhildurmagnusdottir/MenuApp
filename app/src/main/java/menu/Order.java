@@ -50,8 +50,9 @@ public class Order {
         return order.isEmpty();
     }
     // skilar inn í OrderListAdapter
+
     public static int size() {
-		if(order != null) {
+		if(!Order.isEmpty()) {
 			return order.size();
 		} else {
 			return 0;

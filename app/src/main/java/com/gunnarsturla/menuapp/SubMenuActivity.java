@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import data.W8r;
@@ -81,6 +81,10 @@ public class SubMenuActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				expandCard(v);
+				if(ordrFragVis) {
+					orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.smRoot);
+					ordrFragVis = !ordrFragVis;
+				}
 			}
 		};
 	}
@@ -106,6 +110,10 @@ public class SubMenuActivity extends Activity {
 			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.smRoot);
 			ordrFragVis = !ordrFragVis;
 
+			if(expandedCard != null) {
+				collapseCard(expandedCard);
+			}
+
 			return true;
 		}
         else if (id == R.id.action_callWaiter) {
@@ -126,18 +134,25 @@ public class SubMenuActivity extends Activity {
 
 		TextView ingredTv = (TextView) v.findViewById(R.id.itemIngredients);
 		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
+		TextView itemDesc = (TextView) v.findViewById(R.id.itemDestription);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
 
 		ingredTv.setVisibility(View.VISIBLE);
-
-
 		calTv.setVisibility(View.VISIBLE);
+		ordrBtn.setVisibility(View.VISIBLE);
+
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)itemDesc.getLayoutParams();
+		params.setMargins(45, 16, 8, 8); //substitute parameters for left, top, right, bottom
+		itemDesc.setLayoutParams(params);
 
 
-		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
+		//ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
 		//thumb.getLayoutParams().height = ((int) v.getResources().getDimension(R.dimen.card_thumb_height))+100;
 
-		ordrBtn.setVisibility(View.VISIBLE);
+		if(ordrFragVis) {
+			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.smRoot);
+			ordrFragVis = !ordrFragVis;
+		}
 
 		v.setOnClickListener(cardCollapser);
 		expandedCard = v;
@@ -149,16 +164,20 @@ public class SubMenuActivity extends Activity {
 		// Fjarlægjum textann sem er í itemCalories og itemIngredients
 		TextView ingredTv = (TextView) v.findViewById(R.id.itemIngredients);
 		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
+		TextView itemDesc = (TextView) v.findViewById(R.id.itemDestription);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
 
 		ingredTv.setVisibility(View.INVISIBLE);
 		calTv.setVisibility(View.INVISIBLE);
+		ordrBtn.setVisibility(View.INVISIBLE);
 
+		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)itemDesc.getLayoutParams();
+		params.setMargins(0, 16, 8, 8); //substitute parameters for left, top, right, bottom
+		itemDesc.setLayoutParams(params);
 
-		ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
+		//ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
 		//thumb.getLayoutParams().height = (int) v.getResources().getDimension(R.dimen.card_thumb_height);
 
-		ordrBtn.setVisibility(View.INVISIBLE);
 
 		v.setOnClickListener(cardExpander);
 		expandedCard = null;
