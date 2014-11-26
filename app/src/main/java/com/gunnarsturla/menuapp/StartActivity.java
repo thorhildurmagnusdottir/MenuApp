@@ -224,7 +224,8 @@ public class StartActivity extends Activity {
             Log.i("getting photo for item " + params[1], now.toString());
             byte[] bytes;
             try {
-                URL url = new URL(params[0]);
+//                URL url = new URL(params[0]);
+                URL url = new URL(Constants.imageURL);
                 InputStream is = (InputStream) url.getContent();
                 byte[] buffer = new byte[8192];
                 int bytesRead;
