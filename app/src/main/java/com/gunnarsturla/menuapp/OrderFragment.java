@@ -100,26 +100,25 @@ public class OrderFragment extends Fragment {
 
             public void onClick(View v) {
 
-				if(Order.pay()) {
+				//if(Order.pay()) {
 
                     AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
                     alertDialog.setMessage("Vilt þú staðfesta þessa pöntun");
                     alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(getActivity().getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
-
+                            Order.pay();
+                            getActivity().finish();
                         }
                     });
-
                     alertDialog.setButton2("Nei", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                         }
                     });
                     alertDialog.show();
                    // Toast.makeText(v.getContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
                 }
-			}
+			//}
 		});
 
 		Log.i("Fragment:", "Setting RV");
