@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
+    android:onClick="enableComment"
 	android:animateLayoutChanges="true"
-	android:id="@+id/orderListRoot">
+	android:id="@+id/orderListItemRoot">
 
     <ImageView
 	    android:id="@+id/orderItemThumb"
@@ -52,11 +53,27 @@
 	<EditText
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:id="@+id/editText"
+		android:id="@+id/orderEditComment"
 		android:layout_below="@+id/orderItemName"
 		android:layout_toEndOf="@+id/orderItemThumb"
 		android:layout_alignRight="@+id/orderItemPrice"
 		android:singleLine="true"
 		android:visibility="invisible"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="Medium Text"
+		android:id="@+id/orderItemComment"
+		android:layout_below="@+id/orderItemName"
+		android:layout_toEndOf="@+id/orderItemThumb"
+		android:textStyle="italic"/>
+
+	<TextView
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:visibility="invisible"
+		android:id="@+id/orderItemPosition" />
 
 </RelativeLayout>

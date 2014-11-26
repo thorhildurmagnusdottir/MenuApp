@@ -13,10 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.gunnarsturla.menuapp.OrderListAdapter;
 
 import menu.Item;
 import menu.Order;
@@ -47,12 +46,14 @@ public class OrderFragment extends Fragment {
 	// en mun hugsanlega verða "undo-að"
 	Item removedItem;
 
+
 	// Stuffs til að halda utan um RecyclerView
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
 
-	private TextView orderTotal;
+	private View editingItem;
 
+	private TextView orderTotal;
 	private View orderContainer;
 
 
@@ -79,10 +80,7 @@ public class OrderFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		/*if (getArguments() != null) {
-			mParam1 = getArguments().getString(ARG_PARAM1);
-			mParam2 = getArguments().getString(ARG_PARAM2);
-		}*/
+
 
 
 	}
@@ -101,8 +99,6 @@ public class OrderFragment extends Fragment {
 
             public void onClick(View v) {
 
-				//if(Order.pay()) {
-
                     AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
                     alertDialog.setMessage("Vilt þú staðfesta þessa pöntun");
                     alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
@@ -120,9 +116,8 @@ public class OrderFragment extends Fragment {
                         }
                     });
                     alertDialog.show();
-                   // Toast.makeText(v.getContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
                 }
-			//}
+
 		});
 
 		Log.i("Fragment:", "Setting RV");
@@ -143,12 +138,7 @@ public class OrderFragment extends Fragment {
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-/*		try {
-			mListener = (OnFragmentInteractionListener) activity;
-		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString()
-					+ " must implement OnFragmentInteractionListener");
-		}*/
+
 
 
 	}
@@ -159,14 +149,16 @@ public class OrderFragment extends Fragment {
 		mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 		// specify an adapter (see also next example)
-		mAdapter = new OrderListAdapter();
+		mAdapter = new OrderListAdapter(this);
 		mRecyclerView.setAdapter(mAdapter);
 
 		orderTotal.setText(Order.getTotal() + " kr.");
+		editingItem = null;
+		updateTotal();
+
 
 		Log.i("Fragment:", "Starting Fragment");
 
-//		orderContainer.getLayoutParams().height = 109 + (Order.size() * 80);
 
 	}
 	@Override
@@ -175,7 +167,11 @@ public class OrderFragment extends Fragment {
 		mListener = null;
 	}
 
-	/**
+    public void updateTotal() {
+        orderTotal.setText(Order.getTotal() + " kr.");
+    }
+
+    /**
 	 * This interface must be implemented by activities that contain this
 	 * fragment to allow an interaction in this fragment to be communicated
 	 * to the activity and potentially other fragments contained in that
@@ -196,9 +192,59 @@ public class OrderFragment extends Fragment {
 	public Item getRemovedItem() {
 		return removedItem;
 	}
-
 	public void openFragment(){
 
+	}
+
+	public void enableComment(View v) {
+
+		if(editingItem != null)
+			disableComment(editingItem);
+
+		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
+		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
+
+		String comment = (String) commentView.getText();
+
+		editComment.setText(comment);
+
+		commentView.setVisibility(View.INVISIBLE);
+		editComment.setVisibility(View.VISIBLE);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				disableComment(v);
+			}
+		});
+
+		editingItem = v;
+	}
+
+	public void disableComment(View v) {
+
+		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
+		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
+		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+
+		int pos = Integer.parseInt((String) itemPosition.getText());
+		String comment = editComment.getText().toString();
+
+		Order.setComment(pos, comment);
+
+		commentView.setText(comment);
+
+		commentView.setVisibility(View.VISIBLE);
+		editComment.setVisibility(View.INVISIBLE);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				enableComment(v);
+			}
+		});
+
+		editingItem = null;
 	}
 
 }

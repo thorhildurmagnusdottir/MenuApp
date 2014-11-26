@@ -107,9 +107,11 @@ public class SubMenuActivity extends Activity {
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_viewOrder) {
 
+			// Opnum / lokum OrderFragment
 			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.smRoot);
 			ordrFragVis = !ordrFragVis;
 
+			// Og lokum cardinu í leiðinni (ef það var opið)
 			if(expandedCard != null) {
 				collapseCard(expandedCard);
 			}
@@ -117,7 +119,6 @@ public class SubMenuActivity extends Activity {
 			return true;
 		}
         else if (id == R.id.action_callWaiter) {
-
             CallWaiter.callme(this);
         }
 
@@ -137,10 +138,13 @@ public class SubMenuActivity extends Activity {
 		TextView itemDesc = (TextView) v.findViewById(R.id.itemDestription);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
 
+		// Sýnum elementin sem birtast þegar smellt er
 		ingredTv.setVisibility(View.VISIBLE);
 		calTv.setVisibility(View.VISIBLE);
 		ordrBtn.setVisibility(View.VISIBLE);
 
+		// Færum lýsingartextann til hægri til
+		// að búa til pláss fyrir panta takkann
 		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)itemDesc.getLayoutParams();
 		params.setMargins(45, 16, 8, 8); //substitute parameters for left, top, right, bottom
 		itemDesc.setLayoutParams(params);
@@ -154,6 +158,7 @@ public class SubMenuActivity extends Activity {
 			ordrFragVis = !ordrFragVis;
 		}
 
+		// Setjum fellismellihlustarann á cardið
 		v.setOnClickListener(cardCollapser);
 		expandedCard = v;
 	}
@@ -167,12 +172,15 @@ public class SubMenuActivity extends Activity {
 		TextView itemDesc = (TextView) v.findViewById(R.id.itemDestription);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
 
+		// Felum það sem þarf að fela
 		ingredTv.setVisibility(View.INVISIBLE);
 		calTv.setVisibility(View.INVISIBLE);
 		ordrBtn.setVisibility(View.INVISIBLE);
 
+		// Færum lýsingartextann til baka á sama stað
 		RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)itemDesc.getLayoutParams();
-		params.setMargins(0, 16, 8, 8); //substitute parameters for left, top, right, bottom
+		//substitute parameters for left, top, right, bottom
+		params.setMargins(0, 16, 8, 8);
 		itemDesc.setLayoutParams(params);
 
 		//ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);

@@ -34,6 +34,10 @@ public class Order {
 		return sum;
 	}
 
+	public static void setComment(int pos, String s) {
+		order.get(pos).setComment(s);
+	}
+
 
 	public static boolean pay() {
 		//TODO Herma einhverja borgunarvirkni.

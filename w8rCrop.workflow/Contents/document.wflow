@@ -193,7 +193,7 @@
 					<key>replaceExisting</key>
 					<false/>
 					<key>toDirectory</key>
-					<string>~/Desktop/w8r_submenu</string>
+					<string>~/Projects/W8r/images</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.CopyFiles</string>
@@ -316,13 +316,13 @@
 					<key>cropMethod</key>
 					<integer>1</integer>
 					<key>scaleMethod</key>
-					<integer>2</integer>
+					<integer>5</integer>
 					<key>targetHeight</key>
-					<integer>300</integer>
+					<integer>360</integer>
 					<key>targetHeightPercentage</key>
 					<string>100</string>
 					<key>targetWidth</key>
-					<integer>800</integer>
+					<integer>360</integer>
 					<key>targetWidthPercentagle</key>
 					<string>100</string>
 				</dict>
