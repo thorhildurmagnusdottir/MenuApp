@@ -31,8 +31,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		public TextView itemName, itemDescription, itemPrice, itemCalories, itemNumber, itemParent, itemIngredients;
 		private ImageView itemThumb;
 		private ImageButton orderButton;
-//		private CardView itemCard;
-
 
 		private CardView itemCard;
 
@@ -79,19 +77,17 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		holder.itemDescription.setText(W8r.get(parentNumber).get(position).getDescription());
 		holder.itemPrice.setText(""+ W8r.get(parentNumber).get(position).getPrice() + " kr.");
 
+		if(W8r.get(parentNumber).get(position).getCalories() != 0)
+			holder.itemCalories.setText("Kalóríur: " + W8r.get(parentNumber).get(position).getCalories()+" ckal");
 
+		if(W8r.get(parentNumber).get(position).getIngredients() != null)
+			holder.itemCalories.setText("Innihald: " + W8r.get(parentNumber).get(position).getIngredients());
 
 		// Smellum parentNumber og itemNumber inn í falin TextView;
 		holder.itemNumber.setText(""+position);
 		holder.itemParent.setText(""+parentNumber);
         holder.itemThumb.setImageBitmap(W8r.get(parentNumber).get(position).getThumbBig());
 
-		// Sæki Recource ID á thumb1123.jpg til að birta sem bg
-//		int thumbId = MainActivity.context.getResources().getIdentifier("thumb1123.png", "drawable", MainActivity.context.getPackageName());
-//		holder.itemThumb.setImageResource(thumbId);
-
-
-		//int drawableResourceId = this.getResources().getIdentifier("nameOfDrawable", "drawable", this.getPackageName());
 
 		holder.orderButton.setOnClickListener(new View.OnClickListener() {
 			@Override

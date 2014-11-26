@@ -11,4 +11,5 @@
 	<dimen name="order_total_padding">8dp</dimen>
 	<dimen name="card_text_size">16dp</dimen>
 	<dimen name="card_thumb_height">240dp</dimen>
+	<dimen name="start_text_margin_lr">80dp</dimen>
 </resources>

@@ -1,6 +1,8 @@
 package com.gunnarsturla.menuapp;
 
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 
 		private TextView smName;
+		private View view;
 /*		private RecyclerView smRecyclerView;
 		private RecyclerView.Adapter smAdapter;
 		private RecyclerView.LayoutManager smLayoutManager;*/
@@ -29,6 +32,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 		public ViewHolder(View v) {
 			super(v);
 			smName = (TextView) itemView.findViewById(R.id.smName);
+			view = v;
 //			smRecyclerView = (RecyclerView) itemView.findViewById(R.id.sub_menu_list);
 
 		}
@@ -60,7 +64,8 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 		// - replace the contents of the view with that element
 		holder.smName.setText(W8r.get(position).getName());
 		System.out.println("Debug: setting text for sm" + position);
-		holder.smName.setBackgroundResource(R.drawable.sm121);
+		Drawable bg = new BitmapDrawable(holder.view.getResources(), W8r.get(position).getBitmap());
+		holder.smName.setBackground(bg);
 
 /*		// use a linear layout manager
 		holder.smLayoutManager = new LinearLayoutManager(context);

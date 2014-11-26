@@ -14,14 +14,24 @@
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:id="@+id/oneMoment"
-        android:layout_marginTop="@dimen/sub_menu_header_height"
-        android:layout_marginLeft="@dimen/sub_menu_header_padding_left"
-        android:layout_marginRight="@dimen/sub_menu_header_padding_left"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/start_text_margin_lr"
+        android:layout_below="@+id/imageView"/>
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar" />
+        android:id="@+id/progressBar"
+        android:layout_below="@+id/oneMoment"
+        android:layout_centerHorizontal="true"/>
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/imageView"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:src="@drawable/w8r"/>
 
 
 </RelativeLayout>

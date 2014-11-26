@@ -84,27 +84,8 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_viewOrder) {
 
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            if(!ordrFragVis) {
-                // Bætum fragmentinu inn í þetta alltsaman
-                fragmentTransaction.setCustomAnimations(R.animator.enter_from_top, R.animator.exit_to_top);
-
-                orderFragment = new OrderFragment();
-                fragmentTransaction.add(R.id.smRoot, orderFragment);
-                fragmentTransaction.addToBackStack(null);
-
-                ordrFragVis = true;
-
-            } else {
-                fragmentTransaction.setCustomAnimations(R.animator.exit_to_top,R.animator.exit_to_top);
-
-                fragmentTransaction.remove(orderFragment);
-                fragmentManager.popBackStack();
-                ordrFragVis = false;
-            }
-            fragmentTransaction.commit();
+			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.mmRoot);
+			ordrFragVis = !ordrFragVis;
 
             return true;
         }
@@ -124,4 +105,26 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
+	public static OrderFragment openOrderFragment(FragmentManager fragmentManager, boolean ordrFragVis, int viewGroupId) {
+
+		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+		OrderFragment orderFrag = new OrderFragment();
+
+		if(!ordrFragVis) {
+			// Bætum fragmentinu inn í þetta alltsaman
+			fragmentTransaction.setCustomAnimations(R.animator.enter_from_top, R.animator.exit_to_top);
+
+			fragmentTransaction.add(viewGroupId, orderFrag);
+			fragmentTransaction.addToBackStack(null);
+
+		} else {
+			fragmentTransaction.setCustomAnimations(R.animator.exit_to_top,R.animator.exit_to_top);
+
+			fragmentTransaction.remove(orderFrag);
+			fragmentManager.popBackStack();
+		}
+		fragmentTransaction.commit();
+		return orderFrag;
+	}
 }
