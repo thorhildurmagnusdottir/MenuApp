@@ -191,7 +191,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>replaceExisting</key>
-					<true/>
+					<false/>
 					<key>toDirectory</key>
 					<string>~/Desktop/w8r_submenu</string>
 				</dict>
@@ -452,19 +452,19 @@
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>D2504C70-0B9D-4889-B59D-CC78B1D3CC33</key>
-		<dict>
-			<key>from</key>
-			<string>2D70A748-25A4-4D85-97FD-935369670FDA - 2D70A748-25A4-4D85-97FD-935369670FDA</string>
-			<key>to</key>
-			<string>945350B3-7D33-407E-AA79-5E9775A1C0CE - 945350B3-7D33-407E-AA79-5E9775A1C0CE</string>
-		</dict>
-		<key>F6FEEDC0-0511-41B2-820C-4234089AF259</key>
+		<key>921C1C4F-1480-48DB-8FD3-91C788662DD5</key>
 		<dict>
 			<key>from</key>
 			<string>43E86CFF-1505-4505-B035-C803C29B672A - 43E86CFF-1505-4505-B035-C803C29B672A</string>
 			<key>to</key>
 			<string>2D70A748-25A4-4D85-97FD-935369670FDA - 2D70A748-25A4-4D85-97FD-935369670FDA</string>
+		</dict>
+		<key>E9C7B517-1407-45A8-8005-AB55A95EEEB2</key>
+		<dict>
+			<key>from</key>
+			<string>2D70A748-25A4-4D85-97FD-935369670FDA - 2D70A748-25A4-4D85-97FD-935369670FDA</string>
+			<key>to</key>
+			<string>945350B3-7D33-407E-AA79-5E9775A1C0CE - 945350B3-7D33-407E-AA79-5E9775A1C0CE</string>
 		</dict>
 	</dict>
 	<key>variables</key>
