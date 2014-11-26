@@ -51,9 +51,7 @@ public class OrderFragment extends Fragment {
 	// Stuffs til að halda utan um RecyclerView
 	private RecyclerView mRecyclerView;
 	private RecyclerView.Adapter mAdapter;
-
 	private TextView orderTotal;
-
 	private View orderContainer;
 
 
@@ -102,8 +100,6 @@ public class OrderFragment extends Fragment {
 
             public void onClick(View v) {
 
-				//if(Order.pay()) {
-
                     AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
                     alertDialog.setMessage("Vilt þú staðfesta þessa pöntun");
                     alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
@@ -121,9 +117,9 @@ public class OrderFragment extends Fragment {
                         }
                     });
                     alertDialog.show();
-                   // Toast.makeText(v.getContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+
                 }
-			//}
+
 		});
 
 		Log.i("Fragment:", "Setting RV");
@@ -162,7 +158,6 @@ public class OrderFragment extends Fragment {
 		// specify an adapter (see also next example)
 		mAdapter = new OrderListAdapter(this);
 		mRecyclerView.setAdapter(mAdapter);
-
 		updateTotal();
 
 		Log.i("Fragment:", "Starting Fragment");

@@ -79,8 +79,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
                 Item removed = Order.remove(position);
                 notifyDataSetChanged();
                 orderFragment.updateTotal();
-
-				}
+			    }
 			}
 		);
 	}
