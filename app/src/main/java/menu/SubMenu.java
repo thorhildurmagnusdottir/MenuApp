@@ -14,20 +14,14 @@ import java.util.Vector;
  */
 
 public class SubMenu {
-    private String 	name,
+	private String 	name,
             imghash;
     private Vector<Item> items;
     private String picture;
 
-    public Bitmap getBitmap() {
-        return bitmap;
-    }
+	private Bitmap bitmap;
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
-    }
 
-    private Bitmap bitmap;
     public SubMenu(String name, String imghash) {
         this.name 		 = name;
         this.imghash	 = imghash;
@@ -45,19 +39,24 @@ public class SubMenu {
     }
     public Item removeItem(int i) { return items.remove(i); }
 
-    public boolean isEmpty() { return items.isEmpty(); }
+    public boolean isEmpty() 			{ return items.isEmpty(); }
     public boolean addItem(Item i) {
         return items.add(i);
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name)	{ this.name = name;    }
     public void setImghash(String hash) { this.imghash = hash; }
-    public void setPicture(String pic) { this.picture = pic; }
-    public int 	  size()			{ return items.size();	}
-    public String getName()   		{ return name; 			}
-    public String getImghash()		{ return imghash;   	}
-    public String getPicture()      { return picture; }
+    public void setPicture(String pic) 	{ this.picture = pic; }
+    public int  size()					{ return items.size();	}
+    public String getName()   			{ return name; 			}
+    public String getImghash()			{ return imghash;   	}
+    public String getPicture()      	{ return picture; }
     public Item get(int i)	{ return items.get(i);	}
+
+	public Bitmap getBitmap() {
+		return bitmap;
+	}
+	public void setBitmap(Bitmap bitmap) {
+		this.bitmap = bitmap;
+	}
 
 }

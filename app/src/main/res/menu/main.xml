@@ -4,14 +4,14 @@
 
 
 	<item android:id="@+id/action_callWaiter"
-		android:icon="@drawable/ic_help"
+		android:icon="@drawable/ic_help_white_36dp"
 		android:title="Call Waiter"
 		android:orderInCategory="100"
 		android:showAsAction="always" />
 
 
 	<item android:id="@+id/action_viewOrder"
-		android:icon="@drawable/ic_receipt"
+		android:icon="@drawable/ic_receipt_white_36dp"
 		android:title="@string/ViewOrder"
 		android:orderInCategory="100"
 		android:showAsAction="always" />

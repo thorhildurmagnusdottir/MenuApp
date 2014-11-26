@@ -72,6 +72,7 @@ public class Item {
     public void setDescription(String desc)		{ this.description = desc; }
     public void setIngredients(String ingr)		{ this.ingredients = ingr; }
     public void setImghash(String imghash)		{ this.imghash = imghash;   }
+	public void setComment(String c) 			{ this.comment = c; }
     private Vector<String> allergens;  // Vector sem heldur utan um ofnæmisvalda
     public void setThumbSmall(Bitmap thumbsmall) {        this.thumbsmall = thumbsmall;    }
     public void setThumbBig(Bitmap thumbbig) {        this.thumbBig = thumbbig;    }
@@ -111,9 +112,11 @@ public class Item {
     public String getName()			{ return name; 		}
     public String getDescription()	{ return description; }
     public String getIngredients()	{ return ingredients; }
-    public String getImghash()		{ return imghash;   }
+    public String getImghash()		{ return imghash;	}
+	public String getComment()		{ return comment;	}
     public Bitmap getThumbSmall()   { return this.thumbsmall;  }
     public Bitmap getThumbBig()		{ return this.thumbBig;    }
+
 
 
     public boolean hasAllergens() 	{ return !allergens.isEmpty(); }

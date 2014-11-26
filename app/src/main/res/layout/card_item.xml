@@ -93,18 +93,13 @@
 			android:gravity="center_vertical"
 			android:layout_alignParentBottom="true"/>
 
-		<ImageButton
+		<com.melnykov.fab.FloatingActionButton
 			android:id="@+id/orderButton"
-			android:layout_width="48dp"
-			android:layout_height="48dp"
-			android:text="Panta!"
-			android:clickable="true"
-			android:layout_alignParentRight="true"
-			android:layout_alignParentEnd="true"
-			android:layout_marginTop="@dimen/sub_menu_header_padding_left"
-			android:layout_marginRight="@dimen/sub_menu_header_padding_left"
-			android:visibility="invisible"
-			android:layout_alignParentBottom="true"/>
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+
+
+			/>
 
 		<ImageView
 			android:id="@+id/itemThumb"

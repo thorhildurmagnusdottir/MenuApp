@@ -6,13 +6,13 @@
     <string name="action_panta">Panta</string>
     <string name="title_activity_sub_menu"></string>
     <string name="one_moment">Velkomin! Við erum að sækja matseðilinn, verð enga stund! ;)</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Stillingar</string>
 
     <!-- <string name="action_panta">Panta</string> -->
 
-    <string name="title_activity_order">Your Order</string>
-    <string name="title_activity_start">Fetching menu...</string>
-    <string name="ViewOrder">View Your Order</string>
+    <string name="title_activity_order">Pöntun</string>
+    <string name="title_activity_start">W8r</string>
+    <string name="ViewOrder">Sjá pöntun</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

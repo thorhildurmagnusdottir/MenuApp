@@ -1,8 +1,8 @@
 package com.gunnarsturla.menuapp;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,6 +41,7 @@ public class SubMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sub_menu);
 
+		ordrFragVis = false;
 		groupNumber = 0;
 
 		Bundle extras = getIntent().getExtras();
@@ -51,6 +52,8 @@ public class SubMenuActivity extends Activity {
 		// Setjum nafnið á SubMenuinum inn í headerinn
 		header = (TextView) findViewById(R.id.smName);
 		header.setText(W8r.get(groupNumber).getName());
+		Drawable bg = new BitmapDrawable(getResources(), W8r.get(groupNumber).getBitmap());
+		header.setBackground(bg);
 		//header.setBackgroundResource(R.drawable.sm121);
 
 		//Setjum bakgrunnsmyndina inn í header
@@ -100,30 +103,15 @@ public class SubMenuActivity extends Activity {
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_viewOrder) {
 
-			FragmentManager fragmentManager = getFragmentManager();
-			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-			if(!ordrFragVis) {
-				// Bætum fragmentinu inn í þetta alltsaman
-				fragmentTransaction.setCustomAnimations(R.animator.enter_from_top, R.animator.exit_to_top);
-
-				orderFragment = new OrderFragment();
-				fragmentTransaction.add(R.id.smRoot, orderFragment);
-				fragmentTransaction.addToBackStack(null);
-
-				ordrFragVis = true;
-
-			} else {
-				fragmentTransaction.setCustomAnimations(R.animator.exit_to_top,R.animator.exit_to_top);
-
-				fragmentTransaction.remove(orderFragment);
-				fragmentManager.popBackStack();
-				ordrFragVis = false;
-			}
-			fragmentTransaction.commit();
+			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.smRoot);
+			ordrFragVis = !ordrFragVis;
 
 			return true;
 		}
+        else if (id == R.id.action_callWaiter) {
+
+            CallWaiter.callme(this);
+        }
 
 		return super.onOptionsItemSelected(item);
 	}
@@ -139,14 +127,6 @@ public class SubMenuActivity extends Activity {
 		TextView ingredTv = (TextView) v.findViewById(R.id.itemIngredients);
 		TextView calTv = (TextView) v.findViewById(R.id.itemCalories);
 		ImageButton ordrBtn = (ImageButton) v.findViewById(R.id.orderButton);
-
-		// Náum í parent númer þess cards sem smellt var á
-		TextView ptv = (TextView) v.findViewById(R.id.itemParent);
-		int parent = Integer.parseInt(ptv.getText().toString());
-
-		// Náum í child númer þess cards sem smellt var á
-		TextView ctv = (TextView) v.findViewById(R.id.itemNumber);
-		int child = Integer.parseInt(ctv.getText().toString());
 
 		ingredTv.setVisibility(View.VISIBLE);
 

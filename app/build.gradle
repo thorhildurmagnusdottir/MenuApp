@@ -25,5 +25,7 @@ dependencies {
 	// Support libraries til að fá CardView og recyclerView til að virka
     compile 'com.android.support:cardview-v7:+'
     compile 'com.android.support:recyclerview-v7:+'
+	// Floating acion button
+	compile 'com.melnykov:floatingactionbutton:1.0.7'
 //    compile 'com.android.support:support-v7:+'
 }
