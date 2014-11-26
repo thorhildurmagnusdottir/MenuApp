@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -43,30 +45,43 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        final Button menuButton1 = (Button) findViewById(R.id.menubutton1);
+        menuButton1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startMenu(Constants.menuUrl);
+                }
+        });
+        final Button menuButton2 = (Button) findViewById(R.id.menubutton2);
+        menuButton2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startMenu(Constants.menuUrl2);
+            }
+        });
+    }
+    protected void startMenu(String menu){
         URL menuUrl = null;
         try {
-            menuUrl = new URL(Constants.menuUrl);
+            menuUrl = new URL(menu);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         new GetMenuFromWebserviceTask().execute(menuUrl);
-        photoProgress = (ProgressBar) findViewById(R.id.progressBar);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(photoProcessStatus < 100){
-                    photoProcessStatus++;
-                    Log.i("Progress bar status: ", photoProcessStatus + "");
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            photoProgress.setProgress(photoProcessStatus);
-                        }
-                    });
-
-                }
-            }
-        });
+//        photoProgress = (ProgressBar) findViewById(R.id.progressBar);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while(photoProcessStatus < 100){
+//                    photoProcessStatus++;
+//                    Log.i("Progress bar status: ", photoProcessStatus + "");
+//                    mHandler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            photoProgress.setProgress(photoProcessStatus);
+//                        }
+//                    });
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -88,6 +103,7 @@ public class StartActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+//    This class gets the menu from the
     public class GetMenuFromWebserviceTask extends AsyncTask<URL, Void, Void> {
         public GetMenuFromWebserviceTask(){
         }
@@ -145,7 +161,9 @@ public class StartActivity extends Activity {
             Log.i("AsyncGetAllPhotos", "running and itemCount is " + itemCount);
             for (SubMenu sm : w8rMenu){
                 String name = sm.getImghash() + "submenu.png";
-                new GetImageFromWebTask().execute(Constants.submenuImageUrl, name);
+                String submenuImageUrl = sm.getPicture();
+                Log.i("getting image", name + " at url: " + submenuImageUrl);
+                new GetImageFromWebTask().execute(submenuImageUrl, name);
                 for (Item i : sm.getItems()){
                     String iname = i.getId() + "item.png" ;
                     String itemImageurl = i.getThumbBigUrl();
@@ -167,11 +185,13 @@ public class StartActivity extends Activity {
             Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
             File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             for (SubMenu sm : w8rMenu) {
-
 //                Load the picture for the submenu
                 InputStream sis;
                 String submenuFileName = sm.getImghash() + "submenu.png";
                 File submenuFile = new File(path, submenuFileName);
+//                if (!submenuFile.exists()){
+//                    submenuFile = new File(path, Constants.);
+//                }
                 try {
                     sis = new FileInputStream(submenuFile);
                     Bitmap bm = BitmapFactory.decodeStream(sis, null, null);
@@ -188,6 +208,9 @@ public class StartActivity extends Activity {
                     InputStream is;
                     String itemFileName = i.getId() + "item.png";
                     File itemFile = new File(path, itemFileName);
+                    if (!itemFile.exists()){
+                        itemFile = new File(path, Constants.imageFile);
+                    }
                     try {
                         is = new FileInputStream(itemFile);
                         Bitmap bm = BitmapFactory.decodeStream(is, null, null);
@@ -195,20 +218,20 @@ public class StartActivity extends Activity {
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
-//                    String itemName = i.getName();
-//                    String itemThumbBig, itemThumbSmall;
-//                    submenuPrinting = submenuPrinting + itemName +  "\n";
-//                    if (i.getThumbBigUrl() != null) {   itemThumbBig = " has picture: " + i.getThumbBigUrl();}
-//                    else {  itemThumbBig = " has no picture"; }
-//                    submenuPrinting = submenuPrinting + itemThumbBig + "\n";
-//                    if (i.getThumbSmallUrl() != null) {  itemThumbSmall = " has picture: " + i.getThumbSmallUrl();}
-//                    else { itemThumbSmall = " has no picture"; }
-//                        submenuPrinting = submenuPrinting + itemThumbSmall + "\n";
+                    String itemName = i.getName();
+                    String itemThumbBig, itemThumbSmall;
+                    submenuPrinting = submenuPrinting + itemName +  "\n";
+                    if (i.getThumbBigUrl() != null) {   itemThumbBig = " has picture: " + i.getThumbBigUrl();}
+                    else {  itemThumbBig = " has no picture"; }
+                    submenuPrinting = submenuPrinting + itemThumbBig + "\n";
+                    if (i.getThumbSmallUrl() != null) {  itemThumbSmall = " has picture: " + i.getThumbSmallUrl();}
+                    else { itemThumbSmall = " has no picture"; }
+                        submenuPrinting = submenuPrinting + itemThumbSmall + "\n";
                 }
             }
         }
-//        submenuPrinting = submenuPrinting + "submenu er null";
-//        Log.i("setPhotosToItems", submenuPrinting);
+        submenuPrinting = submenuPrinting + "submenu er null";
+        Log.i("setPhotosToItems", submenuPrinting);
         goToMainActivity();
     }
 
@@ -224,9 +247,10 @@ public class StartActivity extends Activity {
             Log.i("getting photo for item " + params[1], now.toString());
             byte[] bytes;
             try {
-//                URL url = new URL(params[0]);
-                URL url = new URL(Constants.imageURL);
+                URL url = new URL(params[0]);
+//                URL url = new URL(Constants.imageURL);
                 InputStream is = (InputStream) url.getContent();
+
                 byte[] buffer = new byte[8192];
                 int bytesRead;
                 ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -241,8 +265,6 @@ public class StartActivity extends Activity {
                 e.printStackTrace();
                 return null;
             }
-//            Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//            picture.setImageBitmap(bm);
             File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             File file = new File(path, params[1]);
             FileOutputStream fos = null;

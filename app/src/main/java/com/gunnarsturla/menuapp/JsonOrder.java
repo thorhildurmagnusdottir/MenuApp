@@ -14,11 +14,9 @@ import menu.SubMenu;
  */
 public class JsonOrder {
     private JSONObject JsonOrder;
-
     public String OrderJSONAsString(){
         return this.JsonOrder.toString();
     }
-
     public JSONObject OrderToJSon(SubMenu order) {
         try {
             JSONObject orderJSON = new JSONObject();

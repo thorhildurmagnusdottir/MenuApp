@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_panta">Panta</string>
     <string name="title_activity_sub_menu"></string>
-    <string name="one_moment">Velkomin! Við erum að sækja matseðilinn, verð enga stund! ;)</string>
+    <string name="one_moment">Velkomin! Vinsamlegast veldu matseðil</string>
     <string name="action_settings">Stillingar</string>
 
     <!-- <string name="action_panta">Panta</string> -->
