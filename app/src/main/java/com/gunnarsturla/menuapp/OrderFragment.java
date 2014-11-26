@@ -20,6 +20,7 @@ import com.gunnarsturla.menuapp.OrderListAdapter;
 
 import menu.Item;
 import menu.Order;
+import menu.SubMenu;
 
 
 /**
@@ -107,8 +108,9 @@ public class OrderFragment extends Fragment {
                     alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(getActivity().getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
-//                            SEND TO JSON!!! :)
-                            Order.getOrder(); // submenu med orderinu
+                            SubMenu order = Order.getOrder(); // submenu med orderinu
+                            JsonOrder pontun = new JsonOrder();
+                            pontun.OrderToJSon(order);
                             Order.pay();
                             getActivity().finish();
                         }
