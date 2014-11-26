@@ -1,7 +1,9 @@
 package com.gunnarsturla.menuapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -85,7 +87,7 @@ public class OrderFragment extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	public View onCreateView(LayoutInflater inflater, final ViewGroup container,
 							 Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		View v = inflater.inflate(R.layout.fragment_order, container, false);
@@ -95,10 +97,28 @@ public class OrderFragment extends Fragment {
 
 		Button borga = (Button) v.findViewById(R.id.payButton);
 		borga.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
 
-				if(Order.pay())
-					Toast.makeText(v.getContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+
+				if(Order.pay()) {
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                    alertDialog.setMessage("Vilt þú staðfesta þessa pöntun");
+                    alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getActivity().getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+
+                    alertDialog.setButton2("Nei", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    alertDialog.show();
+                   // Toast.makeText(v.getContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+                }
 			}
 		});
 
@@ -110,7 +130,7 @@ public class OrderFragment extends Fragment {
 		return v;
 	}
 
-	// TODO: Rename method, update argument and hook method into UI event
+    // TODO: Rename method, update argument and hook method into UI event
 	public void onButtonPressed(Uri uri) {
 		if (mListener != null) {
 			mListener.onFragmentInteraction(uri);
