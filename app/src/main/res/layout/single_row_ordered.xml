@@ -34,13 +34,14 @@
         android:layout_toRightOf="@+id/orderItemThumb"
         android:layout_toEndOf="@+id/orderItemThumb" />
 
-    <Button
-	    android:id="@+id/delButton"
+    <ImageButton
+	    android:id="@+id/orderItemRemove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/order_total_padding"
-        android:text="Eyða"/>
+        android:text="Eyða"
+        android:background="@drawable/w8r_icon" />
 
 </RelativeLayout>

@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import menu.Item;
 import menu.Order;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder> {
@@ -20,7 +22,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
 		private TextView itemName, itemPrice;
 		private ImageView thumb;
-		private Button deleteBtn;
+		private ImageButton deleteBtn;
 		private View v;
 
 		public ViewHolder(View v) {
@@ -29,7 +31,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			itemName = (TextView) v.findViewById(R.id.orderItemName);
 			itemPrice = (TextView) v.findViewById(R.id.orderItemPrice);
 			thumb = (ImageView) v.findViewById(R.id.orderItemThumb);
-		//	deleteBtn = (Button) v.findViewById(R.id.orderItemRemove);
+			deleteBtn = (ImageButton) v.findViewById(R.id.orderItemRemove);
 		}
 	}
 
@@ -66,16 +68,20 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 			Bitmap iBitmap = Order.get(position).getThumbBig();
 			holder.thumb.setImageBitmap(Bitmap.createScaledBitmap(iBitmap, 100, 100, false));
 		}
-/*		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+        //TTH//
+		holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
 												@Override
 												public void onClick(View v) {
 
 					Item removed = Order.remove(position);
+                    notifyDataSetChanged();
+
 					// TODO: Senda removed í fragmentið
 
 				}
 			}
-		);*/
+		);
+        //TTH
 
 	}
 
