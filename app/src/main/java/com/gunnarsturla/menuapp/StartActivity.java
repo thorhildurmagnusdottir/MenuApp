@@ -172,9 +172,9 @@ public class StartActivity extends Activity {
                 InputStream sis;
                 String submenuFileName = sm.getImghash() + "submenu.png";
                 File submenuFile = new File(path, submenuFileName);
-//                if (!submenuFile.exists()){
-//                    submenuFile = new File(path, Constants.);
-//                }
+                if (!submenuFile.exists()){
+                   submenuFile = new File(path, Constants.submmenuimageFile);
+                }
                 try {
                     sis = new FileInputStream(submenuFile);
                     Bitmap bm = BitmapFactory.decodeStream(sis, null, null);
