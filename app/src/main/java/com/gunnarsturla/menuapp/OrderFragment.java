@@ -107,6 +107,8 @@ public class OrderFragment extends Fragment {
                     alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(getActivity().getApplicationContext(), "Pöntunin er staðfest og send inn í eldhús", Toast.LENGTH_LONG).show();
+//                            SEND TO JSON!!! :)
+                            Order.getOrder(); // submenu med orderinu
                             Order.pay();
                             getActivity().finish();
                         }

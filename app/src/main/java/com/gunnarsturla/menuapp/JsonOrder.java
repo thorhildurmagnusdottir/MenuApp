@@ -1,33 +1,39 @@
 package com.gunnarsturla.menuapp;
 
-import menu.Order;
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import menu.Item;
+import menu.SubMenu;
+
 /**
  * Created by Dagny on 24.11.2014.
  */
-public class JsonOrder{
+public class JsonOrder {
+    private JSONObject JsonOrder;
 
-    public static String toJSon() {
+    public String OrderJSONAsString(){
+        return this.JsonOrder.toString();
+    }
 
+    public JSONObject OrderToJSon(SubMenu order) {
         try {
-
-            JSONObject jsonObj = new JSONObject();
-
+            JSONObject orderJSON = new JSONObject();
             JSONArray jsonArr = new JSONArray();
-
-            for(int i = 0; i < Order.size(); i++) {
-                JSONObject order = new JSONObject();
-                order.put("order", Order.get(i).getName());
-                jsonArr.put(order);
+            for (Item i : order.getItems()){
+                JSONObject itemObject = new JSONObject();
+                itemObject.put("itemName", i.getName());
+                itemObject.put("itemId", i.getId());
+                itemObject.put("itemComment", i.getComment());
+                Log.i("itemJSON", itemObject.toString());
+                jsonArr.put(itemObject);
             }
-
-            jsonObj.put("orderlist", jsonArr);
-
-            return jsonObj.toString();
-
+            orderJSON.put("orderlist", jsonArr);
+            this.JsonOrder = orderJSON;
+            return orderJSON;
         }
 
         catch(JSONException ex) {
