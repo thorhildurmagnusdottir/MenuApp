@@ -10,11 +10,11 @@ import menu.SubMenu;
  */
 public class W8r {
 	private static Vector<SubMenu> w8rMenu;
-	private static SubMenu order;
+	//private static SubMenu order;
 
 	public W8r() {
         this.w8rMenu = new Vector<SubMenu>();
-        this.order = new SubMenu();
+        //this.order = new SubMenu();
 	}
 	public static void build() {
 //       ==========================================================
@@ -44,7 +44,7 @@ public class W8r {
 //        Log.i("getMenuFromXML", submenuPrinting);
         //  End XMLParsing chapter
         // ==========================================================
-		order = new SubMenu("order", "");
+		//order = new SubMenu("order", "");
 	}
 
 	public static SubMenu get(int number) {
