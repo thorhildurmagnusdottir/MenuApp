@@ -2,7 +2,6 @@ package com.gunnarsturla.menuapp;
 
 /**
  * Created by thorhildur on 14.11.2014.
- * TODO: Færa þetta yfir í res/strings (eða eitthvað) -G
  */
 public class Constants {
     public static final String menuFolder = "w8r";

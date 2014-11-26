@@ -37,14 +37,11 @@ import menu.SubMenu;
 public class StartActivity extends Activity {
     public static int itemCount = 0;
     public static int photoCount = 0;
-    private static final int PROGRESS = 0X1;
-    private ProgressBar photoProgress;
-    private int photoProcessStatus = 0;
-    private Handler mHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        new GetImageFromWebTask().execute(Constants.imageURL, Constants.imageFile);
         final Button menuButton1 = (Button) findViewById(R.id.menubutton1);
         menuButton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -66,22 +63,6 @@ public class StartActivity extends Activity {
             e.printStackTrace();
         }
         new GetMenuFromWebserviceTask().execute(menuUrl);
-//        photoProgress = (ProgressBar) findViewById(R.id.progressBar);
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                while(photoProcessStatus < 100){
-//                    photoProcessStatus++;
-//                    Log.i("Progress bar status: ", photoProcessStatus + "");
-//                    mHandler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            photoProgress.setProgress(photoProcessStatus);
-//                        }
-//                    });
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -103,7 +84,7 @@ public class StartActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-//    This class gets the menu from the
+//    This class gets the menu from the internet and saves locally
     public class GetMenuFromWebserviceTask extends AsyncTask<URL, Void, Void> {
         public GetMenuFromWebserviceTask(){
         }
@@ -153,6 +134,7 @@ public class StartActivity extends Activity {
             new GetPhotosForItemsTask().execute();
         }
     }
+//    This class instantiates an AsyncTask to download pictures for all items
     public class GetPhotosForItemsTask extends AsyncTask<String, Void, Void>{
         Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
         @Override
@@ -179,6 +161,7 @@ public class StartActivity extends Activity {
             super.onPostExecute(aVoid);
         }
     }
+//    Sets all saved photos to items
     public void setPhotosToItems(){
         String submenuPrinting = "";
         if (null != W8r.getW8rMenu()){
@@ -199,10 +182,10 @@ public class StartActivity extends Activity {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-//                String submenuName = sm.getName();
-//                submenuPrinting = submenuPrinting + submenuName + " has picture: \n";
-//                String submenuPic = sm.getPicture();
-//                submenuPrinting = submenuPrinting + submenuPic + "\n";
+                String submenuName = sm.getName();
+                submenuPrinting = submenuPrinting + submenuName + " has picture: \n";
+                String submenuPic = sm.getPicture();
+                submenuPrinting = submenuPrinting + submenuPic + "\n";
                 for (Item i : sm.getItems()) {
 //                    Load the picture for the item
                     InputStream is;
@@ -288,10 +271,10 @@ public class StartActivity extends Activity {
             Log.i("photoCount is ", photoCount + "");
             super.onPostExecute(aVoid);
             if (photoCount == itemCount){
+//                When finished getting all photos we will set them to items.
                 Log.i("Got photos for all items", "let's set them to items");
                 setPhotosToItems();
             }
-
         }
     }
 	public void goToMainActivity() {
