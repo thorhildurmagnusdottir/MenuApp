@@ -26,7 +26,8 @@
 		android:background="@drawable/sm121"
 		android:layout_margin="0dp"
 		android:gravity="bottom|left"
-		android:paddingBottom="@dimen/sub_menu_header_padding_left"/>
+		android:paddingBottom="@dimen/sub_menu_header_padding_left"
+		android:textColor="@color/cardview_dark_background"/>
 
 	<!-- A RecyclerView with some commonly used attributes>
 	<android.support.v7.widget.RecyclerView

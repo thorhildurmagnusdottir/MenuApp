@@ -191,7 +191,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>replaceExisting</key>
-					<false/>
+					<true/>
 					<key>toDirectory</key>
 					<string>~/Projects/W8r/images</string>
 				</dict>
@@ -318,11 +318,11 @@
 					<key>scaleMethod</key>
 					<integer>5</integer>
 					<key>targetHeight</key>
-					<integer>360</integer>
+					<integer>480</integer>
 					<key>targetHeightPercentage</key>
 					<string>100</string>
 					<key>targetWidth</key>
-					<integer>360</integer>
+					<integer>480</integer>
 					<key>targetWidthPercentagle</key>
 					<string>100</string>
 				</dict>
@@ -341,7 +341,7 @@
 				<key>Class Name</key>
 				<string>AMCropImagesAction</string>
 				<key>InputUUID</key>
-				<string>0BBFBAF2-0EAB-470D-85BA-885C33220CAB</string>
+				<string>A5715B28-73D4-490E-8DC8-36B6675CBAD7</string>
 				<key>Keywords</key>
 				<array>
 					<string>Image</string>
@@ -351,9 +351,9 @@
 					<string>Scale</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>36AAD5BA-D4AB-4E21-943D-8C9B34D31382</string>
+				<string>E448AEC0-DF00-4FE6-810C-8BD06FAD676E</string>
 				<key>UUID</key>
-				<string>945350B3-7D33-407E-AA79-5E9775A1C0CE</string>
+				<string>BEE8E0ED-0313-467E-A3E3-7F9A51BEA810</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Preview</string>
@@ -449,22 +449,127 @@
 			<key>isViewVisible</key>
 			<true/>
 		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>public.image</string>
+						<string>public.item</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.2.1</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Pixelmator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>format</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>public.image</string>
+					</array>
+				</dict>
+				<key>AMRequiredResources</key>
+				<array/>
+				<key>ActionBundlePath</key>
+				<string>/Applications/Pixelmator.localized/Pixelmator.app/Contents/Library/Automator/Change Type of Images.action</string>
+				<key>ActionName</key>
+				<string>Change Type of Images</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>format</key>
+					<string>png</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.pixelmator.automator.change</string>
+				<key>CFBundleVersion</key>
+				<string>2.2.1</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<true/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryPhotos</string>
+				</array>
+				<key>Class Name</key>
+				<string>PXAMChangeTypeOfImages</string>
+				<key>InputUUID</key>
+				<string>06062185-3E19-4727-BE9B-3AF92C4BC827</string>
+				<key>Keywords</key>
+				<array/>
+				<key>OutputUUID</key>
+				<string>D0D3BA22-51F6-4187-9BE7-65555AB678C0</string>
+				<key>UUID</key>
+				<string>D5857BA8-FE94-4834-8B9B-4FBF4C1FCB2A</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Pixelmator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>pxm</string>
+						<key>name</key>
+						<string>format</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>309.000000:517.000000</string>
+				<key>nibPath</key>
+				<string>/Applications/Pixelmator.localized/Pixelmator.app/Contents/Library/Automator/Change Type of Images.action/Contents/Resources/English.lproj/Change Type of Images.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>921C1C4F-1480-48DB-8FD3-91C788662DD5</key>
+		<key>68FC4B63-8A05-40BF-BF77-E378E13E3F33</key>
 		<dict>
 			<key>from</key>
 			<string>43E86CFF-1505-4505-B035-C803C29B672A - 43E86CFF-1505-4505-B035-C803C29B672A</string>
 			<key>to</key>
 			<string>2D70A748-25A4-4D85-97FD-935369670FDA - 2D70A748-25A4-4D85-97FD-935369670FDA</string>
 		</dict>
-		<key>E9C7B517-1407-45A8-8005-AB55A95EEEB2</key>
+		<key>C8C26B36-7DDD-46D4-AF1F-E55E75C2F6F5</key>
+		<dict>
+			<key>from</key>
+			<string>BEE8E0ED-0313-467E-A3E3-7F9A51BEA810 - BEE8E0ED-0313-467E-A3E3-7F9A51BEA810</string>
+			<key>to</key>
+			<string>D5857BA8-FE94-4834-8B9B-4FBF4C1FCB2A - D5857BA8-FE94-4834-8B9B-4FBF4C1FCB2A</string>
+		</dict>
+		<key>D4E2D55D-3492-4072-A52F-E54901739E66</key>
 		<dict>
 			<key>from</key>
 			<string>2D70A748-25A4-4D85-97FD-935369670FDA - 2D70A748-25A4-4D85-97FD-935369670FDA</string>
 			<key>to</key>
-			<string>945350B3-7D33-407E-AA79-5E9775A1C0CE - 945350B3-7D33-407E-AA79-5E9775A1C0CE</string>
+			<string>BEE8E0ED-0313-467E-A3E3-7F9A51BEA810 - BEE8E0ED-0313-467E-A3E3-7F9A51BEA810</string>
 		</dict>
 	</dict>
 	<key>variables</key>

@@ -253,5 +253,4 @@ public class SubMenuActivity extends Activity {
 
 		editingItem = null;
 	}
-
 }

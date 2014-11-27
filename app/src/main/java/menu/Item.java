@@ -1,14 +1,13 @@
 package menu;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import java.util.Vector;
 
 /**
  * @author Gunnar Sturla Ágústuson
  * @since 9.10.14
- * Klasinn sem heldur utan um alla réttina á matseðlinum og alla eiginleika þeirra
+ * Klasinn sem heldur utan um hvern og einn rétt á matseðlinum og alla eiginleika hans
  */
 
 public class Item {
@@ -20,18 +19,12 @@ public class Item {
             private String ingredients;    // innihaldsefni
             private String imghash;        // Einstakt hash fyrir þessar myndir,
 
-    public String getThumbBigUrl() {
-        return thumbBigUrl;
-    }
-
-    public void setThumbBigUrl(String thumbBigUrl) {
-        Log.i("setting bit thumb", thumbBigUrl);
-        this.thumbBigUrl = thumbBigUrl;
-    }
-
     private String thumbBigUrl;
     private String comment;		// Comment sem notandi getur bætt við item þegar hann pantar
+    // sem breytist ef myndirnar eru uppfærðar
+    private Bitmap thumbsmall;
     private Bitmap thumbBig;
+
     private Vector<String> filterable; // Vector sem heldur utan um síanlega hluti, eins og vegetarian, ofl.
     public Item() {
         // Nýtt Item með engum upplýsingum, sem þarf svo að setja inn með item.setName("") og því
@@ -63,8 +56,8 @@ public class Item {
     public void setImghash(String imghash)		{ this.imghash = imghash;   }
 	public void setComment(String c) 			{ this.comment = c; }
     private Vector<String> allergens;  // Vector sem heldur utan um ofnæmisvalda
-    public void setThumbBig(Bitmap thumbbig) {              this.thumbBig = thumbbig;    }
-
+    public void setThumbSmall(Bitmap thumbsmall) {        this.thumbsmall = thumbsmall;    }
+    public void setThumbBig(Bitmap thumbbig) {        this.thumbBig = thumbbig;    }
 
     // afritar basically annað item.
     // gagnlegt þegar kúnni setur nýjan rétt í
@@ -103,8 +96,26 @@ public class Item {
     public String getIngredients()	{ return ingredients; }
     public String getImghash()		{ return imghash;	}
 	public String getComment()		{ return comment;	}
+    public Bitmap getThumbSmall()   { return this.thumbsmall;  }
     public Bitmap getThumbBig()		{ return this.thumbBig;    }
 
+	public String getThumbSmallUrl() {
+		return thumbSmallUrl;
+	}
+
+	public void setThumbSmallUrl(String thumbSmallUrl) {
+		this.thumbSmallUrl = thumbSmallUrl;
+	}
+
+	private String thumbSmallUrl; // url fyrir small thumb
+
+	public String getThumbBigUrl() {
+		return thumbBigUrl;
+	}
+
+	public void setThumbBigUrl(String thumbBigUrl) {
+		this.thumbBigUrl = thumbBigUrl;
+	}
 
 
     public boolean hasAllergens() 	{ return !allergens.isEmpty(); }

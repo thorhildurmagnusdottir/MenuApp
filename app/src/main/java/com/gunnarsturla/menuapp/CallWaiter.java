@@ -6,7 +6,8 @@ import android.content.DialogInterface;
 import android.widget.Toast;
 
 /**
- * Created by Dagny on 19.11.2014.
+ * Created by: Dagny Lara
+ * Date: 19.11.2014.
  */
 
 public class CallWaiter  {
