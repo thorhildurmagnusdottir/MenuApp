@@ -26,7 +26,8 @@
 		android:id="@+id/imageView"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:src="@drawable/w8r"/>
+		android:src="@drawable/w8r"
+		android:layout_marginTop="@dimen/sub_menu_header_padding_top"/>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,10 +1,13 @@
 package com.gunnarsturla.menuapp;
 
 /**
- * Created by thorhildur on 14.11.2014.
+ * @author Þórhildur Magnúsdóttir
+ * @since 14.11.14
+ * Klasinn heldur utan um fasta sem eru nauðsynlegir þegar
+ * við sækjum matseðilinn og myndir.
  */
+
 public class Constants {
-    public static final String menuFolder = "w8r";
     public static final String submenuImageUrl = "http://i.imgur.com/xEupJv8.jpg";
     public static final String submmenuimageFile = "submenupicture.png";
     public static final String newImageUrl = "http://i.imgur.com/PxSfSGN.png";

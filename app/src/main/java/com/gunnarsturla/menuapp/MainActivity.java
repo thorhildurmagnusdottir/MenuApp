@@ -12,6 +12,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import menu.Order;
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -27,6 +31,7 @@ public class MainActivity extends Activity {
 
     private boolean ordrFragVis;
     private OrderFragment orderFragment;
+	private View editingItem;
 
 	// Skilgreini context hér til að geta náð í það hvar sem er með kallinu MainActivity.context
 	// (Jaaaá, Snorri mundi örugglega skamma mig fyrir að brjóta
@@ -44,13 +49,7 @@ public class MainActivity extends Activity {
 		context = getApplicationContext();
 
         Log.i("MainActivity", "ran here");
-//        Context theContext = getApplicationContext();
-        displayMenu();
-	}
 
-    public void displayMenu(){
-        //		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_main);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         // use a linear layout manager
@@ -60,12 +59,6 @@ public class MainActivity extends Activity {
         // specify an adapter (see also next example)
         mAdapter = new MainMenuAdapter();
         mRecyclerView.setAdapter(mAdapter);
-/*
-		TextView smName = (TextView) findViewById(R.id.smName);
-		smName.setText(W8r.get(0).getName());*/
-
-		//Test, má henda út
-//		Order.addOrder(W8r.get(1).get(1));
 	}
 
     @Override
@@ -84,6 +77,7 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_viewOrder) {
 
+			// Birtum orderFragmentið með kalli á fall
 			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.mmRoot);
 			ordrFragVis = !ordrFragVis;
 
@@ -127,4 +121,64 @@ public class MainActivity extends Activity {
 		fragmentTransaction.commit();
 		return orderFrag;
 	}
+
+	public void enableComment(View v) {
+
+		Log.i("OrderFragment:", "clicking to enable comment");
+		if(editingItem != null)
+			disableComment(editingItem);
+
+		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
+		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
+		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+
+		int pos = Integer.parseInt((String) itemPosition.getText());
+
+
+		String comment = Order.getComment(pos);
+
+		editComment.setText(comment);
+
+		commentView.setVisibility(View.INVISIBLE);
+		editComment.setVisibility(View.VISIBLE);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				disableComment(v);
+			}
+		});
+
+		editingItem = v;
+	}
+
+	public void disableComment(View v) {
+
+		v = editingItem;
+
+		TextView commentView = (TextView) v.findViewById(R.id.orderItemComment);
+		EditText editComment = (EditText) v.findViewById(R.id.orderEditComment);
+		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
+
+		int pos = Integer.parseInt((String) itemPosition.getText());
+		String comment = editComment.getText().toString();
+
+		Order.setComment(pos, comment);
+
+		commentView.setText(comment);
+		Log.i("SMA", "setting comment "+ comment+ " on "+ pos);
+
+		commentView.setVisibility(View.VISIBLE);
+		editComment.setVisibility(View.INVISIBLE);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				enableComment(v);
+			}
+		});
+
+		editingItem = null;
+	}
+
 }

@@ -7,13 +7,11 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -148,6 +146,7 @@ public class StartActivity extends Activity {
                     String iname = i.getId() + "item.png" ;
                     String itemImageurl = i.getThumbBigUrl();
 //                    Lína til að breyta!!
+					Log.i("StartActivity", "Getting photo from " + itemImageurl);
                     new GetImageFromWebTask().execute(itemImageurl, iname);
                 }
             }

@@ -7,7 +7,7 @@ import java.util.Vector;
 /**
  * @author Gunnar Sturla Ágústuson
  * @since 9.10.14
- * Klasinn sem heldur utan um alla réttina á matseðlinum og alla eiginleika þeirra
+ * Klasinn sem heldur utan um hvern og einn rétt á matseðlinum og alla eiginleika hans
  */
 
 public class Item {
@@ -18,24 +18,6 @@ public class Item {
             private String description;    // Textalýsing
             private String ingredients;    // innihaldsefni
             private String imghash;        // Einstakt hash fyrir þessar myndir,
-
-    public String getThumbSmallUrl() {
-        return thumbSmallUrl;
-    }
-
-    public void setThumbSmallUrl(String thumbSmallUrl) {
-        this.thumbSmallUrl = thumbSmallUrl;
-    }
-
-    private String thumbSmallUrl; // url fyrir small thumb
-
-    public String getThumbBigUrl() {
-        return thumbBigUrl;
-    }
-
-    public void setThumbBigUrl(String thumbBigUrl) {
-        this.thumbBigUrl = thumbBigUrl;
-    }
 
     private String thumbBigUrl;
     private String comment;		// Comment sem notandi getur bætt við item þegar hann pantar
@@ -117,6 +99,23 @@ public class Item {
     public Bitmap getThumbSmall()   { return this.thumbsmall;  }
     public Bitmap getThumbBig()		{ return this.thumbBig;    }
 
+	public String getThumbSmallUrl() {
+		return thumbSmallUrl;
+	}
+
+	public void setThumbSmallUrl(String thumbSmallUrl) {
+		this.thumbSmallUrl = thumbSmallUrl;
+	}
+
+	private String thumbSmallUrl; // url fyrir small thumb
+
+	public String getThumbBigUrl() {
+		return thumbBigUrl;
+	}
+
+	public void setThumbBigUrl(String thumbBigUrl) {
+		this.thumbBigUrl = thumbBigUrl;
+	}
 
 
     public boolean hasAllergens() 	{ return !allergens.isEmpty(); }
