@@ -1,6 +1,7 @@
 package menu;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.Vector;
 
@@ -21,15 +22,19 @@ public class Item {
 
     private String thumbBigUrl;
     private String comment;		// Comment sem notandi getur bætt við item þegar hann pantar
+    private String thumbSmallUrl; // url fyrir small thumb
     // sem breytist ef myndirnar eru uppfærðar
     private Bitmap thumbsmall;
+
     private Bitmap thumbBig;
 
-    private Vector<String> filterable; // Vector sem heldur utan um síanlega hluti, eins og vegetarian, ofl.
+
     public Item() {
+//        thumbBigUrl = "";
         // Nýtt Item með engum upplýsingum, sem þarf svo að setja inn með item.setName("") og því
     }
 
+    private Vector<String> filterable; // Vector sem heldur utan um síanlega hluti, eins og vegetarian, ofl.
     public Item(int id, int price, int cals, String name, String description, String ingredients, String imghash)
     {
         this.id 		= id;			// id á vörunni
@@ -44,6 +49,7 @@ public class Item {
         allergens =  new Vector<String>();
         filterable = new Vector<String>();
     }
+
     public Item(int id){
         this.id = id;
     }
@@ -54,10 +60,18 @@ public class Item {
     public void setDescription(String desc)		{ this.description = desc; }
     public void setIngredients(String ingr)		{ this.ingredients = ingr; }
     public void setImghash(String imghash)		{ this.imghash = imghash;   }
-	public void setComment(String c) 			{ this.comment = c; }
+    public void setComment(String c) 			{ this.comment = c; }
     private Vector<String> allergens;  // Vector sem heldur utan um ofnæmisvalda
     public void setThumbSmall(Bitmap thumbsmall) {        this.thumbsmall = thumbsmall;    }
     public void setThumbBig(Bitmap thumbbig) {        this.thumbBig = thumbbig;    }
+    public String getThumbBigUrl() {
+//        Log.i("returning thumg ", thumbBigUrl);
+        return thumbBigUrl;    }
+
+    public void setThumbBigUrl(String thumb) {
+        Log.i("setting thumb to", thumb);
+        thumbBigUrl = thumb;
+    }
 
     // afritar basically annað item.
     // gagnlegt þegar kúnni setur nýjan rétt í

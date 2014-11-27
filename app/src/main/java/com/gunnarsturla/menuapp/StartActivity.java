@@ -44,6 +44,12 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+<<<<<<< HEAD
+=======
+        new GetImageFromWebTask().execute(Constants.submenuImageUrl, Constants.submmenuimageFile);
+
+        new GetImageFromWebTask().execute(Constants.imageURL, Constants.imageFile);
+>>>>>>> origin/hopeful
         startMenu(Constants.menuUrl);
     }
     protected void startMenu(String menu){
@@ -82,6 +88,7 @@ public class StartActivity extends Activity {
         @Override
         protected Void doInBackground(URL... params) {
             try {
+                Log.i("Getting menu from url; ", params[0].toString());
                 URL url = params[0];
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.connect();
@@ -128,14 +135,33 @@ public class StartActivity extends Activity {
             itemCount = W8r.getItemCount();
             Log.i("AsyncGetAllPhotos", "running and itemCount is " + itemCount);
             for (SubMenu sm : w8rMenu){
-                String name = sm.getImghash() + "submenu.png";
-                String submenuImageUrl = sm.getPicture();
-                Log.i("getting image", name + " at url: " + submenuImageUrl);
-                new GetImageFromWebTask().execute(submenuImageUrl, name);
+                String sfilename = sm.getImghash() + "submenu.png";
+                String submenuImageUrl;
+                        if( "" == sm.getPicture()){
+                            submenuImageUrl = Constants.submenuImageUrl;
+                        }
+                else submenuImageUrl = sm.getPicture();
+
+                Log.i("getting image", sfilename + " at url: " + submenuImageUrl);
+                new GetImageFromWebTask().execute(submenuImageUrl, sfilename);
                 for (Item i : sm.getItems()){
+<<<<<<< HEAD
                     String iname = i.getId() + "item.png" ;
                     String itemImageurl = i.getThumbBigUrl();
                     new GetImageFromWebTask().execute(itemImageurl, iname);
+=======
+                    String ifilename = i.getId() + "item.png" ;
+                    String itemImageurl;
+                        if (i.getThumbBigUrl() == null){
+                            Log.i("thumb", i.getName() + "has no thumb");
+                            itemImageurl = Constants.imageURL;
+                        }
+                    else {
+                        itemImageurl = i.getThumbBigUrl();
+                        Log.i("itemurl", i.getThumbBigUrl());
+                        }
+                    new GetImageFromWebTask().execute(itemImageurl, ifilename);
+>>>>>>> origin/hopeful
                 }
             }
             return null;
@@ -150,13 +176,23 @@ public class StartActivity extends Activity {
     public void setPhotosToItems(){
         String submenuPrinting = "";
         if (null != W8r.getW8rMenu()){
+<<<<<<< HEAD
             ArrayList<SubMenu> w8rMenu = W8r.getW8rMenu();
             File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+=======
+            Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
+//            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//            File path = getExternalFilesDir(null);
+
+            File path = Environment.getExternalStorageDirectory();
+>>>>>>> origin/hopeful
             for (SubMenu sm : w8rMenu) {
 //                Load the picture for the submenu
                 InputStream sis;
                 String submenuFileName = sm.getImghash() + "submenu.png";
                 File submenuFile = new File(path, submenuFileName);
+//                File submenuFile = new File(sdcard, submenuFileName);
+
                 if (!submenuFile.exists()){
                    submenuFile = new File(path, Constants.submmenuimageFile);
                 }
@@ -175,6 +211,8 @@ public class StartActivity extends Activity {
 //                    Load the picture for the item
                     InputStream is;
                     String itemFileName = i.getId() + "item.png";
+//                    File itemFile = new File(path, itemFileName);
+
                     File itemFile = new File(path, itemFileName);
                     if (!itemFile.exists()){
                         itemFile = new File(path, Constants.imageFile);
@@ -229,7 +267,8 @@ public class StartActivity extends Activity {
                 e.printStackTrace();
                 return null;
             }
-            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//            File path = getExternalFilesDir(null);
+            File path = Environment.getExternalStorageDirectory();
             File file = new File(path, params[1]);
             FileOutputStream fos = null;
             try {
