@@ -102,9 +102,10 @@ public class XMLHandler extends DefaultHandler {
             bCals = false; }
         else if (bPrice) { currentItem.setPrice(Integer.parseInt(new String(ch, start, length)));
             bPrice = false; }
-        else if (bThumbBig) { currentItem.setThumbBigUrl(new String(ch, start, length));
+        else if (bThumbBig) {
+            String thumbUrl = new String(ch, start, length);
+            Log.i("thumburl is ", thumbUrl);
+            currentItem.setThumbBigUrl(thumbUrl);
             bThumbBig = false; }
-        else if (bThumbSmall) { currentItem.setThumbSmallUrl(new String(ch, start, length));
-            bThumbSmall = false; }
     }
 }

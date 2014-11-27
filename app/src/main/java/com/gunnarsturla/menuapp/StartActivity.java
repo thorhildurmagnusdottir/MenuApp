@@ -41,6 +41,9 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        new GetImageFromWebTask().execute(Constants.submenuImageUrl, Constants.submmenuimageFile);
+
+        new GetImageFromWebTask().execute(Constants.imageURL, Constants.imageFile);
         startMenu(Constants.menuUrl);
     }
     protected void startMenu(String menu){
@@ -138,10 +141,14 @@ public class StartActivity extends Activity {
                 for (Item i : sm.getItems()){
                     String ifilename = i.getId() + "item.png" ;
                     String itemImageurl;
-                        if ("" == i.getThumbBigUrl()){
+                        if (i.getThumbBigUrl() == null){
+                            Log.i("thumb", i.getName() + "has no thumb");
                             itemImageurl = Constants.imageURL;
                         }
-                    else itemImageurl = i.getThumbBigUrl();
+                    else {
+                        itemImageurl = i.getThumbBigUrl();
+                        Log.i("itemurl", i.getThumbBigUrl());
+                        }
                     new GetImageFromWebTask().execute(itemImageurl, ifilename);
                 }
             }
@@ -159,13 +166,16 @@ public class StartActivity extends Activity {
         if (null != W8r.getW8rMenu()){
             Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
 //            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//            File path = getExternalFilesDir(null);
 
-            File path = getExternalFilesDir(null);
+            File path = Environment.getExternalStorageDirectory();
             for (SubMenu sm : w8rMenu) {
 //                Load the picture for the submenu
                 InputStream sis;
                 String submenuFileName = sm.getImghash() + "submenu.png";
                 File submenuFile = new File(path, submenuFileName);
+//                File submenuFile = new File(sdcard, submenuFileName);
+
                 if (!submenuFile.exists()){
                    submenuFile = new File(path, Constants.submmenuimageFile);
                 }
@@ -183,7 +193,9 @@ public class StartActivity extends Activity {
                 for (Item i : sm.getItems()) {
 //                    Load the picture for the item
                     InputStream is;
-                    String itemFileName = i.getId() + "item.png";
+                    String itemFileName = i.getId() + "_item.png";
+//                    File itemFile = new File(path, itemFileName);
+
                     File itemFile = new File(path, itemFileName);
                     if (!itemFile.exists()){
                         itemFile = new File(path, Constants.imageFile);
@@ -238,7 +250,8 @@ public class StartActivity extends Activity {
                 e.printStackTrace();
                 return null;
             }
-            File path = getExternalFilesDir(null);
+//            File path = getExternalFilesDir(null);
+            File path = Environment.getExternalStorageDirectory();
             File file = new File(path, params[1]);
             FileOutputStream fos = null;
             try {

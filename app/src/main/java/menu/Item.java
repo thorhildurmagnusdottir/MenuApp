@@ -1,6 +1,7 @@
 package menu;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.Vector;
 
@@ -19,35 +20,29 @@ public class Item {
             private String ingredients;    // innihaldsefni
             private String imghash;        // Einstakt hash fyrir þessar myndir,
 
-    public String getThumbSmallUrl() {
-        return thumbSmallUrl;
-    }
-
-    public void setThumbSmallUrl(String thumbSmallUrl) {
-        this.thumbSmallUrl = thumbSmallUrl;
-    }
-
+    private String thumbBigUrl;
+    private String comment;		// Comment sem notandi getur bætt við item þegar hann pantar
     private String thumbSmallUrl; // url fyrir small thumb
+    // sem breytist ef myndirnar eru uppfærðar
+    private Bitmap thumbsmall;
+
+    private Bitmap thumbBig;
+
+
+    public Item() {
+//        thumbBigUrl = "";
+        // Nýtt Item með engum upplýsingum, sem þarf svo að setja inn með item.setName("") og því
+    }
 
     public String getThumbBigUrl() {
         return thumbBigUrl;
     }
 
-    public void setThumbBigUrl(String thumbBigUrl) {
-        this.thumbBigUrl = thumbBigUrl;
+    public void setThumbBigUrl(String thumb) {
+        Log.i("setting thumb to", thumb);
+        this.thumbBigUrl = thumb;
     }
-
-    private String thumbBigUrl;
-    private String comment;		// Comment sem notandi getur bætt við item þegar hann pantar
-    // sem breytist ef myndirnar eru uppfærðar
-    private Bitmap thumbsmall;
-    private Bitmap thumbBig;
-
     private Vector<String> filterable; // Vector sem heldur utan um síanlega hluti, eins og vegetarian, ofl.
-    public Item() {
-        this.thumbBigUrl = "";
-        // Nýtt Item með engum upplýsingum, sem þarf svo að setja inn með item.setName("") og því
-    }
 
     public Item(int id, int price, int cals, String name, String description, String ingredients, String imghash)
     {

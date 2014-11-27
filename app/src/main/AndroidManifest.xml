@@ -35,17 +35,6 @@
 	        >
         </activity>
         <activity
-            android:name="com.gunnarsturla.menuapp.OrderActivity"
-            android:label="@string/title_activity_order"
-            android:parentActivityName="com.gunnarsturla.menuapp.MainActivity" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gunnarsturla.restaurantappgi.main" />
-	        >
-        </activity>
-        <activity
             android:name="com.gunnarsturla.menuapp.StartActivity"
             android:label="@string/title_activity_start"
 	        android:icon="@drawable/w8r_icon"
