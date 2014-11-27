@@ -101,7 +101,9 @@ public class StartActivity extends Activity {
 //        Uncomment if we figure this out or remove if we don't :)
 //        File path = getExternalFilesDir(null);
 //        File file = new File(path,Constants.menuFile);
+
                 FileOutputStream fileOutput = new FileOutputStream(file);
+
                 InputStream inputStream = urlConnection.getInputStream();
 
                 int totalSize = urlConnection.getContentLength();
