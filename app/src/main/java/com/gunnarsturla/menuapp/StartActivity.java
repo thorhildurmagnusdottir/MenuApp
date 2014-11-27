@@ -44,12 +44,11 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-<<<<<<< HEAD
-=======
+
         new GetImageFromWebTask().execute(Constants.submenuImageUrl, Constants.submmenuimageFile);
 
         new GetImageFromWebTask().execute(Constants.imageURL, Constants.imageFile);
->>>>>>> origin/hopeful
+
         startMenu(Constants.menuUrl);
     }
     protected void startMenu(String menu){
@@ -145,11 +144,7 @@ public class StartActivity extends Activity {
                 Log.i("getting image", sfilename + " at url: " + submenuImageUrl);
                 new GetImageFromWebTask().execute(submenuImageUrl, sfilename);
                 for (Item i : sm.getItems()){
-<<<<<<< HEAD
-                    String iname = i.getId() + "item.png" ;
-                    String itemImageurl = i.getThumbBigUrl();
-                    new GetImageFromWebTask().execute(itemImageurl, iname);
-=======
+
                     String ifilename = i.getId() + "item.png" ;
                     String itemImageurl;
                         if (i.getThumbBigUrl() == null){
@@ -161,7 +156,6 @@ public class StartActivity extends Activity {
                         Log.i("itemurl", i.getThumbBigUrl());
                         }
                     new GetImageFromWebTask().execute(itemImageurl, ifilename);
->>>>>>> origin/hopeful
                 }
             }
             return null;
@@ -176,16 +170,10 @@ public class StartActivity extends Activity {
     public void setPhotosToItems(){
         String submenuPrinting = "";
         if (null != W8r.getW8rMenu()){
-<<<<<<< HEAD
             ArrayList<SubMenu> w8rMenu = W8r.getW8rMenu();
             File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-=======
-            Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
-//            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-//            File path = getExternalFilesDir(null);
 
-            File path = Environment.getExternalStorageDirectory();
->>>>>>> origin/hopeful
+ //           File path = Environment.getExternalStorageDirectory();
             for (SubMenu sm : w8rMenu) {
 //                Load the picture for the submenu
                 InputStream sis;

@@ -32,12 +32,8 @@ public class SubMenu {
     // Þetta er eintak af SubMenu sem heldur
     // utan um pöntunina sem á eftir að senda.
     public SubMenu() {
-<<<<<<< HEAD
         items = new ArrayList<Item>();
-=======
-        items = new Vector<Item>();
         picture = "";
->>>>>>> origin/hopeful
     }
     public ArrayList<Item> getItems() {
         return items;

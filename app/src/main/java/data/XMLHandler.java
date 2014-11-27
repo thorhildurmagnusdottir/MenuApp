@@ -103,15 +103,9 @@ public class XMLHandler extends DefaultHandler {
         else if (bPrice) { currentItem.setPrice(Integer.parseInt(new String(ch, start, length)));
             bPrice = false; }
         else if (bThumbBig) {
-<<<<<<< HEAD
-            String urli = new String(ch, start, length);
-            Log.i("thumb big", urli);
-            currentItem.setThumbBigUrl(urli);
-=======
             String thumbUrl = new String(ch, start, length);
             Log.i("thumburl is ", thumbUrl);
             currentItem.setThumbBigUrl(thumbUrl);
->>>>>>> origin/hopeful
             bThumbBig = false; }
     }
 }

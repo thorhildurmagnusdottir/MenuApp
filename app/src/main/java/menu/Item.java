@@ -22,7 +22,6 @@ public class Item {
 
     private String thumbBigUrl;
     private String comment;		// Comment sem notandi getur bætt við item þegar hann pantar
-    private String thumbSmallUrl; // url fyrir small thumb
     // sem breytist ef myndirnar eru uppfærðar
     private Bitmap thumbsmall;
 
@@ -64,9 +63,6 @@ public class Item {
     private Vector<String> allergens;  // Vector sem heldur utan um ofnæmisvalda
     public void setThumbSmall(Bitmap thumbsmall) {        this.thumbsmall = thumbsmall;    }
     public void setThumbBig(Bitmap thumbbig) {        this.thumbBig = thumbbig;    }
-    public String getThumbBigUrl() {
-//        Log.i("returning thumg ", thumbBigUrl);
-        return thumbBigUrl;    }
 
     public void setThumbBigUrl(String thumb) {
         Log.i("setting thumb to", thumb);
@@ -125,10 +121,6 @@ public class Item {
 
 	public String getThumbBigUrl() {
 		return thumbBigUrl;
-	}
-
-	public void setThumbBigUrl(String thumbBigUrl) {
-		this.thumbBigUrl = thumbBigUrl;
 	}
 
 
