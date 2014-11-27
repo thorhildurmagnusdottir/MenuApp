@@ -2,19 +2,19 @@ package data;
 
 import java.util.Vector;
 
-import menu.Item;
 import menu.SubMenu;
 
 /*
- * Created by Gunnar on 26.10.14.
+ * @author Gunnar
+ * @since 26.10.14.
+ * This is the shit. Grunnurinn sem heldur utan um allan matseðilinn
+ * Item (hver réttur) eru geymd í SubMenu-um sem W8r heldur utan um.
  */
 public class W8r {
 	private static Vector<SubMenu> w8rMenu;
-	//private static SubMenu order;
 
 	public W8r() {
         this.w8rMenu = new Vector<SubMenu>();
-        //this.order = new SubMenu();
 	}
 	public static void build() {
 //       ==========================================================
@@ -25,26 +25,7 @@ public class W8r {
         // Gets the items from the file saved on the pad and parses the xml to items
         myParser.populateItems();
         // returns the populated items
-        Vector<SubMenu> newMenu = myParser.populateMenu();
-        w8rMenu = newMenu;
-        // ==========================================================
-        // TEST PRINTING
-        String submenuPrinting = "";
-        if (null != newMenu){
-            for (SubMenu sm : newMenu) {
-                String submenuName = sm.getName();
-                submenuPrinting = submenuPrinting + submenuName + "\n";
-                for (Item i : sm.getItems()){
-                    String itemName = i.getName();
-                    submenuPrinting = submenuPrinting + itemName + "\n";
-                }
-            }
-        }
-        submenuPrinting = submenuPrinting + "submenu er null";
-//        Log.i("getMenuFromXML", submenuPrinting);
-        //  End XMLParsing chapter
-        // ==========================================================
-		//order = new SubMenu("order", "");
+        w8rMenu = myParser.populateMenu();
 	}
 
 	public static SubMenu get(int number) {
@@ -66,6 +47,4 @@ public class W8r {
         }
         return items;
     }
-	// Ný vara pöntuð
-//	public static boolean order(Item item) { return order.addItem(item); }
 }

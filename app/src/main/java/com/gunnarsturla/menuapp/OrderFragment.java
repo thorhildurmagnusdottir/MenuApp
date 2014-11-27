@@ -22,6 +22,8 @@ import menu.SubMenu;
 
 
 /**
+ * @author Gunnar Sturla
+ * @since 22.11.14
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * {@link OrderFragment.OnFragmentInteractionListener} interface

@@ -9,14 +9,14 @@ import org.json.JSONObject;
 import menu.Item;
 import menu.SubMenu;
 
-/**
- * Created by Dagny on 24.11.2014.
+/*
+ * @author Dagny
+ * @since 24.11.2014.
+ * Skrifar JSONobject representasjón af pöntunarlistanum,
+ * sem er tekinn in sem SubMenu af Itemum
  */
 public class JsonOrder {
-    private JSONObject JsonOrder;
-    public String OrderJSONAsString(){
-        return this.JsonOrder.toString();
-    }
+
     public JSONObject OrderToJSon(SubMenu order) {
         try {
             JSONObject orderJSON = new JSONObject();
@@ -30,7 +30,6 @@ public class JsonOrder {
                 jsonArr.put(itemObject);
             }
             orderJSON.put("orderlist", jsonArr);
-            this.JsonOrder = orderJSON;
             return orderJSON;
         }
 

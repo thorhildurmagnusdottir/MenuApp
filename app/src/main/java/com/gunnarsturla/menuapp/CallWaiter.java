@@ -8,6 +8,7 @@ import android.widget.Toast;
 /**
  * Created by: Dagny Lara
  * Date: 19.11.2014.
+ * Sér um að birta AlertDialog þegar smellt er á takkann sem kallar á þjón
  */
 
 public class CallWaiter  {
@@ -18,6 +19,7 @@ public class CallWaiter  {
         alertDialog.setButton("Já", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(activity.getApplicationContext(), "Þjónn kemur skjótt", Toast.LENGTH_LONG).show();
+				// TODO: Senda beiðni á vefþjónustu
             }
         });
 

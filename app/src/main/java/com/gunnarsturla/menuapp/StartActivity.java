@@ -31,6 +31,13 @@ import data.W8r;
 import menu.Item;
 import menu.SubMenu;
 
+/**
+ * @author Þórhildur Magnúsdóttir
+ * @since 8.10.14
+ * Fyrsta valmyndin sem ræsist. Hún sér um að sækja matseðilinn
+ * í formi xml skrár, sækja myndir og senda allar upplýsingar
+ * á rétta staði.
+ */
 
 public class StartActivity extends Activity {
     public static int itemCount = 0;

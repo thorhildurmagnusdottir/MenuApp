@@ -97,9 +97,9 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 
 				if(Order.addOrder(i)) {
 					Log.i("SubMenuAdapter", "Pantaði " + i.getName());
-					Toast.makeText(MainActivity.context, "Bætti " + i.getName() + " við pöntun.", Toast.LENGTH_SHORT).show();
+					Toast.makeText(MainActivity.getContext(), "Bætti " + i.getName() + " við pöntun.", Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText(MainActivity.context, "Tókst ekki að bæta " + i.getName() + " við pöntun.", Toast.LENGTH_SHORT).show();
+					Toast.makeText(MainActivity.getContext(), "Tókst ekki að bæta " + i.getName() + " við pöntun.", Toast.LENGTH_SHORT).show();
 				}
 			}
 		}

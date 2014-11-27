@@ -18,6 +18,12 @@ import android.widget.TextView;
 import data.W8r;
 import menu.Order;
 
+/**
+ * @author Gunnar Sturla Ágústuson
+ * @since 8.10.14
+ * Aðalklasinn sem birtir útlit forritsins og ræsir það.
+ *
+ */
 
 public class SubMenuActivity extends Activity {
 
@@ -58,10 +64,8 @@ public class SubMenuActivity extends Activity {
 		header.setText(W8r.get(groupNumber).getName());
 		Drawable bg = new BitmapDrawable(getResources(), W8r.get(groupNumber).getBitmap());
 		header.setBackground(bg);
-		//header.setBackgroundResource(R.drawable.sm121);
 
 		//Setjum bakgrunnsmyndina inn í header
-
 		mRecyclerView = (RecyclerView) findViewById(R.id.sub_menu_list);
 
 
@@ -154,9 +158,6 @@ public class SubMenuActivity extends Activity {
 		itemDesc.setLayoutParams(params);
 
 
-		//ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
-		//thumb.getLayoutParams().height = ((int) v.getResources().getDimension(R.dimen.card_thumb_height))+100;
-
 		if(ordrFragVis) {
 			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.smRoot);
 			ordrFragVis = !ordrFragVis;
@@ -187,9 +188,6 @@ public class SubMenuActivity extends Activity {
 		params.setMargins(0, 16, 8, 8);
 		itemDesc.setLayoutParams(params);
 
-		//ImageView thumb = (ImageView) v.findViewById(R.id.itemThumb);
-		//thumb.getLayoutParams().height = (int) v.getResources().getDimension(R.dimen.card_thumb_height);
-
 
 		v.setOnClickListener(cardExpander);
 		expandedCard = null;
@@ -206,7 +204,6 @@ public class SubMenuActivity extends Activity {
 		TextView itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
 
 		int pos = Integer.parseInt((String) itemPosition.getText());
-
 
 		String comment = Order.getComment(pos);
 

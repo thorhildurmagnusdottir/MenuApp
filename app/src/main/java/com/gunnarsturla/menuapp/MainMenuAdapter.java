@@ -13,7 +13,9 @@ import android.widget.TextView;
 import data.W8r;
 
 /**
- * Created by Gunnar on 23.10.14.
+ * @author Gunnar Sturla
+ * @since 23.10.14.
+ * Adapterinn fyrir Aðalvalmyndina, sækir gögn og myndir úr W8r.java
  */
 public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHolder> {
 

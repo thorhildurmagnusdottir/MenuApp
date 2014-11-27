@@ -4,8 +4,7 @@ package data;
 /**
  * @author Þórhildur Magnúsdóttir
  * @since 12.10.14
- * This class communicates with the web service to update the xml file if
- * a new version is available.
+ * This class communicates with the web service to retreive the xml file
  */
 
 import android.os.Environment;
@@ -47,7 +46,8 @@ public class XMLParser {
 
     public Void populateItems(){
         Log.i("ParseXML", "came here");
-        InputStream menuXML = null;   // returns InputStream
+		// returns InputStream
+        InputStream menuXML = null;
         File sdcard = Environment.getExternalStorageDirectory();
         File file = new File(sdcard, Constants.menuFile);
         try {

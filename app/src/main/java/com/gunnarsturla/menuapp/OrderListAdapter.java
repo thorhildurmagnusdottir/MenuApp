@@ -9,11 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import menu.Item;
 import menu.Order;
+
+/*
+ * @autor Gunnar Sturla Ágústuson
+ * @since Adapterinn sem setur gögn úr Order.java inn
+ * í RecyclerViewið í OrderFragmentinu.
+ */
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder> {
 
@@ -26,17 +31,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 		private TextView itemName, itemPrice, itemPosition, itemComment;
 		private ImageView thumb;
 		private ImageButton deleteBtn;
-		private RelativeLayout itemRoot;
-		private View v;
 
 		public ViewHolder(View v) {
 			super(v);
-			this.v = v;
 			itemName = (TextView) v.findViewById(R.id.orderItemName);
 			itemPrice = (TextView) v.findViewById(R.id.orderItemPrice);
 			thumb = (ImageView) v.findViewById(R.id.orderItemThumb);
 			deleteBtn = (ImageButton) v.findViewById(R.id.orderItemRemove);
-			itemRoot = (RelativeLayout) v.findViewById(R.id.orderListItemRoot);
 			itemPosition = (TextView) v.findViewById(R.id.orderItemPosition);
 			itemComment = (TextView) v.findViewById(R.id.orderItemComment);
 
@@ -57,8 +58,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 				.inflate(R.layout.single_row_ordered, parent, false);
 		// set the view's size, margins, paddings and layout parameters
 
-		ViewHolder vh = new ViewHolder(v);
-		return vh;
+		return new ViewHolder(v);
 	}
 
 	// Replace the contents of a view (invoked by the layout manager)
@@ -92,11 +92,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 		);
 	}
 
-    private void recreate() {
-    }
-
-    private void notifyDataSetChanged(int total) {
-    }
 
     // Return the size of your dataset (invoked by the layout manager)
 	@Override

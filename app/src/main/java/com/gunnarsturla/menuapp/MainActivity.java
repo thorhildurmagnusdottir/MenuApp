@@ -30,13 +30,7 @@ public class MainActivity extends Activity {
 	private static RecyclerView.LayoutManager mLayoutManager;
 
     private boolean ordrFragVis;
-    private OrderFragment orderFragment;
 	private View editingItem;
-
-	// Skilgreini context hér til að geta náð í það hvar sem er með kallinu MainActivity.context
-	// (Jaaaá, Snorri mundi örugglega skamma mig fyrir að brjóta
-	// upplýsingahuld, en hann mun ekki sjá þetta (vona ég))
-	public static Context context;
 
 	public MainActivity() {
 	}
@@ -46,7 +40,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-		context = getApplicationContext();
 
         Log.i("MainActivity", "ran here");
 
@@ -78,7 +71,7 @@ public class MainActivity extends Activity {
         if (id == R.id.action_viewOrder) {
 
 			// Birtum orderFragmentið með kalli á fall
-			orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.mmRoot);
+			OrderFragment orderFragment = MainActivity.openOrderFragment(getFragmentManager(), ordrFragVis, R.id.mmRoot);
 			ordrFragVis = !ordrFragVis;
 
             return true;
@@ -90,7 +83,10 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-	/*  goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
+
+
+/*
+ * goToAdd ræsir, og færir stjórnina yfir í DoAddActivity
  *  view er það view sem sendir beiðnina
  */
 	public void goToSubMenu(View view, int groupNumber) {
@@ -99,6 +95,7 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
+	// Opnar orderfragment í glugganum sem er opinn, ef það er ekki þegar sýnilegt, annars er það falið
 	public static OrderFragment openOrderFragment(FragmentManager fragmentManager, boolean ordrFragVis, int viewGroupId) {
 
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -122,6 +119,7 @@ public class MainActivity extends Activity {
 		return orderFrag;
 	}
 
+	// Leyfir það að setja inn comment við item í order listanum
 	public void enableComment(View v) {
 
 		Log.i("OrderFragment:", "clicking to enable comment");
@@ -152,6 +150,7 @@ public class MainActivity extends Activity {
 		editingItem = v;
 	}
 
+	// Lokar og vistar commentið sem var slegið inn
 	public void disableComment(View v) {
 
 		v = editingItem;
@@ -179,6 +178,10 @@ public class MainActivity extends Activity {
 		});
 
 		editingItem = null;
+	}
+
+	public static Context getContext() {
+		return getContext();
 	}
 
 }
