@@ -4,8 +4,8 @@ package data;
 /**
  * @author Þórhildur Magnúsdóttir
  * @since 12.10.14
- * This class communicates with the web service to update the xml file if
- * a new version is available.
+ * This XMLParser reads an XML from a file and calls the handler
+ * to populate the items.
  */
 
 import android.os.Environment;
