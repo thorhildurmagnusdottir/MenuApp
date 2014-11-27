@@ -32,7 +32,6 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 		private ImageView itemThumb;
 		private ImageButton orderButton;
 
-		private CardView itemCard;
 
 		public ViewHolder(View v) {
 			super(v);
@@ -43,10 +42,8 @@ public class SubMenuAdapter extends RecyclerView.Adapter<SubMenuAdapter.ViewHold
 			itemNumber 		= (TextView) itemView.findViewById(R.id.itemNumber);
 			itemParent		= (TextView) itemView.findViewById(R.id.itemParent);
 			itemIngredients = (TextView) itemView.findViewById(R.id.itemIngredients);
-
 			orderButton		= (ImageButton) itemView.findViewById(R.id.orderButton);
 			itemThumb		= (ImageView) itemView.findViewById(R.id.itemThumb);
-//			itemCard 		= (CardView) itemView.findViewById(R.id.itemCard);
 		}
 	}
 

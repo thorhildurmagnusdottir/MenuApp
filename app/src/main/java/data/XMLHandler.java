@@ -19,6 +19,18 @@ import menu.SubMenu;
  */
 public class XMLHandler extends DefaultHandler {
 
+    // boolean variables for all Item variables
+    boolean bName = false;
+    boolean bPrice = false;
+    boolean bDesc = false;
+    boolean bIngr = false;
+    boolean bCals = false;
+    boolean bImgh = false;
+    boolean sName = false;
+    boolean sImgh = false;
+    boolean sPic = false; // submenupic
+    boolean bThumbBig = false; // bigthumb
+
     // List to hold all menu items fro xml file
     private SubMenu subMenu;
     private List<Item> items;
@@ -31,23 +43,12 @@ public class XMLHandler extends DefaultHandler {
         subMenu = new SubMenu("Submenu1", "");
         allSubMenus = new Vector<SubMenu>();
     }
+
     public List<Item> getItems() {
         return items;
     }
-    public Vector<SubMenu> getMenu() { return allSubMenus; }
 
-    // boolean variables for all Item variables
-    boolean bName = false;
-    boolean bPrice = false;
-    boolean bDesc = false;
-    boolean bIngr = false;
-    boolean bCals = false;
-    boolean bImgh = false;
-    boolean sName = false;
-    boolean sImgh = false;
-    boolean sPic = false; // submenupic
-    boolean bThumbBig = false; // bigthumb
-    boolean bThumbSmall = false; // smallthumb
+    public Vector<SubMenu> getMenu() { return allSubMenus; }
 
     /*  Set each boolean variable as true when an element is started to tell the handler that he
      *  can set the appropriate Item attribute (in method characters()).
@@ -55,17 +56,16 @@ public class XMLHandler extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String eName, Attributes attributes) throws SAXException{
         if (eName.equalsIgnoreCase("submenu")){     subMenu = new SubMenu("submenuTest", ""); }
-        else if (eName.equalsIgnoreCase("submenupic")){             sPic = true;        }
+        else if (eName.equalsIgnoreCase("submenupic")){             sPic = true;         }
         else if (eName.equalsIgnoreCase("title")){                  sName = true;        }
-        else if (eName.equalsIgnoreCase("imghash")){                  sImgh = true;        }
-        else if (eName.equalsIgnoreCase("name")){            bName = true;        }
-        else if (eName.equalsIgnoreCase("price")){ bPrice = true;        }
+        else if (eName.equalsIgnoreCase("imghash")){                sImgh = true;        }
+        else if (eName.equalsIgnoreCase("name")){                   bName = true;        }
+        else if (eName.equalsIgnoreCase("price")){                  bPrice = true;       }
         else if (eName.equalsIgnoreCase("description")){            bDesc = true;        }
         else if (eName.equalsIgnoreCase("ingredients")){            bIngr = true;        }
-        else if (eName.equalsIgnoreCase("calories")){            bCals = true;        }
-        else if (eName.equalsIgnoreCase("name")){            bImgh = true;        }
-        else if (eName.equalsIgnoreCase("smallthumb")){            bThumbSmall = true;        }
-        else if (eName.equalsIgnoreCase("bigthumb")){            bThumbBig = true;        }
+        else if (eName.equalsIgnoreCase("calories")){               bCals = true;        }
+        else if (eName.equalsIgnoreCase("name")){                   bImgh = true;        }
+        else if (eName.equalsIgnoreCase("bigthumb")){               bThumbBig = true;    }
         else if (eName.equalsIgnoreCase("item")){
             int id = Integer.parseInt(attributes.getValue("id"));
             Log.i("start element item", Integer.toString(id));
@@ -102,9 +102,10 @@ public class XMLHandler extends DefaultHandler {
             bCals = false; }
         else if (bPrice) { currentItem.setPrice(Integer.parseInt(new String(ch, start, length)));
             bPrice = false; }
-        else if (bThumbBig) { currentItem.setThumbBigUrl(new String(ch, start, length));
+        else if (bThumbBig) {
+            String urli = new String(ch, start, length);
+            Log.i("thumb big", urli);
+            currentItem.setThumbBigUrl(urli);
             bThumbBig = false; }
-        else if (bThumbSmall) { currentItem.setThumbSmallUrl(new String(ch, start, length));
-            bThumbSmall = false; }
     }
 }

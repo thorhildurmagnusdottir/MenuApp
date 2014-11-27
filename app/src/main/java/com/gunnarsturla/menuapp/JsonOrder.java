@@ -18,9 +18,12 @@ import menu.SubMenu;
 public class JsonOrder {
 
     public JSONObject OrderToJSon(SubMenu order) {
+
         try {
+
             JSONObject orderJSON = new JSONObject();
             JSONArray jsonArr = new JSONArray();
+
             for (Item i : order.getItems()){
                 JSONObject itemObject = new JSONObject();
                 itemObject.put("itemName", i.getName());
@@ -32,15 +35,10 @@ public class JsonOrder {
             orderJSON.put("orderlist", jsonArr);
             return orderJSON;
         }
-
         catch(JSONException ex) {
             ex.printStackTrace();
         }
-
         return null;
-
-
-
     }
 
 }

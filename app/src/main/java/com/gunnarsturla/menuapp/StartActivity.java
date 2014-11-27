@@ -7,11 +7,13 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -46,19 +48,7 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        new GetImageFromWebTask().execute(Constants.imageURL, Constants.imageFile);
-        final Button menuButton1 = (Button) findViewById(R.id.menubutton1);
-        menuButton1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startMenu(Constants.menuUrl);
-                }
-        });
-        final Button menuButton2 = (Button) findViewById(R.id.menubutton2);
-        menuButton2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startMenu(Constants.menuUrl2);
-            }
-        });
+        startMenu(Constants.menuUrl);
     }
     protected void startMenu(String menu){
         URL menuUrl = null;
@@ -103,9 +93,6 @@ public class StartActivity extends Activity {
 //                The file used to store and read from the XML menu
                 File sdcard = Environment.getExternalStorageDirectory();
                 File file = new File(sdcard,Constants.menuFile);
-//        Uncomment if we figure this out or remove if we don't :)
-//        File path = getExternalFilesDir(null);
-//        File file = new File(path,Constants.menuFile);
                 FileOutputStream fileOutput = new FileOutputStream(file);
                 InputStream inputStream = urlConnection.getInputStream();
 
@@ -152,8 +139,6 @@ public class StartActivity extends Activity {
                 for (Item i : sm.getItems()){
                     String iname = i.getId() + "item.png" ;
                     String itemImageurl = i.getThumbBigUrl();
-//                    Lína til að breyta!!
-					Log.i("StartActivity", "Getting photo from " + itemImageurl);
                     new GetImageFromWebTask().execute(itemImageurl, iname);
                 }
             }
@@ -206,14 +191,11 @@ public class StartActivity extends Activity {
                         e.printStackTrace();
                     }
                     String itemName = i.getName();
-                    String itemThumbBig, itemThumbSmall;
+                    String itemThumbBig;
                     submenuPrinting = submenuPrinting + itemName +  "\n";
                     if (i.getThumbBigUrl() != null) {   itemThumbBig = " has picture: " + i.getThumbBigUrl();}
                     else {  itemThumbBig = " has no picture"; }
                     submenuPrinting = submenuPrinting + itemThumbBig + "\n";
-                    if (i.getThumbSmallUrl() != null) {  itemThumbSmall = " has picture: " + i.getThumbSmallUrl();}
-                    else { itemThumbSmall = " has no picture"; }
-                        submenuPrinting = submenuPrinting + itemThumbSmall + "\n";
                 }
             }
         }
@@ -235,7 +217,6 @@ public class StartActivity extends Activity {
             byte[] bytes;
             try {
                 URL url = new URL(params[0]);
-//                URL url = new URL(Constants.imageURL);
                 InputStream is = (InputStream) url.getContent();
 
                 byte[] buffer = new byte[8192];

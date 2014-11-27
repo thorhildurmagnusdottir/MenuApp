@@ -15,9 +15,10 @@
         android:textSize="24dp"
         android:id="@+id/oneMoment"
         android:layout_marginTop="@dimen/sub_menu_header_padding_left"
-        android:layout_marginLeft="@dimen/sub_menu_header_padding_left"
-        android:layout_marginRight="@dimen/sub_menu_header_padding_left"
-        android:layout_below="@+id/imageView"/>
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 
 
     <ImageView
@@ -27,28 +28,7 @@
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 		android:src="@drawable/w8r"
-		android:layout_marginTop="@dimen/sub_menu_header_padding_top"/>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/oneMoment">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matseðill 1"
-            android:id="@+id/menubutton1"
-            android:layout_margin="40dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matseðill 2"
-            android:id="@+id/menubutton2"
-            android:layout_alignTop="@+id/menubutton1"
-            android:layout_toEndOf="@+id/menubutton1"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp" />
-        </RelativeLayout>
+        android:layout_marginTop="@dimen/sub_menu_header_padding_top" />
 
 
 </RelativeLayout>
