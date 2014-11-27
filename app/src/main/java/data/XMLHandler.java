@@ -57,7 +57,7 @@ public class XMLHandler extends DefaultHandler {
         if (eName.equalsIgnoreCase("submenu")){     subMenu = new SubMenu("submenuTest", ""); }
         else if (eName.equalsIgnoreCase("submenupic")){             sPic = true;        }
         else if (eName.equalsIgnoreCase("title")){                  sName = true;        }
-        else if (eName.equalsIgnoreCase("simgh")){                  sImgh = true;        }
+        else if (eName.equalsIgnoreCase("imghash")){                  sImgh = true;        }
         else if (eName.equalsIgnoreCase("name")){            bName = true;        }
         else if (eName.equalsIgnoreCase("price")){ bPrice = true;        }
         else if (eName.equalsIgnoreCase("description")){            bDesc = true;        }
