@@ -41,19 +41,7 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        new GetImageFromWebTask().execute(Constants.imageURL, Constants.imageFile);
-        final Button menuButton1 = (Button) findViewById(R.id.menubutton1);
-        menuButton1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startMenu(Constants.menuUrl);
-                }
-        });
-        final Button menuButton2 = (Button) findViewById(R.id.menubutton2);
-        menuButton2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startMenu(Constants.menuUrl2);
-            }
-        });
+        startMenu(Constants.menuUrl);
     }
     protected void startMenu(String menu){
         URL menuUrl = null;
@@ -91,6 +79,7 @@ public class StartActivity extends Activity {
         @Override
         protected Void doInBackground(URL... params) {
             try {
+                Log.i("Getting menu from url; ", params[0].toString());
                 URL url = params[0];
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.connect();
@@ -98,9 +87,6 @@ public class StartActivity extends Activity {
 //                The file used to store and read from the XML menu
                 File sdcard = Environment.getExternalStorageDirectory();
                 File file = new File(sdcard,Constants.menuFile);
-//        Uncomment if we figure this out or remove if we don't :)
-//        File path = getExternalFilesDir(null);
-//        File file = new File(path,Constants.menuFile);
                 FileOutputStream fileOutput = new FileOutputStream(file);
                 InputStream inputStream = urlConnection.getInputStream();
 
@@ -140,15 +126,23 @@ public class StartActivity extends Activity {
             itemCount = W8r.getItemCount();
             Log.i("AsyncGetAllPhotos", "running and itemCount is " + itemCount);
             for (SubMenu sm : w8rMenu){
-                String name = sm.getImghash() + "submenu.png";
-                String submenuImageUrl = sm.getPicture();
-                Log.i("getting image", name + " at url: " + submenuImageUrl);
-                new GetImageFromWebTask().execute(submenuImageUrl, name);
+                String sfilename = sm.getImghash() + "submenu.png";
+                String submenuImageUrl;
+                        if( "" == sm.getPicture()){
+                            submenuImageUrl = Constants.submenuImageUrl;
+                        }
+                else submenuImageUrl = sm.getPicture();
+
+                Log.i("getting image", sfilename + " at url: " + submenuImageUrl);
+                new GetImageFromWebTask().execute(submenuImageUrl, sfilename);
                 for (Item i : sm.getItems()){
-                    String iname = i.getId() + "item.png" ;
-                    String itemImageurl = i.getThumbBigUrl();
-//                    Lína til að breyta!!
-                    new GetImageFromWebTask().execute(itemImageurl, iname);
+                    String ifilename = i.getId() + "item.png" ;
+                    String itemImageurl;
+                        if ("" == i.getThumbBigUrl()){
+                            itemImageurl = Constants.imageURL;
+                        }
+                    else itemImageurl = i.getThumbBigUrl();
+                    new GetImageFromWebTask().execute(itemImageurl, ifilename);
                 }
             }
             return null;
@@ -164,7 +158,9 @@ public class StartActivity extends Activity {
         String submenuPrinting = "";
         if (null != W8r.getW8rMenu()){
             Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
-            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+            File path = getExternalFilesDir(null);
             for (SubMenu sm : w8rMenu) {
 //                Load the picture for the submenu
                 InputStream sis;
@@ -200,14 +196,11 @@ public class StartActivity extends Activity {
                         e.printStackTrace();
                     }
                     String itemName = i.getName();
-                    String itemThumbBig, itemThumbSmall;
+                    String itemThumbBig;
                     submenuPrinting = submenuPrinting + itemName +  "\n";
                     if (i.getThumbBigUrl() != null) {   itemThumbBig = " has picture: " + i.getThumbBigUrl();}
                     else {  itemThumbBig = " has no picture"; }
                     submenuPrinting = submenuPrinting + itemThumbBig + "\n";
-                    if (i.getThumbSmallUrl() != null) {  itemThumbSmall = " has picture: " + i.getThumbSmallUrl();}
-                    else { itemThumbSmall = " has no picture"; }
-                        submenuPrinting = submenuPrinting + itemThumbSmall + "\n";
                 }
             }
         }
@@ -229,7 +222,6 @@ public class StartActivity extends Activity {
             byte[] bytes;
             try {
                 URL url = new URL(params[0]);
-//                URL url = new URL(Constants.imageURL);
                 InputStream is = (InputStream) url.getContent();
 
                 byte[] buffer = new byte[8192];
@@ -246,7 +238,7 @@ public class StartActivity extends Activity {
                 e.printStackTrace();
                 return null;
             }
-            File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+            File path = getExternalFilesDir(null);
             File file = new File(path, params[1]);
             FileOutputStream fos = null;
             try {

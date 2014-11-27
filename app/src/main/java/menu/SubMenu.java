@@ -33,6 +33,7 @@ public class SubMenu {
     // utan um pöntunina sem á eftir að senda.
     public SubMenu() {
         items = new Vector<Item>();
+        picture = "";
     }
     public Vector<Item> getItems() {
         return items;

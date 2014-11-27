@@ -45,6 +45,7 @@ public class Item {
 
     private Vector<String> filterable; // Vector sem heldur utan um síanlega hluti, eins og vegetarian, ofl.
     public Item() {
+        this.thumbBigUrl = "";
         // Nýtt Item með engum upplýsingum, sem þarf svo að setja inn með item.setName("") og því
     }
 
