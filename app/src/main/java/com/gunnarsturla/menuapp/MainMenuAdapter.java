@@ -25,9 +25,6 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 
 		private TextView smName;
 		private View view;
-/*		private RecyclerView smRecyclerView;
-		private RecyclerView.Adapter smAdapter;
-		private RecyclerView.LayoutManager smLayoutManager;*/
 
 		public ViewHolder(View v) {
 			super(v);
@@ -67,16 +64,6 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 		Drawable bg = new BitmapDrawable(holder.view.getResources(), W8r.get(position).getBitmap());
 		holder.smName.setBackground(bg);
 
-/*		// use a linear layout manager
-		holder.smLayoutManager = new LinearLayoutManager(context);
-		holder.smRecyclerView.setLayoutManager(holder.smLayoutManager);
-		System.out.println("Debug: Setting layout Manager");
-
-		// Set adapter as SubMenuAdapter
-		holder.smAdapter = new SubMenuAdapter(position);
-		holder.smRecyclerView.setAdapter(holder.smAdapter);
-		System.out.println("Debug: setting smAdapter for "+position);
-*/
 		holder.smName.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
