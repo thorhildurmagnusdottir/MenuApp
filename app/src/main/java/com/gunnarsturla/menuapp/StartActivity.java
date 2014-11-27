@@ -7,13 +7,9 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
@@ -26,8 +22,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Vector;
 
 import data.W8r;
 import menu.Item;
@@ -126,7 +122,7 @@ public class StartActivity extends Activity {
     }
 //    This class instantiates an AsyncTask to download pictures for all items
     public class GetPhotosForItemsTask extends AsyncTask<String, Void, Void>{
-        Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
+        ArrayList<SubMenu> w8rMenu = W8r.getW8rMenu();
         @Override
         protected Void doInBackground(String... params) {
             itemCount = W8r.getItemCount();
@@ -154,7 +150,7 @@ public class StartActivity extends Activity {
     public void setPhotosToItems(){
         String submenuPrinting = "";
         if (null != W8r.getW8rMenu()){
-            Vector<SubMenu> w8rMenu = W8r.getW8rMenu();
+            ArrayList<SubMenu> w8rMenu = W8r.getW8rMenu();
             File path = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             for (SubMenu sm : w8rMenu) {
 //                Load the picture for the submenu

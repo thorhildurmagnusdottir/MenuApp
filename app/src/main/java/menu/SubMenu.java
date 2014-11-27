@@ -4,7 +4,7 @@ package menu;
 import android.graphics.Bitmap;
 import android.util.Log;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * @author Gunnar Sturla Ágústuson
@@ -16,7 +16,7 @@ import java.util.Vector;
 public class SubMenu {
 	private String 	name,
             imghash;
-    private Vector<Item> items;
+    private ArrayList<Item> items;
     private String picture;
 
 	private Bitmap bitmap;
@@ -25,16 +25,16 @@ public class SubMenu {
     public SubMenu(String name, String imghash) {
         this.name 		 = name;
         this.imghash	 = imghash;
-        items = new Vector<Item>();
+        items = new ArrayList<Item>();
         Log.i("submenu", "created one");
     }
 
     // Þetta er eintak af SubMenu sem heldur
     // utan um pöntunina sem á eftir að senda.
     public SubMenu() {
-        items = new Vector<Item>();
+        items = new ArrayList<Item>();
     }
-    public Vector<Item> getItems() {
+    public ArrayList<Item> getItems() {
         return items;
     }
     public Item removeItem(int i) { return items.remove(i); }

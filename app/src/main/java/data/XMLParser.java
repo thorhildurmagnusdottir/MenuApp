@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -34,9 +35,9 @@ public class XMLParser {
     public static InputStream xml;
     public static List<Item> items;
     public static XMLHandler handler;
-    public static Vector<SubMenu> totalMenu;
+    public static ArrayList<SubMenu> totalMenu;
 
-    public Vector<SubMenu> populateMenu(){
+    public ArrayList<SubMenu> populateMenu(){
         return this.totalMenu;
     }
 

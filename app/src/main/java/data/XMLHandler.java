@@ -6,8 +6,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import menu.Item;
 import menu.SubMenu;
@@ -35,20 +35,20 @@ public class XMLHandler extends DefaultHandler {
     private SubMenu subMenu;
     private List<Item> items;
     private Item currentItem;
-    private Vector<SubMenu> allSubMenus;
+    private ArrayList<SubMenu> allSubMenus;
     public XMLHandler() {
         Log.i("XMLHandler", "Created one");
         currentItem = new Item();
-        items = new Vector<Item>();
+        items = new ArrayList<Item>();
         subMenu = new SubMenu("Submenu1", "");
-        allSubMenus = new Vector<SubMenu>();
+        allSubMenus = new ArrayList<SubMenu>();
     }
 
     public List<Item> getItems() {
         return items;
     }
 
-    public Vector<SubMenu> getMenu() { return allSubMenus; }
+    public ArrayList<SubMenu> getMenu() { return allSubMenus; }
 
     /*  Set each boolean variable as true when an element is started to tell the handler that he
      *  can set the appropriate Item attribute (in method characters()).
@@ -70,7 +70,7 @@ public class XMLHandler extends DefaultHandler {
             int id = Integer.parseInt(attributes.getValue("id"));
             Log.i("start element item", Integer.toString(id));
             currentItem = new Item(id);
-            if (null == items){   items = new Vector<Item>();   }
+            if (null == items){   items = new ArrayList<Item>();   }
         }
     }
     @Override

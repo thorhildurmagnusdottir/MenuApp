@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import menu.SubMenu;
@@ -11,10 +12,10 @@ import menu.SubMenu;
  * Item (hver réttur) eru geymd í SubMenu-um sem W8r heldur utan um.
  */
 public class W8r {
-	private static Vector<SubMenu> w8rMenu;
+	private static ArrayList<SubMenu> w8rMenu;
 
 	public W8r() {
-        this.w8rMenu = new Vector<SubMenu>();
+        this.w8rMenu = new ArrayList<SubMenu>();
 	}
 	public static void build() {
 //       ==========================================================
@@ -35,11 +36,11 @@ public class W8r {
         if(w8rMenu == null || w8rMenu.isEmpty()) return 0;
         else return w8rMenu.size();
     }
-    public static Vector<SubMenu> getW8rMenu() { return w8rMenu; }
+    public static ArrayList<SubMenu> getW8rMenu() { return w8rMenu; }
 //    Counts the number of Items in the menu
 	public static int getItemCount()  {
         int items = 0;
-        Vector<SubMenu> subMenus = w8rMenu;
+        ArrayList<SubMenu> subMenus = w8rMenu;
         for (SubMenu sm : subMenus){
             int itemsInSubmenu = sm.size();
             items += itemsInSubmenu;
