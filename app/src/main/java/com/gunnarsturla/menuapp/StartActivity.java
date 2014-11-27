@@ -193,7 +193,7 @@ public class StartActivity extends Activity {
                 for (Item i : sm.getItems()) {
 //                    Load the picture for the item
                     InputStream is;
-                    String itemFileName = i.getId() + "_item.png";
+                    String itemFileName = i.getId() + "item.png";
 //                    File itemFile = new File(path, itemFileName);
 
                     File itemFile = new File(path, itemFileName);
